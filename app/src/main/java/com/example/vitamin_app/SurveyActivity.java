@@ -2,8 +2,6 @@ package com.example.vitamin_app;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -18,7 +16,7 @@ public class SurveyActivity extends AppCompatActivity {
 
         getSupportFragmentManager().beginTransaction()
                 .setReorderingAllowed(true)
-                .add(R.id.fragmentLayout, SurveyPage1Fragment.class, null)
+                .add(R.id.fragmentLayout, SurveyMainFragment.class, null)
                 .commit();
 
         ImageButton toHome = (ImageButton) findViewById(R.id.toHome);

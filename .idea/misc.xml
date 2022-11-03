@@ -11,7 +11,18 @@
         <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/layout/activity_result_list.xml" value="0.3654891304347826" />
         <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/layout/activity_survey.xml" value="0.358695652173913" />
         <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/layout/activity_vitamin_detail.xml" value="0.3654891304347826" />
+        <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/layout/fragment_survey_aging.xml" value="0.35260416666666666" />
+        <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/layout/fragment_survey_energy.xml" value="0.35260416666666666" />
+        <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/layout/fragment_survey_exercise.xml" value="0.35260416666666666" />
+        <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/layout/fragment_survey_hair.xml" value="0.35260416666666666" />
+        <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/layout/fragment_survey_immunity.xml" value="0.35260416666666666" />
         <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/layout/fragment_survey_page1.xml" value="0.375" />
+        <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/layout/fragment_survey_page2.xml" value="0.35260416666666666" />
+        <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/layout/fragment_survey_page_sleep.xml" value="0.365625" />
+        <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/layout/fragment_survey_skin.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/layout/fragment_survey_sleep.xml" value="0.35260416666666666" />
+        <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/layout/fragment_survey_tanning.xml" value="0.35260416666666666" />
+        <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/layout/fragment_survey_weight.xml" value="0.36666666666666664" />
       </map>
     </option>
   </component>
