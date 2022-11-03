@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Vitamin_App</string>
+    <string name="survey_page1_header">Choose what problem you would like to solve</string>
 </resources>

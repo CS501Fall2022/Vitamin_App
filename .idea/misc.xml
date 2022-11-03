@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/drawable/ic_launcher_background.xml" value="0.332" />
+        <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/drawable/shapes.xml" value="0.332" />
+        <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/layout/activity_general_list.xml" value="0.3654891304347826" />
+        <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/layout/activity_home.xml" value="0.3654891304347826" />
+        <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/layout/activity_login.xml" value="0.3654891304347826" />
+        <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/layout/activity_result_list.xml" value="0.3654891304347826" />
+        <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/layout/activity_survey.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/layout/activity_vitamin_detail.xml" value="0.3654891304347826" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
