@@ -11,8 +11,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
 public class SurveyMainFragment extends Fragment {
+
+    int count = 0;
 
     public SurveyMainFragment() {
         // Required empty public constructor
@@ -43,80 +46,26 @@ public class SurveyMainFragment extends Fragment {
         toSurvey.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (bundle.getBoolean("weight")) {
-                    Fragment weight = new SurveyWeightFragment();
+                if (count == 0) {
+                    Toast.makeText(getActivity(),"Please select at least 1 problem",Toast.LENGTH_SHORT).show();
+                } else if (count == 1) {
+                    Fragment single = new SurveySingleProblemFragment();
                     FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    weight.setArguments(bundle);
-                    fragmentTransaction.replace(R.id.fragmentLayout, weight);
+                    single.setArguments(bundle);
+                    fragmentTransaction.replace(R.id.fragmentLayout, single);
                     fragmentTransaction.addToBackStack(null);
                     fragmentTransaction.commit();
-                } else if (bundle.getBoolean("sleep")) {
-                    Fragment sleep = new SurveySleepFragment();
+                } else if (count == 2) {
+                    Fragment doublee = new SurveyDoubleProblemFragment();
                     FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    sleep.setArguments(bundle);
-                    fragmentTransaction.replace(R.id.fragmentLayout, sleep);
-                    fragmentTransaction.addToBackStack(null);
-                    fragmentTransaction.commit();
-                } else if (bundle.getBoolean("energy")) {
-                    Fragment energy = new SurveyEnergyFragment();
-                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    energy.setArguments(bundle);
-                    fragmentTransaction.replace(R.id.fragmentLayout, energy);
-                    fragmentTransaction.addToBackStack(null);
-                    fragmentTransaction.commit();
-                } else if (bundle.getBoolean("immunity")) {
-                    Fragment immunity = new SurveyImmunityFragment();
-                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    immunity.setArguments(bundle);
-                    fragmentTransaction.replace(R.id.fragmentLayout, immunity);
-                    fragmentTransaction.addToBackStack(null);
-                    fragmentTransaction.commit();
-                } else if (bundle.getBoolean("skin")) {
-                    Fragment skin = new SurveySkinFragment();
-                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    skin.setArguments(bundle);
-                    fragmentTransaction.replace(R.id.fragmentLayout, skin);
-                    fragmentTransaction.addToBackStack(null);
-                    fragmentTransaction.commit();
-                } else if (bundle.getBoolean("hair")) {
-                    Fragment hair = new SurveyHairFragment();
-                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    hair.setArguments(bundle);
-                    fragmentTransaction.replace(R.id.fragmentLayout, hair);
-                    fragmentTransaction.addToBackStack(null);
-                    fragmentTransaction.commit();
-                } else if (bundle.getBoolean("exercise")) {
-                    Fragment exercise = new SurveyExerciseFragment();
-                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    exercise.setArguments(bundle);
-                    fragmentTransaction.replace(R.id.fragmentLayout, exercise);
-                    fragmentTransaction.addToBackStack(null);
-                    fragmentTransaction.commit();
-                } else if (bundle.getBoolean("tanning")) {
-                    Fragment tanning = new SurveyTanningFragment();
-                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    tanning.setArguments(bundle);
-                    fragmentTransaction.replace(R.id.fragmentLayout, tanning);
-                    fragmentTransaction.addToBackStack(null);
-                    fragmentTransaction.commit();
-                } else if (bundle.getBoolean("aging")) {
-                    Fragment aging = new SurveyAgingFragment();
-                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    aging.setArguments(bundle);
-                    fragmentTransaction.replace(R.id.fragmentLayout, aging);
+                    doublee.setArguments(bundle);
+                    fragmentTransaction.replace(R.id.fragmentLayout, doublee);
                     fragmentTransaction.addToBackStack(null);
                     fragmentTransaction.commit();
                 } else {
-                    //make toast
+                    Toast.makeText(getActivity(),"Please only select 2 problems",Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -127,11 +76,13 @@ public class SurveyMainFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 if (checked) {
+                    count--;
                     weight.setChecked(false);
                     bundle.remove("weight");
                     bundle.putBoolean("weight", false);
                     checked = false;
                 } else {
+                    count++;
                     checked = true;
                     bundle.remove("weight");
                     bundle.putBoolean("weight", true);
@@ -145,11 +96,13 @@ public class SurveyMainFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 if (checked) {
+                    count--;
                     sleep.setChecked(false);
                     bundle.remove("sleep");
                     bundle.putBoolean("sleep", false);
                     checked = false;
                 } else {
+                    count++;
                     checked = true;
                     bundle.remove("sleep");
                     bundle.putBoolean("sleep", true);
@@ -163,11 +116,13 @@ public class SurveyMainFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 if (checked) {
+                    count--;
                     energy.setChecked(false);
                     bundle.remove("energy");
                     bundle.putBoolean("energy", false);
                     checked = false;
                 } else {
+                    count++;
                     checked = true;
                     bundle.remove("energy");
                     bundle.putBoolean("energy", true);
@@ -181,11 +136,13 @@ public class SurveyMainFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 if (checked) {
+                    count--;
                     immunity.setChecked(false);
                     bundle.remove("immunity");
                     bundle.putBoolean("immunity", false);
                     checked = false;
                 } else {
+                    count++;
                     checked = true;
                     bundle.remove("immunity");
                     bundle.putBoolean("immunity", true);
@@ -199,11 +156,13 @@ public class SurveyMainFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 if (checked) {
+                    count--;
                     skin.setChecked(false);
                     bundle.remove("skin");
                     bundle.putBoolean("skin", false);
                     checked = false;
                 } else {
+                    count++;
                     checked = true;
                     bundle.remove("skin");
                     bundle.putBoolean("skin", true);
@@ -217,11 +176,13 @@ public class SurveyMainFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 if (checked) {
+                    count--;
                     hair.setChecked(false);
                     bundle.remove("hair");
                     bundle.putBoolean("hair", false);
                     checked = false;
                 } else {
+                    count++;
                     checked = true;
                     bundle.remove("hair");
                     bundle.putBoolean("hair", true);
@@ -235,11 +196,13 @@ public class SurveyMainFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 if (checked) {
+                    count--;
                     exercise.setChecked(false);
                     bundle.remove("exercise");
                     bundle.putBoolean("exercise", false);
                     checked = false;
                 } else {
+                    count++;
                     checked = true;
                     bundle.remove("exercise");
                     bundle.putBoolean("exercise", true);
@@ -253,11 +216,13 @@ public class SurveyMainFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 if (checked) {
+                    count--;
                     tanning.setChecked(false);
                     bundle.remove("tanning");
                     bundle.putBoolean("tanning", false);
                     checked = false;
                 } else {
+                    count++;
                     checked = true;
                     bundle.remove("tanning");
                     bundle.putBoolean("tanning", true);
@@ -271,11 +236,13 @@ public class SurveyMainFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 if (checked) {
+                    count--;
                     aging.setChecked(false);
                     bundle.remove("aging");
                     bundle.putBoolean("aging", false);
                     checked = false;
                 } else {
+                    count++;
                     checked = true;
                     bundle.remove("aging");
                     bundle.putBoolean("aging", true);

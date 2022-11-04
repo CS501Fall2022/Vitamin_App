@@ -1,6 +1,14 @@
 <resources>
     <string name="app_name">Vitamin_App</string>
-    <string name="survey_page1_header">Choose what problem you would like to solve</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="survey_page1_header">Choose up to two problems</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="weight">Weight Loss</string>
+    <string name="sleep">Sleep</string>
+    <string name="energy">Energy</string>
+    <string name="skin">Skin</string>
+    <string name="hair">Hair</string>
+    <string name="immunity">Immunity</string>
+    <string name="exercise">Exercise</string>
+    <string name="tanning">Tanning</string>
+    <string name="aging">Anti-aging</string>
 </resources>
