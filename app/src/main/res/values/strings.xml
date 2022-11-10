@@ -6,9 +6,9 @@
     <string name="sleep">Sleep</string>
     <string name="energy">Energy</string>
     <string name="skin">Skin</string>
-    <string name="hair">Hair</string>
+    <string name="detox">Detox</string>
     <string name="immunity">Immunity</string>
     <string name="exercise">Exercise</string>
-    <string name="tanning">Tanning</string>
-    <string name="aging">Anti-aging</string>
+    <string name="digestion">Digestion</string>
+    <string name="articulation">Articulation</string>
 </resources>

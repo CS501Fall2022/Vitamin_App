@@ -37,10 +37,10 @@ public class SurveyMainFragment extends Fragment {
         bundle.putBoolean("energy", false);
         bundle.putBoolean("immunity", false);
         bundle.putBoolean("skin", false);
-        bundle.putBoolean("hair", false);
+        bundle.putBoolean("detox", false);
         bundle.putBoolean("exercise", false);
-        bundle.putBoolean("tanning", false);
-        bundle.putBoolean("aging", false);
+        bundle.putBoolean("digestion", false);
+        bundle.putBoolean("articulation", false);
 
         Button toSurvey = (Button) v.findViewById(R.id.nextPage);
         toSurvey.setOnClickListener(new View.OnClickListener() {
@@ -170,22 +170,22 @@ public class SurveyMainFragment extends Fragment {
             }
         });
 
-        RadioButton hair = (RadioButton) v.findViewById(R.id.hairButton);
-        hair.setOnClickListener(new View.OnClickListener() {
-            Boolean checked = hair.isChecked();
+        RadioButton detox = (RadioButton) v.findViewById(R.id.detoxButton);
+        detox.setOnClickListener(new View.OnClickListener() {
+            Boolean checked = detox.isChecked();
             @Override
             public void onClick(View view) {
                 if (checked) {
                     count--;
-                    hair.setChecked(false);
-                    bundle.remove("hair");
-                    bundle.putBoolean("hair", false);
+                    detox.setChecked(false);
+                    bundle.remove("detox");
+                    bundle.putBoolean("detox", false);
                     checked = false;
                 } else {
                     count++;
                     checked = true;
-                    bundle.remove("hair");
-                    bundle.putBoolean("hair", true);
+                    bundle.remove("detox");
+                    bundle.putBoolean("detox", true);
                 }
             }
         });
@@ -210,42 +210,42 @@ public class SurveyMainFragment extends Fragment {
             }
         });
 
-        RadioButton tanning = (RadioButton) v.findViewById(R.id.tanningButton);
-        tanning.setOnClickListener(new View.OnClickListener() {
-            Boolean checked = tanning.isChecked();
+        RadioButton digestion = (RadioButton) v.findViewById(R.id.digestionButton);
+        digestion.setOnClickListener(new View.OnClickListener() {
+            Boolean checked = digestion.isChecked();
             @Override
             public void onClick(View view) {
                 if (checked) {
                     count--;
-                    tanning.setChecked(false);
-                    bundle.remove("tanning");
-                    bundle.putBoolean("tanning", false);
+                    digestion.setChecked(false);
+                    bundle.remove("digestion");
+                    bundle.putBoolean("digestion", false);
                     checked = false;
                 } else {
                     count++;
                     checked = true;
-                    bundle.remove("tanning");
-                    bundle.putBoolean("tanning", true);
+                    bundle.remove("digestion");
+                    bundle.putBoolean("digestion", true);
                 }
             }
         });
 
-        RadioButton aging = (RadioButton) v.findViewById(R.id.agingButton);
-        aging.setOnClickListener(new View.OnClickListener() {
-            Boolean checked = aging.isChecked();
+        RadioButton articulation = (RadioButton) v.findViewById(R.id.articulationButton);
+        articulation.setOnClickListener(new View.OnClickListener() {
+            Boolean checked = articulation.isChecked();
             @Override
             public void onClick(View view) {
                 if (checked) {
                     count--;
-                    aging.setChecked(false);
-                    bundle.remove("aging");
-                    bundle.putBoolean("aging", false);
+                    articulation.setChecked(false);
+                    bundle.remove("articulation");
+                    bundle.putBoolean("articulation", false);
                     checked = false;
                 } else {
                     count++;
                     checked = true;
-                    bundle.remove("aging");
-                    bundle.putBoolean("aging", true);
+                    bundle.remove("articulation");
+                    bundle.putBoolean("articulation", true);
                 }
             }
         });
