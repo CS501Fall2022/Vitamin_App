@@ -35,7 +35,15 @@ public class QuickFixList extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Button age = (Button) getView().findViewById(R.id.agingButton);
+
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View v = inflater.inflate(R.layout.fragment_quick_fix_list, container, false);
+        Button age = (Button) v.findViewById(R.id.agingButton);
         age.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -44,14 +52,6 @@ public class QuickFixList extends Fragment {
 //                view.getContext().startActivity(intent);
             }
         });
-
-
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_quick_fix_list, container, false);
+        return v;
     }
 }
