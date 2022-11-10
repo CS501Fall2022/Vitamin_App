@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "517722316464",
+    "project_id": "vitamins-db227",
+    "storage_bucket": "vitamins-db227.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:517722316464:android:4bd27fee98398bc395e575",
+        "android_client_info": {
+          "package_name": "com.example.vitamin_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "517722316464-2o671af2pt9mmc3ebsm16jgt746i1k7q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjzfr6lYx105X_Rv33pVeO0wA67IWMTv0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "517722316464-2o671af2pt9mmc3ebsm16jgt746i1k7q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
