@@ -9,4 +9,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="beige">#d2b8a1</color>
     <color name="light_green">#c1f9a2</color>
+    <color name="login_green">#50A060</color>
 </resources>
