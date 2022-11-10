@@ -15,6 +15,8 @@ public class GeneralListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_general_list);
 
+
+
         ImageButton toHome = (ImageButton) findViewById(R.id.toHome);
         toHome.setOnClickListener(new View.OnClickListener() {
             @Override

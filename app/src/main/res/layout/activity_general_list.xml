@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".GeneralListActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="General List"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="General List"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
 
-    <LinearLayout
+   <!-- <LinearLayout
+
         android:layout_width="409dp"
         android:layout_height="65dp"
         android:gravity="center"
@@ -50,6 +51,69 @@
             android:layout_weight="1"
             android:scaleType="fitCenter"
             android:src="@drawable/search_button_icon" />
-    </LinearLayout>
+    </LinearLayout>-->
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainerView2"
+        android:name="com.example.vitamin_app.QuickFixList"
+        android:layout_width="match_parent"
+        android:layout_height="134dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        tools:layout="@layout/fragment_quick_fix_list" />
+
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainerView"
+        android:name="com.example.vitamin_app.QuickFixOptionsEnergy"
+        android:layout_width="410dp"
+        android:layout_height="354dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="1dp"
+        android:layout_marginTop="134dp"
+        tools:layout="@layout/fragment_quick_fix_options_energy" />
+
+    <ImageButton
+        android:id="@+id/toList"
+        android:layout_width="82dp"
+        android:layout_height="73dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="37dp"
+        android:layout_marginTop="652dp"
+        android:layout_weight="1"
+        android:scaleType="fitCenter"
+        android:src="@drawable/list_button_icon"
+        tools:layout_editor_absoluteX="47dp"
+        tools:layout_editor_absoluteY="672dp" />
+
+    <ImageButton
+        android:id="@+id/toHome"
+        android:layout_width="111dp"
+        android:layout_height="68dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="268dp"
+        android:layout_marginTop="657dp"
+        android:layout_weight="1"
+        android:scaleType="fitCenter"
+        android:src="@drawable/profile_button_icon"
+        tools:layout_editor_absoluteX="142dp"
+        tools:layout_editor_absoluteY="672dp" />
+
+    <ImageButton
+        android:id="@+id/toSearch"
+        android:layout_width="119dp"
+        android:layout_height="74dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="143dp"
+        android:layout_marginTop="653dp"
+        android:layout_weight="1"
+        android:scaleType="fitCenter"
+        android:src="@drawable/search_button_icon"
+        tools:layout_editor_absoluteX="263dp"
+        tools:layout_editor_absoluteY="672dp" />
+</RelativeLayout>
