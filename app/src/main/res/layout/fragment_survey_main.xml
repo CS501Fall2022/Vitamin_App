@@ -20,20 +20,20 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <RadioButton
-        android:id="@+id/agingButton"
+        android:id="@+id/articulationButton"
         style="@style/RadioButton"
-        android:text="@string/aging"
+        android:text="@string/articulation"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.714"
-        app:layout_constraintStart_toEndOf="@+id/tanningButton"
-        app:layout_constraintTop_toBottomOf="@+id/hairButton"
+        app:layout_constraintStart_toEndOf="@+id/digestionButton"
+        app:layout_constraintTop_toBottomOf="@+id/detoxButton"
         app:layout_constraintVertical_bias="0.099" />
 
     <RadioButton
-        android:id="@+id/hairButton"
+        android:id="@+id/detoxButton"
         style="@style/RadioButton"
-        android:text="@string/hair"
+        android:text="@string/detox"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.709"
@@ -86,9 +86,9 @@
         app:layout_constraintVertical_bias="0.069" />
 
     <RadioButton
-        android:id="@+id/tanningButton"
+        android:id="@+id/digestionButton"
         style="@style/RadioButton"
-        android:text="@string/tanning"
+        android:text="@string/digestion"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -101,7 +101,7 @@
         style="@style/RadioButton"
         android:text="@string/exercise"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/tanningButton"
+        app:layout_constraintEnd_toStartOf="@+id/digestionButton"
         app:layout_constraintHorizontal_bias="0.285"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/immunityButton"
@@ -127,7 +127,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tanningButton"
+        app:layout_constraintTop_toBottomOf="@+id/digestionButton"
         app:layout_constraintVertical_bias="0.367" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

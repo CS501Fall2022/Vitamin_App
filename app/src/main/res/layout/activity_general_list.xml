@@ -6,16 +6,38 @@
     android:layout_height="match_parent"
     tools:context=".GeneralListActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="General List"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainerView2"
+        android:name="com.example.vitamin_app.QuickFixList"
+        android:layout_width="412dp"
+        android:layout_height="76dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.027"
+        tools:layout="@layout/fragment_quick_fix_list" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainerView"
+        android:name="com.example.vitamin_app.QuickFixOptionsEnergy"
+        android:layout_width="410dp"
+        android:layout_height="354dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fragmentContainerView2"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout="@layout/fragment_quick_fix_options_energy" />
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="409dp"
         android:layout_height="65dp"
         android:gravity="center"
@@ -51,5 +73,4 @@
             android:scaleType="fitCenter"
             android:src="@drawable/search_button_icon" />
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
