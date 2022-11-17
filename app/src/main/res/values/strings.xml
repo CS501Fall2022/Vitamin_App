@@ -11,4 +11,6 @@
     <string name="exercise">Exercise</string>
     <string name="digestion">Digestion</string>
     <string name="articulation">Articulation</string>
+    <string name="ratio_header">Choose you preferred ratio of supplements</string>
+    <string name="checkbox_header">Please pick the most relevant issue</string>
 </resources>
