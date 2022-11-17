@@ -71,14 +71,15 @@ public class LoginActivity extends AppCompatActivity {
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
                 .requestId()
+                .requestIdToken("517722316464-2o671af2pt9mmc3ebsm16jgt746i1k7q.apps.googleusercontent.com")
                 .requestProfile()
                 .build();
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
         mAuth = FirebaseAuth.getInstance();
         //Get last client to sign in and go to homepage if already logged in
-        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
-        if (account != null){
-            finishActivity();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if (currentUser != null){
+          finishActivity();
         }
 
         if (showOneTapUI) {
@@ -156,7 +157,6 @@ public class LoginActivity extends AppCompatActivity {
                         // Got an ID token from Google. Use it to authenticate
                         // with your backend.
                         handleSignInResult(idToken);
-                        finishActivity();
                     }
                 } catch (ApiException e){
                     switch (e.getStatusCode()) {
@@ -182,9 +182,10 @@ public class LoginActivity extends AppCompatActivity {
     private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
         try {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
-
+            Log.d("TAG", "handleSignInResult: " + account.getIdToken());
+            AuthCredential credential = GoogleAuthProvider.getCredential(account.getIdToken(), null);
+            firebaseCredentialAuth(credential);
             // Signed in successfully, show authenticated UI.
-            finishActivity();
         } catch (ApiException e) {
             // The ApiException status code indicates the detailed failure reason.
             // Please refer to the GoogleSignInStatusCodes class reference for more information.
@@ -196,20 +197,7 @@ public class LoginActivity extends AppCompatActivity {
 
     public void handleSignInResult(String idToken){
         AuthCredential firebaseCredential = GoogleAuthProvider.getCredential(idToken, null);
-        mAuth.signInWithCredential(firebaseCredential)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Log.d("TAG", "signInWithCredential:success");
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Log.w("TAG", "signInWithCredential:failure", task.getException());
-
-                        }
-                    }
-                });
+        firebaseCredentialAuth(firebaseCredential);
     }
 
     private void finishActivity(){
@@ -219,12 +207,33 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void signOut() {
+        FirebaseUser currentUser = mAuth.getCurrentUser();
         mAuth.signOut();
+        Toast.makeText(LoginActivity.this, "Logout from " + currentUser.getEmail(), Toast.LENGTH_LONG).show();
         mGoogleSignInClient.signOut()
                 .addOnCompleteListener(this, new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-                        Toast.makeText(LoginActivity.this, "Logout", Toast.LENGTH_LONG).show();
+
+                    }
+                });
+    }
+
+    private void firebaseCredentialAuth(AuthCredential credential){
+        mAuth.signInWithCredential(credential)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Log.d("TAG", "signInWithCredential:success");
+                            finishActivity();
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Log.w("TAG", "signInWithCredential:failure", task.getException());
+                            finishActivity();
+
+                        }
                     }
                 });
     }
