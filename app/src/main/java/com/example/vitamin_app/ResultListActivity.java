@@ -22,6 +22,7 @@ public class ResultListActivity extends AppCompatActivity {
                 Intent intent = new Intent(view.getContext(), HomeActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                 view.getContext().startActivity(intent);
+
             }
         });
 
