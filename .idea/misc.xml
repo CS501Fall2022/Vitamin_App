@@ -33,7 +33,7 @@
         <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/layout/fragment_survey_triple_checkbox.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/layout/fragment_survey_weight.xml" value="0.36666666666666664" />
         <entry key="..\:/ryanv/Code/Files/git_repos/school/CS501/Vitamin_App/app/src/main/res/layout/activity_general_list.xml" value="0.14907407407407408" />
-        <entry key="..\:/ryanv/Code/Files/git_repos/school/CS501/Vitamin_App/app/src/main/res/layout/activity_result_list.xml" value="0.14907407407407408" />
+        <entry key="..\:/ryanv/Code/Files/git_repos/school/CS501/Vitamin_App/app/src/main/res/layout/activity_result_list.xml" value="0.1" />
         <entry key="..\:/ryanv/Code/Files/git_repos/school/CS501/Vitamin_App/app/src/main/res/layout/activity_survey.xml" value="0.1578125" />
         <entry key="..\:/ryanv/Code/Files/git_repos/school/CS501/Vitamin_App/app/src/main/res/layout/activity_vitamin_detail.xml" value="0.14907407407407408" />
         <entry key="..\:/ryanv/Code/Files/git_repos/school/CS501/Vitamin_App/app/src/main/res/layout/fragment_quick_fix_list.xml" value="0.14907407407407408" />
@@ -42,6 +42,10 @@
         <entry key="..\:/ryanv/Code/Files/git_repos/school/CS501/Vitamin_App/app/src/main/res/layout/fragment_survey_main.xml" value="0.2388888888888889" />
         <entry key="..\:/ryanv/Code/Files/git_repos/school/CS501/Vitamin_App/app/src/main/res/layout/fragment_survey_single_problem.xml" value="0.14907407407407408" />
         <entry key="..\:/ryanv/Code/Files/git_repos/school/CS501/Vitamin_App/app/src/main/res/layout/fragment_survey_triple_checkbox.xml" value="0.14907407407407408" />
+        <entry key="..\:/ryanv/Code/Files/git_repos/school/CS501/Vitamin_App/app/src/main/res/layout/recycle_result.xml" value="0.264" />
+        <entry key="..\:/ryanv/Code/Files/git_repos/school/CS501/Vitamin_App/app/src/main/res/layout/recycle_result_inner.xml" value="0.28425925925925927" />
+        <entry key="..\:/ryanv/Code/Files/git_repos/school/CS501/Vitamin_App/app/src/main/res/layout/recycle_result_main.xml" value="0.12129629629629629" />
+        <entry key="..\:/ryanv/Code/Files/git_repos/school/CS501/Vitamin_App/app/src/main/res/layout/recycle_result_outer.xml" value="0.2" />
       </map>
     </option>
   </component>
