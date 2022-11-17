@@ -1,9 +1,13 @@
 package com.example.vitamin_app;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,7 +22,6 @@ public class QuickFixList extends Fragment {
 //    private static final String ARG_PARAM2 = "param2";
 //    private String mParam1;
 //    private String mParam2;
-
     public QuickFixList() {
         // Required empty public constructor
     }
@@ -38,12 +41,18 @@ public class QuickFixList extends Fragment {
 
     }
 
+    @SuppressLint("MissingInflatedId")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_quick_fix_list, container, false);
+
         Button age = (Button) v.findViewById(R.id.agingButton);
+        v = inflater.inflate(R.layout.fragment_quick_fix_list, container, false);
+
+        Button energy = (Button) v.findViewById(R.id.energyButton);
+        Button weight = (Button) v.findViewById(R.id.weightButton);
         age.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -54,4 +63,5 @@ public class QuickFixList extends Fragment {
         });
         return v;
     }
+
 }

@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
@@ -22,6 +23,15 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        DatabaseHelper databaseHelper = new DatabaseHelper(HomeActivity.this);
+        boolean success = false;
+        for(int i = 0; i < 7; i++){
+            success = databaseHelper.addOne();
+        }
+        if(success == true){
+            Toast.makeText(HomeActivity.this, "Success!",Toast.LENGTH_LONG).show();
+        }
 
         news=findViewById(R.id.news);
         ViewPager viewPager=findViewById(R.id.fragmentcontainer);

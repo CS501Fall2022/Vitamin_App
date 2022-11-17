@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class SurveyDoubleProblemFragment extends Fragment {
 
@@ -37,11 +38,13 @@ public class SurveyDoubleProblemFragment extends Fragment {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
                 if (i == 0) {
-                    seek2.setProgress(2);
+                    seek1.setProgress(1);
                 } else if (i == 1) {
-                    seek2.setProgress(1);
+                    seek2.setProgress(3);
                 } else if (i == 2) {
-                    seek2.setProgress(0);
+                    seek2.setProgress(2);
+                } else if (i == 3) {
+                    seek2.setProgress(1);
                 }
             }
 
@@ -60,11 +63,13 @@ public class SurveyDoubleProblemFragment extends Fragment {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
                 if (i == 0) {
-                    seek1.setProgress(2);
+                    seek2.setProgress(1);
                 } else if (i == 1) {
-                    seek1.setProgress(1);
+                    seek1.setProgress(3);
                 } else if (i == 2) {
-                    seek1.setProgress(0);
+                    seek1.setProgress(2);
+                } else if (i == 3) {
+                    seek1.setProgress(1);
                 }
             }
 
