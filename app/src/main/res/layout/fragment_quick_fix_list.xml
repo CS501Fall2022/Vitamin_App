@@ -8,13 +8,13 @@
     <!-- TODO: Update blank fragment layout -->
 
     <Button
-        android:id = "@+id/agingButton"
+        android:id="@+id/agingButton"
         android:layout_width="113dp"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="26dp"
-        android:layout_marginTop="51dp"
+        android:layout_marginTop="24dp"
         android:text="Aging" />
 
     <Button
@@ -22,8 +22,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="156dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginLeft="157dp"
+        android:layout_marginTop="24dp"
         android:text="Weight" />
 
     <Button
@@ -32,7 +32,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="288dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="21dp"
         android:text="Energy" />
 
     <TextView

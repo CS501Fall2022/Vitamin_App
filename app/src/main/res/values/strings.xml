@@ -11,4 +11,21 @@
     <string name="exercise">Exercise</string>
     <string name="digestion">Digestion</string>
     <string name="articulation">Articulation</string>
+
+    <string-array name="vitamin_descriptions">
+        <item>energy saving</item>
+        <item>energy help </item>
+        <item>energy consumption</item>
+        <item>energy </item>
+        <item>no energy</item>
+        <item>etc</item>
+    </string-array>
+    <string-array name="vitamin_names">
+        <item>vitamin 1</item>
+        <item>vitamin 2</item>
+        <item>vitamin 3</item>
+        <item>vitamin 4</item>
+        <item>vitamin 5</item>
+        <item>vitamin 6</item>
+    </string-array>
 </resources>
