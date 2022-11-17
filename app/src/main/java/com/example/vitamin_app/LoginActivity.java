@@ -155,24 +155,8 @@ public class LoginActivity extends AppCompatActivity {
                     if (idToken !=  null) {
                         // Got an ID token from Google. Use it to authenticate
                         // with your backend.
-                        AuthCredential firebaseCredential = GoogleAuthProvider.getCredential(idToken, null);
-                        mAuth.signInWithCredential(firebaseCredential)
-                                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<AuthResult> task) {
-                                        if (task.isSuccessful()) {
-                                            // Sign in success, update UI with the signed-in user's information
-                                            Log.d("TAG", "signInWithCredential:success");
-                                            FirebaseUser user = mAuth.getCurrentUser();
-                                            finishActivity();
-                                        } else {
-                                            // If sign in fails, display a message to the user.
-                                            Log.w("TAG", "signInWithCredential:failure", task.getException());
-                                            finishActivity();
-                                        }
-                                    }
-                                });
-
+                        handleSignInResult(idToken);
+                        finishActivity();
                     }
                 } catch (ApiException e){
                     switch (e.getStatusCode()) {
@@ -208,6 +192,24 @@ public class LoginActivity extends AppCompatActivity {
 
         }
 
+    }
+
+    public void handleSignInResult(String idToken){
+        AuthCredential firebaseCredential = GoogleAuthProvider.getCredential(idToken, null);
+        mAuth.signInWithCredential(firebaseCredential)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Log.d("TAG", "signInWithCredential:success");
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Log.w("TAG", "signInWithCredential:failure", task.getException());
+
+                        }
+                    }
+                });
     }
 
     private void finishActivity(){
