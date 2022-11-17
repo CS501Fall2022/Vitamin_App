@@ -49,6 +49,8 @@ public class QuickFixList extends Fragment {
         View v = inflater.inflate(R.layout.fragment_quick_fix_list, container, false);
 
         Button age = (Button) v.findViewById(R.id.agingButton);
+        v = inflater.inflate(R.layout.fragment_quick_fix_list, container, false);
+
         Button energy = (Button) v.findViewById(R.id.energyButton);
         Button weight = (Button) v.findViewById(R.id.weightButton);
         age.setOnClickListener(new View.OnClickListener() {
