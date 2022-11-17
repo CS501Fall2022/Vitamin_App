@@ -11,6 +11,7 @@
     <string name="exercise">Exercise</string>
     <string name="digestion">Digestion</string>
     <string name="articulation">Articulation</string>
+    <string name="no_result_found">Fill out the survey and find the result here!</string>
 
     <string-array name="vitamin_descriptions">
         <item>energy saving</item>
