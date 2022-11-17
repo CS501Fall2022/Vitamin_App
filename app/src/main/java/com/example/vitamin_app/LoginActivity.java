@@ -41,10 +41,9 @@ public class LoginActivity extends AppCompatActivity {
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
 
         if (account != null){
-            signOut();
-//            Intent intent = new Intent(this, HomeActivity.class);
-//            finish();
-//            this.startActivity(intent);
+            Intent intent = new Intent(this, HomeActivity.class);
+            finish();
+            this.startActivity(intent);
         }
 
         google.setOnClickListener(new View.OnClickListener() {
