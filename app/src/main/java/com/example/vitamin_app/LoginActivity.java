@@ -79,7 +79,7 @@ public class LoginActivity extends AppCompatActivity {
         //Get last client to sign in and go to homepage if already logged in
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null){
-          finishActivity();
+          goHome(currentUser);
         }
 
         if (showOneTapUI) {
@@ -116,14 +116,14 @@ public class LoginActivity extends AppCompatActivity {
         toHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finishActivity();
+                goHome(null);
             }
         });
 
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finishActivity();
+                goHome(null);
             }
         });
 
@@ -200,8 +200,11 @@ public class LoginActivity extends AppCompatActivity {
         firebaseCredentialAuth(firebaseCredential);
     }
 
-    private void finishActivity(){
+    private void goHome(FirebaseUser currentUser){
         Intent intent = new Intent(this, HomeActivity.class);
+        if (currentUser != null){
+            Toast.makeText(LoginActivity.this, "Welcome " + currentUser.getEmail(), Toast.LENGTH_LONG).show();
+        }
         finish();
         this.startActivity(intent);
     }
@@ -227,11 +230,11 @@ public class LoginActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d("TAG", "signInWithCredential:success");
-                            finishActivity();
+                            goHome(null);
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w("TAG", "signInWithCredential:failure", task.getException());
-                            finishActivity();
+                            goHome(null);
 
                         }
                     }
