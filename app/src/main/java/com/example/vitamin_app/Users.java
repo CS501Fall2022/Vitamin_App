@@ -2,6 +2,7 @@ package com.example.vitamin_app;
 
 public class Users {
     String user_email;
+    String username;
     String age;
     String gender;
 
@@ -15,12 +16,17 @@ public class Users {
     public Users() {
     }
 
-    public Users(String user_email) {
+    public Users(String user_email, String username) {
         this.user_email = user_email;
+        this.username = username;
     }
 
     public String getUserEmail() {
         return user_email;
+    }
+
+    public String getUsername() {
+        return username;
     }
 
     public String getAge() {
