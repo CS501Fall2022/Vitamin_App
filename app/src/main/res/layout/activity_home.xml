@@ -10,7 +10,7 @@
         android:layout_below="@id/fragmentcontainer"
         android:layout_marginBottom="5dp"
         android:layout_width="409dp"
-        android:layout_height="65dp"
+        android:layout_height="650dp"
         android:gravity="center"
         android:orientation="horizontal"
         android:layout_alignParentBottom="true">
@@ -74,7 +74,7 @@
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/fragmentcontainer"
         android:layout_width="match_parent"
-        android:layout_height="660dp"
+        android:layout_height="600dp"
         android:layout_below="@+id/include"
         android:layout_marginTop="0dp"
         android:background="#1A50A060">
