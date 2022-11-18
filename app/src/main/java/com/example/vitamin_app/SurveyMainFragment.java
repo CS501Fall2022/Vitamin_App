@@ -53,7 +53,7 @@ public class SurveyMainFragment extends Fragment {
                     FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                     single.setArguments(bundle);
-                    fragmentTransaction.replace(R.id.fragmentLayout, single);
+                    fragmentTransaction.replace(R.id.fragmentLayout1, single);
                     fragmentTransaction.addToBackStack(null);
                     fragmentTransaction.commit();
                 } else if (count == 2) {
@@ -61,7 +61,7 @@ public class SurveyMainFragment extends Fragment {
                     FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                     doublee.setArguments(bundle);
-                    fragmentTransaction.replace(R.id.fragmentLayout, doublee);
+                    fragmentTransaction.replace(R.id.fragmentLayout1, doublee);
                     fragmentTransaction.addToBackStack(null);
                     fragmentTransaction.commit();
                 } else {

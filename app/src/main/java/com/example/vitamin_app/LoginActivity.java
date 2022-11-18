@@ -31,8 +31,11 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class LoginActivity extends AppCompatActivity {
     private static final int RC_SIGN_IN = 100;
@@ -51,6 +54,8 @@ public class LoginActivity extends AppCompatActivity {
     // creating a variable for our Database
     // Reference for Firebase.
     DatabaseReference databaseReference;
+
+    Users users;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,7 +94,8 @@ public class LoginActivity extends AppCompatActivity {
         //Get last client to sign in and go to homepage if already logged in
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null){
-          goHome(currentUser);
+            signOut();
+//          goHome(currentUser);
         }
 
         if (showOneTapUI) {
@@ -240,6 +246,27 @@ public class LoginActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d("TAG", "signInWithCredential:success");
+                            // add user info to database
+
+                            FirebaseUser currentUser = mAuth.getCurrentUser();
+                            String email = currentUser.getEmail();
+                            firebaseDatabase = FirebaseDatabase.getInstance();
+                            // below line is used to get reference for our database.
+                            databaseReference = firebaseDatabase.getReference("Users");
+                            users = new Users(email);
+
+                            databaseReference.addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                    databaseReference.setValue(users);
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error) {
+
+                                }
+                            });
+
                             goHome(null);
                         } else {
                             // If sign in fails, display a message to the user.

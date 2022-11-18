@@ -21,9 +21,6 @@
             android:name=".GeneralListActivity"
             android:exported="false" />
         <activity
-            android:name=".SurveyActivity"
-            android:exported="false" />
-        <activity
             android:name=".ResultListActivity"
             android:exported="false" />
         <activity

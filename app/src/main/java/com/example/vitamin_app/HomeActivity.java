@@ -44,10 +44,12 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 viewPager.setCurrentItem(tab.getPosition());
-                if(tab.getPosition()==1)
+                if(tab.getPosition()==2)
                 {
-                    Intent myIntent = new Intent(HomeActivity.this, SurveyActivity.class);
-                    HomeActivity.this.startActivity(myIntent);
+                    getSupportFragmentManager().beginTransaction()
+                            .setReorderingAllowed(true)
+                            .add(R.id.fragmentLayout1, SurveyMainFragment.class, null)
+                            .commit();
                 }
                 if(tab.getPosition()==0)
                 {
@@ -96,15 +98,5 @@ public class HomeActivity extends AppCompatActivity {
                 view.getContext().startActivity(intent);
             }
         });
-
-//        Button toSurvey = (Button) findViewById(R.id.toSurvey);
-//        toSurvey.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(view.getContext(), SurveyActivity.class);
-//                intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-//                view.getContext().startActivity(intent);
-//            }
-//        });
     }
 }
