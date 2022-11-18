@@ -23,8 +23,9 @@ public class PagerAdapter extends FragmentPagerAdapter {
         {
             case 0:
                 return new HealthFragment();
-
             case 1:
+                return new HealthFragment();
+            case 2:
                 return new HealthFragment();
 
             default:

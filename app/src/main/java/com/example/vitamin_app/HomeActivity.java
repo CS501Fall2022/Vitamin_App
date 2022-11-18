@@ -2,6 +2,7 @@ package com.example.vitamin_app;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
@@ -37,7 +38,7 @@ public class HomeActivity extends AppCompatActivity {
         ViewPager viewPager=findViewById(R.id.fragmentcontainer);
         tabLayout=findViewById(R.id.include);
 
-        pagerAdapter=new PagerAdapter(getSupportFragmentManager(),2);
+        pagerAdapter=new PagerAdapter(getSupportFragmentManager(),3);
         viewPager.setAdapter(pagerAdapter);
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -51,8 +52,13 @@ public class HomeActivity extends AppCompatActivity {
                             .add(R.id.fragmentLayout1, SurveyMainFragment.class, null)
                             .commit();
                 }
-                if(tab.getPosition()==0)
+                if(tab.getPosition()==0 || tab.getPosition()==1)
                 {
+                    Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.fragmentLayout1);
+                    if(fragment != null) {
+                        getSupportFragmentManager().beginTransaction().remove(fragment).commit();
+                    }
+
                     pagerAdapter.notifyDataSetChanged();
                 }
             }
