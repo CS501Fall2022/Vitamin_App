@@ -55,7 +55,7 @@ public class LoginActivity extends AppCompatActivity {
     // Reference for Firebase.
     DatabaseReference databaseReference;
 
-    Users users;
+    Users user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -250,15 +250,18 @@ public class LoginActivity extends AppCompatActivity {
 
                             FirebaseUser currentUser = mAuth.getCurrentUser();
                             String email = currentUser.getEmail();
+                            String userId = currentUser.getDisplayName();
                             firebaseDatabase = FirebaseDatabase.getInstance();
                             // below line is used to get reference for our database.
                             databaseReference = firebaseDatabase.getReference("Users");
-                            users = new Users(email);
+                            user = new Users(email, userId);
+
+                            // Might need to store username inside SQL to avoid passing it into bundles
 
                             databaseReference.addValueEventListener(new ValueEventListener() {
                                 @Override
                                 public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                    databaseReference.setValue(users);
+                                    databaseReference.child(userId).setValue(user);
                                 }
 
                                 @Override

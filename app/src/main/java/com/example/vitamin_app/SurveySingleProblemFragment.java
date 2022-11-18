@@ -31,7 +31,7 @@ public class SurveySingleProblemFragment extends Fragment {
 
     // creating a variable for
     // our object class
-    Users users;
+    Users user;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -53,9 +53,8 @@ public class SurveySingleProblemFragment extends Fragment {
         // below line is used to get reference for our database.
         databaseReference = firebaseDatabase.getReference("Users");
 
-        // initializing our object
-        // class variable.
-        users = new Users();
+        // Retrieve username from SQL database to use for firebase
+        user = new Users();
 
         if (bundle.getBoolean("weight")) {
             header.setText("Weight Loss");
@@ -145,30 +144,30 @@ public class SurveySingleProblemFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 if (bundle.getBoolean("weight")) {
-                    users.setProblem("weight");
+                    user.setProblem("weight");
                 } else if (bundle.getBoolean("sleep")) {
-                    users.setProblem("sleep");
+                    user.setProblem("sleep");
                 } else if (bundle.getBoolean("energy")) {
-                    users.setProblem("energy");
+                    user.setProblem("energy");
                 } else if (bundle.getBoolean("immunity")) {
-                    users.setProblem("immunity");
+                    user.setProblem("immunity");
                 } else if (bundle.getBoolean("skin")) {
-                    users.setProblem("skin");
+                    user.setProblem("skin");
                 } else if (bundle.getBoolean("detox")) {
-                    users.setProblem("detox");
+                    user.setProblem("detox");
                 } else if (bundle.getBoolean("exercise")) {
-                    users.setProblem("exercise");
+                    user.setProblem("exercise");
                 } else if (bundle.getBoolean("digestion")) {
-                    users.setProblem("digestion");
+                    user.setProblem("digestion");
                 } else if (bundle.getBoolean("articulation")) {
-                    users.setProblem("articulation");
+                    user.setProblem("articulation");
                 }
 
-                /*
+
                 databaseReference.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        databaseReference.setValue(users);
+                        databaseReference.child(user.getUsername()).setValue(user);
                     }
 
                     @Override
@@ -176,7 +175,6 @@ public class SurveySingleProblemFragment extends Fragment {
 
                     }
                 });
-                 */
             }
         });
 
