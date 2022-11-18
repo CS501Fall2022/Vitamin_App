@@ -9,11 +9,17 @@ import androidx.fragment.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.RadioButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class SurveyDoubleProblemFragment extends Fragment {
+
+    ArrayList<String> array = new ArrayList<String>();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -33,6 +39,11 @@ public class SurveyDoubleProblemFragment extends Fragment {
         TextView problem2 = (TextView) v.findViewById(R.id.text_problem2);
         SeekBar seek1 = (SeekBar) v.findViewById(R.id.seekBar);
         SeekBar seek2 = (SeekBar) v.findViewById(R.id.seekBar2);
+
+        Fragment triple1 = null;
+        Fragment double1;
+        Fragment triple2;
+        Fragment double2;
 
         seek1.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -86,153 +97,243 @@ public class SurveyDoubleProblemFragment extends Fragment {
 
         if (bundle.getBoolean("weight")) {
             // Create new bundles for passing info
-            Fragment triple = new SurveyTripleCheckboxFragment();
+            array.add("triple");
+            triple1 = new SurveyTripleCheckboxFragment();
             FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            triple.setArguments(bundle);
-            fragmentTransaction.replace(R.id.checkboxLayout1, triple);
+            triple1.setArguments(bundle);
+            fragmentTransaction.replace(R.id.checkboxLayout1, triple1);
             fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
             problem1.setText("weightloss");
             count++;
         } if (bundle.getBoolean("sleep")) {
-            Fragment triple = new SurveyTripleCheckboxFragment();
-            FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             if (count == 0) {
-                triple.setArguments(bundle);
-                fragmentTransaction.replace(R.id.checkboxLayout1, triple);
+                array.add("triple");
+                triple1 = new SurveyTripleCheckboxFragment();
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                triple1.setArguments(bundle);
+                fragmentTransaction.replace(R.id.checkboxLayout1, triple1);
                 problem1.setText("sleep");
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
             } else {
+                array.add("triple2");
+                triple2 = new SurveyTripleCheckboxFragment();
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 Bundle frag_bundle = new Bundle();
                 frag_bundle.putBoolean("sleep", true);
-                triple.setArguments(frag_bundle);
-                fragmentTransaction.replace(R.id.checkboxLayout2, triple);
+                triple2.setArguments(frag_bundle);
+                fragmentTransaction.replace(R.id.checkboxLayout2, triple2);
                 problem2.setText("sleep");
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
             }
-            fragmentTransaction.addToBackStack(null);
-            fragmentTransaction.commit();
             count++;
         } if (bundle.getBoolean("energy")) {
-            Fragment doublle = new SurveyDoubleCheckboxFragment();
-            FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             if (count == 0) {
-                fragmentTransaction.replace(R.id.checkboxLayout1, doublle);
+                array.add("double");
+                double1 = new SurveyDoubleCheckboxFragment();
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                double1.setArguments(bundle);
+                fragmentTransaction.replace(R.id.checkboxLayout1, double1);
                 problem1.setText("energy");
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
             } else {
+                array.add("double2");
+                double2 = new SurveyDoubleCheckboxFragment();
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 Bundle frag_bundle = new Bundle();
                 frag_bundle.putBoolean("energy", true);
-                doublle.setArguments(frag_bundle);
-                fragmentTransaction.replace(R.id.checkboxLayout2, doublle);
+                double2.setArguments(frag_bundle);
+                fragmentTransaction.replace(R.id.checkboxLayout2, double2);
                 problem2.setText("energy");
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
             }
-            doublle.setArguments(bundle);
-            fragmentTransaction.addToBackStack(null);
-            fragmentTransaction.commit();
             count++;
         } if (bundle.getBoolean("immunity")) {
-            Fragment doublle = new SurveyDoubleCheckboxFragment();
-            FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             if (count == 0) {
-                doublle.setArguments(bundle);
-                fragmentTransaction.replace(R.id.checkboxLayout1, doublle);
+                array.add("double");
+                double1 = new SurveyDoubleCheckboxFragment();
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                double1.setArguments(bundle);
+                fragmentTransaction.replace(R.id.checkboxLayout1, double1);
                 problem1.setText("immunity");
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
             } else {
+                array.add("double2");
+                double2 = new SurveyDoubleCheckboxFragment();
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 Bundle frag_bundle = new Bundle();
                 frag_bundle.putBoolean("immunity", true);
-                doublle.setArguments(frag_bundle);
-                fragmentTransaction.replace(R.id.checkboxLayout2, doublle);
+                double2.setArguments(frag_bundle);
+                fragmentTransaction.replace(R.id.checkboxLayout2, double2);
                 problem2.setText("immunity");
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
             }
-            fragmentTransaction.addToBackStack(null);
-            fragmentTransaction.commit();
             count++;
         } if (bundle.getBoolean("skin")) {
-            Fragment triple = new SurveyTripleCheckboxFragment();
-            FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             if (count == 0) {
-                triple.setArguments(bundle);
-                fragmentTransaction.replace(R.id.checkboxLayout1, triple);
+                array.add("triple");
+                triple1 = new SurveyTripleCheckboxFragment();
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                triple1.setArguments(bundle);
+                fragmentTransaction.replace(R.id.checkboxLayout1, triple1);
                 problem1.setText("skin");
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
             } else {
+                array.add("triple2");
+                triple2 = new SurveyTripleCheckboxFragment();
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 Bundle frag_bundle = new Bundle();
                 frag_bundle.putBoolean("skin", true);
-                triple.setArguments(frag_bundle);
-                fragmentTransaction.replace(R.id.checkboxLayout2, triple);
+                triple2.setArguments(frag_bundle);
+                fragmentTransaction.replace(R.id.checkboxLayout2, triple2);
                 problem2.setText("skin");
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
             }
-            fragmentTransaction.addToBackStack(null);
-            fragmentTransaction.commit();
             count++;
         } if (bundle.getBoolean("detox")) {
-            Fragment triple = new SurveyTripleCheckboxFragment();
-            FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             if (count == 0) {
-                triple.setArguments(bundle);
-                fragmentTransaction.replace(R.id.checkboxLayout1, triple);
+                array.add("triple");
+                triple1 = new SurveyTripleCheckboxFragment();
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                triple1.setArguments(bundle);
+                fragmentTransaction.replace(R.id.checkboxLayout1, triple1);
                 problem1.setText("detox");
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
             } else {
+                array.add("triple2");
+                triple2 = new SurveyTripleCheckboxFragment();
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 Bundle frag_bundle = new Bundle();
                 frag_bundle.putBoolean("detox", true);
-                triple.setArguments(frag_bundle);
-                fragmentTransaction.replace(R.id.checkboxLayout2, triple);
+                triple2.setArguments(frag_bundle);
+                fragmentTransaction.replace(R.id.checkboxLayout2, triple2);
                 problem2.setText("detox");
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
             }
-            fragmentTransaction.addToBackStack(null);
-            fragmentTransaction.commit();
             count++;
         } if (bundle.getBoolean("exercise")) {
-            Fragment doublle = new SurveyDoubleCheckboxFragment();
-            FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             if (count == 0) {
-                doublle.setArguments(bundle);
-                fragmentTransaction.replace(R.id.checkboxLayout1, doublle);
+                array.add("double");
+                double1 = new SurveyDoubleCheckboxFragment();
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                double1.setArguments(bundle);
+                fragmentTransaction.replace(R.id.checkboxLayout1, double1);
                 problem1.setText("exercise");
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
             } else {
+                array.add("double2");
+                double2 = new SurveyDoubleCheckboxFragment();
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 Bundle frag_bundle = new Bundle();
                 frag_bundle.putBoolean("exercise", true);
-                doublle.setArguments(frag_bundle);
-                fragmentTransaction.replace(R.id.checkboxLayout2, doublle);
+                double2.setArguments(frag_bundle);
+                fragmentTransaction.replace(R.id.checkboxLayout2, double2);
                 problem2.setText("exercise");
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
             }
-            fragmentTransaction.addToBackStack(null);
-            fragmentTransaction.commit();
             count++;
         } if (bundle.getBoolean("digestion")) {
-            Fragment doublle = new SurveyDoubleCheckboxFragment();
-            FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             if (count == 0) {
-                doublle.setArguments(bundle);
-                fragmentTransaction.replace(R.id.checkboxLayout1, doublle);
+                array.add("double");
+                double1 = new SurveyDoubleCheckboxFragment();
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                double1.setArguments(bundle);
+                fragmentTransaction.replace(R.id.checkboxLayout1, double1);
                 problem1.setText("digestion");
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
             } else {
+                array.add("double2");
+                double2 = new SurveyDoubleCheckboxFragment();
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 Bundle frag_bundle = new Bundle();
                 frag_bundle.putBoolean("digestion", true);
-                doublle.setArguments(frag_bundle);
-                fragmentTransaction.replace(R.id.checkboxLayout2, doublle);
+                double2.setArguments(frag_bundle);
+                fragmentTransaction.replace(R.id.checkboxLayout2, double2);
                 problem2.setText("digestion");
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
             }
-            fragmentTransaction.addToBackStack(null);
-            fragmentTransaction.commit();
             count++;
         } if (bundle.getBoolean("articulation")) {
-            Fragment doublle = new SurveyDoubleCheckboxFragment();
-            FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            Bundle frag_bundle = new Bundle();
-            frag_bundle.putBoolean("articulation", true);
-            doublle.setArguments(frag_bundle);
-            fragmentTransaction.replace(R.id.checkboxLayout2, doublle);problem2.setText("articulation");
-            fragmentTransaction.addToBackStack(null);
-            fragmentTransaction.commit();
+            if (count == 0) {
+                array.add("double");
+                double1 = new SurveyDoubleCheckboxFragment();
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                double1.setArguments(bundle);
+                fragmentTransaction.replace(R.id.checkboxLayout1, double1);
+                problem1.setText("articulation");
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            } else {
+                array.add("double2");
+                double2 = new SurveyDoubleCheckboxFragment();
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                Bundle frag_bundle = new Bundle();
+                frag_bundle.putBoolean("articulation", true);
+                double2.setArguments(frag_bundle);
+                fragmentTransaction.replace(R.id.checkboxLayout2, double2);
+                problem2.setText("articulation");
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }
             count++;
         }
+
+        Button endSurvey = (Button) v.findViewById(R.id.endSurvey2);
+        Fragment finalTriple = triple1;
+        endSurvey.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (array.get(0).equals("triple")) {
+                    RadioButton triple_p1 = (RadioButton) finalTriple.getView().findViewById(R.id.triple_problem1);
+
+                    /*
+                    if (triple_p1.isChecked()) {
+                        problem1.setText("yes");
+                    } */
+
+                } else if (array.get(0).equals("double")) {
+
+                }
+                if (array.get(1).equals("triple2")) {
+
+                } else if (array.get(1).equals("double2")) {
+
+                }
+                problem2.setText(array.get(1));
+            }
+        });
+
         return v;
     }
 }
