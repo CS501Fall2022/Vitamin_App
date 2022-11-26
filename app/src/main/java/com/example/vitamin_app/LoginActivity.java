@@ -31,6 +31,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.auth.SignInMethodQueryResult;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -94,8 +95,8 @@ public class LoginActivity extends AppCompatActivity {
         //Get last client to sign in and go to homepage if already logged in
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null){
-            signOut();
-//          goHome(currentUser);
+//          signOut();
+            goHome(currentUser);
         }
 
         if (showOneTapUI) {
@@ -247,26 +248,35 @@ public class LoginActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d("TAG", "signInWithCredential:success");
                             // add user info to database
-
                             FirebaseUser currentUser = mAuth.getCurrentUser();
                             String email = currentUser.getEmail();
                             String userId = currentUser.getDisplayName();
                             firebaseDatabase = FirebaseDatabase.getInstance();
-                            // below line is used to get reference for our database.
-                            databaseReference = firebaseDatabase.getReference("Users");
-                            user = new Users(email, userId);
 
-                            // Might need to store username inside SQL to avoid passing it into bundles
-
-                            databaseReference.addValueEventListener(new ValueEventListener() {
+                            mAuth.fetchSignInMethodsForEmail(email).addOnCompleteListener(new OnCompleteListener<SignInMethodQueryResult>() {
                                 @Override
-                                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                    databaseReference.child(userId).setValue(user);
-                                }
+                                public void onComplete(@NonNull Task<SignInMethodQueryResult> task) {
+                                    boolean isNewUser = task.getResult().getSignInMethods().isEmpty();
+                                    // Only add user information if they haven't logged in before
+                                    if (isNewUser) {
+                                        // below line is used to get reference for our database.
+                                        databaseReference = firebaseDatabase.getReference("Users");
+                                        user = new Users(email, userId);
 
-                                @Override
-                                public void onCancelled(@NonNull DatabaseError error) {
+                                        // Might need to store username inside SQL to avoid passing it into bundles
 
+                                        databaseReference.addValueEventListener(new ValueEventListener() {
+                                            @Override
+                                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                                databaseReference.child(userId).setValue(user);
+                                            }
+
+                                            @Override
+                                            public void onCancelled(@NonNull DatabaseError error) {
+
+                                            }
+                                        });
+                                    }
                                 }
                             });
 
@@ -275,7 +285,6 @@ public class LoginActivity extends AppCompatActivity {
                             // If sign in fails, display a message to the user.
                             Log.w("TAG", "signInWithCredential:failure", task.getException());
                             goHome(null);
-
                         }
                     }
                 });
