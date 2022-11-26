@@ -953,9 +953,9 @@ public class SurveyDoubleProblemFragment extends Fragment {
                     count++;
                 }
 
-                databaseReference.child(username).setValue(user);
-
                 if (check) {
+                    databaseReference.child(username).setValue(user);
+
                     Intent intent = new Intent(view.getContext(), ResultListActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                     view.getContext().startActivity(intent);

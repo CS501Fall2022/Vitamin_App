@@ -2,6 +2,7 @@ package com.example.vitamin_app;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
@@ -33,9 +34,9 @@ public class HomeActivity extends AppCompatActivity {
             Toast.makeText(HomeActivity.this, "Success!",Toast.LENGTH_LONG).show();
         }
 
-        news=findViewById(R.id.news);
-        ViewPager viewPager=findViewById(R.id.fragmentcontainer);
-        tabLayout=findViewById(R.id.include);
+        news = findViewById(R.id.news);
+        ViewPager viewPager = findViewById(R.id.fragmentcontainer);
+        tabLayout = findViewById(R.id.include);
 
         pagerAdapter=new PagerAdapter(getSupportFragmentManager(),2);
         viewPager.setAdapter(pagerAdapter);
@@ -44,15 +45,29 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 viewPager.setCurrentItem(tab.getPosition());
-                if(tab.getPosition()==2)
-                {
+                if(tab.getPosition()==2) {
+                    // Survey Tab
                     getSupportFragmentManager().beginTransaction()
                             .setReorderingAllowed(true)
                             .add(R.id.fragmentLayout1, SurveyMainFragment.class, null)
                             .commit();
                 }
-                if(tab.getPosition()==0)
-                {
+                if (tab.getPosition()==1) {
+                    // Profile Tab
+                    Fragment oldFrag = getSupportFragmentManager().findFragmentById(R.id.fragmentLayout1);
+                    if (oldFrag != null) { // Remove survey fragment if currently displaying
+                        getSupportFragmentManager().beginTransaction().
+                                remove(oldFrag).commit();
+                    }
+                    pagerAdapter.notifyDataSetChanged();
+                }
+                if(tab.getPosition()==0) {
+                    // Health News Tab
+                    Fragment oldFrag = getSupportFragmentManager().findFragmentById(R.id.fragmentLayout1);
+                    if (oldFrag != null) { // Remove survey fragment if currently displaying
+                        getSupportFragmentManager().beginTransaction().
+                                remove(oldFrag).commit();
+                    }
                     pagerAdapter.notifyDataSetChanged();
                 }
             }
