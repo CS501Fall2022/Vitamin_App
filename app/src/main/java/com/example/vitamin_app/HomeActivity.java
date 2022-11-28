@@ -2,6 +2,7 @@ package com.example.vitamin_app;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
@@ -20,6 +21,17 @@ public class HomeActivity extends AppCompatActivity {
     PagerAdapter pagerAdapter;
 
     @Override
+    protected void onResume() {
+        // Set detault tab as profile
+        super.onResume();
+        tabLayout.selectTab(tabLayout.getTabAt(1));
+        getSupportFragmentManager().beginTransaction()
+                .setReorderingAllowed(true)
+                .replace(R.id.fragmentLayout1, ProfileFragment.class, null)
+                .commit();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
@@ -33,24 +45,45 @@ public class HomeActivity extends AppCompatActivity {
             Toast.makeText(HomeActivity.this, "Success!",Toast.LENGTH_LONG).show();
         }
 
-        news=findViewById(R.id.news);
-        ViewPager viewPager=findViewById(R.id.fragmentcontainer);
-        tabLayout=findViewById(R.id.include);
+        news = findViewById(R.id.news);
+        ViewPager viewPager = findViewById(R.id.fragmentcontainer);
+        tabLayout = findViewById(R.id.include);
+        pagerAdapter = new PagerAdapter(getSupportFragmentManager(),2);
 
-        pagerAdapter=new PagerAdapter(getSupportFragmentManager(),2);
-        viewPager.setAdapter(pagerAdapter);
+        // Set detault tab as profile
+        tabLayout.selectTab(tabLayout.getTabAt(1));
+        getSupportFragmentManager().beginTransaction()
+                .setReorderingAllowed(true)
+                .replace(R.id.fragmentLayout1, ProfileFragment.class, null)
+                .commit();
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                viewPager.setCurrentItem(tab.getPosition());
-                if(tab.getPosition()==1)
-                {
-                    Intent myIntent = new Intent(HomeActivity.this, SurveyActivity.class);
-                    HomeActivity.this.startActivity(myIntent);
+                if(tab.getPosition()==2) {
+                    // Survey Tab
+                    viewPager.removeAllViews();
+                    getSupportFragmentManager().beginTransaction()
+                            .setReorderingAllowed(true)
+                            .replace(R.id.fragmentLayout1, SurveyMainFragment.class, null)
+                            .commit();
                 }
-                if(tab.getPosition()==0)
-                {
+                if (tab.getPosition()==1) {
+                    // Profile Tab
+                    viewPager.removeAllViews();
+                    getSupportFragmentManager().beginTransaction()
+                            .setReorderingAllowed(true)
+                            .replace(R.id.fragmentLayout1, ProfileFragment.class, null)
+                            .commit();
+                }
+                if(tab.getPosition()==0) {
+                    // Health News Tab
+                    viewPager.setAdapter(pagerAdapter);
+                    Fragment oldFrag = getSupportFragmentManager().findFragmentById(R.id.fragmentLayout1);
+                    if (oldFrag != null) { // Remove survey or profile fragment if currently displaying
+                        getSupportFragmentManager().beginTransaction().
+                                remove(oldFrag).commit();
+                    }
                     pagerAdapter.notifyDataSetChanged();
                 }
             }
@@ -65,6 +98,8 @@ public class HomeActivity extends AppCompatActivity {
 
             }
         });
+
+        //What does this do??
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
 
         ImageButton toHome = (ImageButton) findViewById(R.id.toHome);
@@ -96,15 +131,5 @@ public class HomeActivity extends AppCompatActivity {
                 view.getContext().startActivity(intent);
             }
         });
-
-//        Button toSurvey = (Button) findViewById(R.id.toSurvey);
-//        toSurvey.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(view.getContext(), SurveyActivity.class);
-//                intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-//                view.getContext().startActivity(intent);
-//            }
-//        });
     }
 }
