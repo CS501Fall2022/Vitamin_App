@@ -73,8 +73,7 @@
             android:id="@+id/profile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Profile"
-            tools:ignore="UsingOnClickInXml">
+            android:text="Profile">
 
         </com.google.android.material.tabs.TabItem>
 
@@ -82,8 +81,7 @@
             android:id="@+id/survey"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Survey"
-            tools:ignore="UsingOnClickInXml">
+            android:text="Survey">
 
         </com.google.android.material.tabs.TabItem>
 

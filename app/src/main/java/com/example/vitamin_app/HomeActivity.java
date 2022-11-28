@@ -21,6 +21,17 @@ public class HomeActivity extends AppCompatActivity {
     PagerAdapter pagerAdapter;
 
     @Override
+    protected void onResume() {
+        // Set detault tab as profile
+        super.onResume();
+        tabLayout.selectTab(tabLayout.getTabAt(1));
+        getSupportFragmentManager().beginTransaction()
+                .setReorderingAllowed(true)
+                .replace(R.id.fragmentLayout1, ProfileFragment.class, null)
+                .commit();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
@@ -37,34 +48,39 @@ public class HomeActivity extends AppCompatActivity {
         news = findViewById(R.id.news);
         ViewPager viewPager = findViewById(R.id.fragmentcontainer);
         tabLayout = findViewById(R.id.include);
+        pagerAdapter = new PagerAdapter(getSupportFragmentManager(),2);
 
-        pagerAdapter=new PagerAdapter(getSupportFragmentManager(),2);
-        viewPager.setAdapter(pagerAdapter);
+        // Set detault tab as profile
+        tabLayout.selectTab(tabLayout.getTabAt(1));
+        getSupportFragmentManager().beginTransaction()
+                .setReorderingAllowed(true)
+                .replace(R.id.fragmentLayout1, ProfileFragment.class, null)
+                .commit();
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                viewPager.setCurrentItem(tab.getPosition());
                 if(tab.getPosition()==2) {
                     // Survey Tab
+                    viewPager.removeAllViews();
                     getSupportFragmentManager().beginTransaction()
                             .setReorderingAllowed(true)
-                            .add(R.id.fragmentLayout1, SurveyMainFragment.class, null)
+                            .replace(R.id.fragmentLayout1, SurveyMainFragment.class, null)
                             .commit();
                 }
                 if (tab.getPosition()==1) {
                     // Profile Tab
-                    Fragment oldFrag = getSupportFragmentManager().findFragmentById(R.id.fragmentLayout1);
-                    if (oldFrag != null) { // Remove survey fragment if currently displaying
-                        getSupportFragmentManager().beginTransaction().
-                                remove(oldFrag).commit();
-                    }
-                    pagerAdapter.notifyDataSetChanged();
+                    viewPager.removeAllViews();
+                    getSupportFragmentManager().beginTransaction()
+                            .setReorderingAllowed(true)
+                            .replace(R.id.fragmentLayout1, ProfileFragment.class, null)
+                            .commit();
                 }
                 if(tab.getPosition()==0) {
                     // Health News Tab
+                    viewPager.setAdapter(pagerAdapter);
                     Fragment oldFrag = getSupportFragmentManager().findFragmentById(R.id.fragmentLayout1);
-                    if (oldFrag != null) { // Remove survey fragment if currently displaying
+                    if (oldFrag != null) { // Remove survey or profile fragment if currently displaying
                         getSupportFragmentManager().beginTransaction().
                                 remove(oldFrag).commit();
                     }
@@ -82,6 +98,8 @@ public class HomeActivity extends AppCompatActivity {
 
             }
         });
+
+        //What does this do??
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
 
         ImageButton toHome = (ImageButton) findViewById(R.id.toHome);
