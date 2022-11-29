@@ -46,6 +46,7 @@ public class ResultListActivity extends AppCompatActivity {
                 intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                 view.getContext().startActivity(intent);
             }
+
         });
 
         ImageButton toList = (ImageButton) findViewById(R.id.toList);
