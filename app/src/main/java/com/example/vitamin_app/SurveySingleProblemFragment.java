@@ -184,7 +184,7 @@ public class SurveySingleProblemFragment extends Fragment {
                         user.setSupplement3("Laminaria");
                         user.setSupplement4("Linseed Oil");
                     } else {
-                        Toast.makeText(getActivity(),"Must select a problem from the available options",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(v.getContext(),"Must select a problem from the available options",Toast.LENGTH_SHORT).show();
                         check = false;
                     }
                 } else if (bundle.getBoolean("sleep")) {
@@ -208,7 +208,7 @@ public class SurveySingleProblemFragment extends Fragment {
                         user.setSupplement3("Ashwagandha");
                         user.setSupplement4("Hawthorn");
                     } else {
-                        Toast.makeText(getActivity(),"Must select a problem from the available options",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(v.getContext(),"Must select a problem from the available options",Toast.LENGTH_SHORT).show();
                         check = false;
                     }
                 } else if (bundle.getBoolean("energy")) {
@@ -226,7 +226,7 @@ public class SurveySingleProblemFragment extends Fragment {
                         user.setSupplement3("Rhodiola");
                         user.setSupplement4("Klamath");
                     } else {
-                        Toast.makeText(getActivity(),"Must select a problem from the available options",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(v.getContext(),"Must select a problem from the available options",Toast.LENGTH_SHORT).show();
                         check = false;
                     }
                 } else if (bundle.getBoolean("immunity")) {
@@ -244,7 +244,7 @@ public class SurveySingleProblemFragment extends Fragment {
                         user.setSupplement3("D Vitamins");
                         user.setSupplement4("Propolis");
                     } else {
-                        Toast.makeText(getActivity(),"Must select a problem from the available options",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(v.getContext(),"Must select a problem from the available options",Toast.LENGTH_SHORT).show();
                         check = false;
                     }
                 } else if (bundle.getBoolean("skin")) {
@@ -268,7 +268,7 @@ public class SurveySingleProblemFragment extends Fragment {
                         user.setSupplement3("Beer Yeast");
                         user.setSupplement4("Zinc");
                     } else {
-                        Toast.makeText(getActivity(),"Must select a problem from the available options",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(v.getContext(),"Must select a problem from the available options",Toast.LENGTH_SHORT).show();
                         check = false;
                     }
                 } else if (bundle.getBoolean("detox")) {
@@ -292,7 +292,7 @@ public class SurveySingleProblemFragment extends Fragment {
                         user.setSupplement3("Peppermint");
                         user.setSupplement4("Anise");
                     } else {
-                        Toast.makeText(getActivity(),"Must select a problem from the available options",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(v.getContext(),"Must select a problem from the available options",Toast.LENGTH_SHORT).show();
                         check = false;
                     }
                 } else if (bundle.getBoolean("exercise")) {
@@ -310,7 +310,7 @@ public class SurveySingleProblemFragment extends Fragment {
                         user.setSupplement3("BCAA");
                         user.setSupplement4("Glutamine");
                     } else {
-                        Toast.makeText(getActivity(),"Must select a problem from the available options",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(v.getContext(),"Must select a problem from the available options",Toast.LENGTH_SHORT).show();
                         check = false;
                     }
                 } else if (bundle.getBoolean("digestion")) {
@@ -328,7 +328,7 @@ public class SurveySingleProblemFragment extends Fragment {
                         user.setSupplement3("Lithothamne");
                         user.setSupplement4("Licorice");
                     } else {
-                        Toast.makeText(getActivity(),"Must select a problem from the available options",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(v.getContext(),"Must select a problem from the available options",Toast.LENGTH_SHORT).show();
                         check = false;
                     }
                 } else if (bundle.getBoolean("articulation")) {
@@ -346,7 +346,7 @@ public class SurveySingleProblemFragment extends Fragment {
                         user.setSupplement3("Palmitoylethanolamide");
                         user.setSupplement4("Black Currant");
                     } else {
-                        Toast.makeText(getActivity(),"Must select a problem from the available options",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(v.getContext(),"Must select a problem from the available options",Toast.LENGTH_SHORT).show();
                         check = false;
                     }
                 }

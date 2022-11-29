@@ -8,21 +8,30 @@ import androidx.viewpager.widget.ViewPager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
+
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 
 public class HomeActivity extends AppCompatActivity {
     TabLayout tabLayout;
     TabItem news;
     PagerAdapter pagerAdapter;
+    InputStream inputStream;
+    ViewPager viewPager;
+    FrameLayout frameLayout;
 
     @Override
     protected void onResume() {
-        // Set detault tab as profile
+        // Set default tab as profile
         super.onResume();
         tabLayout.selectTab(tabLayout.getTabAt(1));
         getSupportFragmentManager().beginTransaction()
@@ -41,21 +50,29 @@ public class HomeActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        DatabaseHelper databaseHelper = new DatabaseHelper(HomeActivity.this);
-        boolean success = false;
-        for(int i = 0; i < 7; i++){
-            success = databaseHelper.addOne();
+        inputStream = getResources().openRawResource(R.raw.supplement_sheet);
+        VitaminDatabaseHandler vitaminDatabaseHandler = new VitaminDatabaseHandler(HomeActivity.this);
+        BufferedInputStream bf = new BufferedInputStream(inputStream);
+        BufferedReader reader = new BufferedReader(new InputStreamReader(bf, StandardCharsets.UTF_8));
+        String line;
+        try{
+            while ((line = reader.readLine()) != null) {
+                String[] str = line.split(",");
+                vitaminDatabaseHandler.addCSV(str[1], str[2], str[3], str[6]);
+            }
         }
-        if(success == true){
-            Toast.makeText(HomeActivity.this, "Success!",Toast.LENGTH_LONG).show();
+        catch (IOException ex) {
+            ex.printStackTrace();
         }
 
         news = findViewById(R.id.news);
-        ViewPager viewPager = findViewById(R.id.fragmentcontainer);
+        viewPager = findViewById(R.id.fragmentcontainer);
         tabLayout = findViewById(R.id.include);
         pagerAdapter = new PagerAdapter(getSupportFragmentManager(),2);
+        frameLayout = findViewById(R.id.fragmentLayout1);
+        frameLayout.bringToFront();
 
-        // Set detault tab as profile
+        // Set default tab as profile
         tabLayout.selectTab(tabLayout.getTabAt(1));
         getSupportFragmentManager().beginTransaction()
                 .setReorderingAllowed(true)
@@ -103,9 +120,6 @@ public class HomeActivity extends AppCompatActivity {
 
             }
         });
-
-        //What does this do??
-        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
 
         ImageButton toHome = (ImageButton) findViewById(R.id.toHome);
         toHome.setOnClickListener(new View.OnClickListener() {

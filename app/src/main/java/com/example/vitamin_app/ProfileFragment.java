@@ -1,24 +1,33 @@
 package com.example.vitamin_app;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.ItemTouchHelper;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.provider.CalendarContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.vitamin_app.Adapters.ToDoAdapter;
+import com.example.vitamin_app.Model.ToDoModel;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -29,7 +38,9 @@ import com.google.firebase.database.ValueEventListener;
 
 import org.w3c.dom.Text;
 
+import java.util.Collections;
 import java.util.GregorianCalendar;
+import java.util.List;
 
 public class ProfileFragment extends Fragment {
 
@@ -41,7 +52,19 @@ public class ProfileFragment extends Fragment {
     // Reference for Firebase.
     DatabaseReference databaseReference;
 
+    // to store data from user's database
+    String problem1;
+    String problem2;
+
     private GoogleSignInClient mGoogleSignInClient;
+
+    private ToDoDatabaseHandler db;
+
+    private RecyclerView tasksRecyclerView;
+    private ToDoAdapter tasksAdapter;
+    private FloatingActionButton fab;
+
+    private List<ToDoModel> taskList;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -71,7 +94,7 @@ public class ProfileFragment extends Fragment {
                 .build();
         mGoogleSignInClient = GoogleSignIn.getClient(getActivity(), gso);
 
-        Button signout = (Button) v.findViewById(R.id.signout_btn);
+        ImageButton signout = (ImageButton) v.findViewById(R.id.signout_btn);
         signout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -80,52 +103,24 @@ public class ProfileFragment extends Fragment {
                 mGoogleSignInClient.signOut().addOnCompleteListener(getActivity(), new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-
+                        Intent intent = new Intent(view.getContext(), LoginActivity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                        view.getContext().startActivity(intent);
                     }
                 });
-            }
-        });
-
-        // Calendar API functionality
-        TextView text = (TextView) v.findViewById(R.id.textView2);
-        Button button = (Button) v.findViewById(R.id.button3);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Intent.ACTION_INSERT);
-                intent.setType("vnd.android.cursor.item/event");
-                intent.putExtra(CalendarContract.Events.TITLE, "Learn Android");
-                intent.putExtra(CalendarContract.Events.EVENT_LOCATION, "Home suit home");
-                intent.putExtra(CalendarContract.Events.DESCRIPTION, "Download Examples");
-
-                // Setting dates
-                GregorianCalendar calDate = new GregorianCalendar(2022, 11, 12);
-                intent.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME,
-                        calDate.getTimeInMillis());
-                intent.putExtra(CalendarContract.EXTRA_EVENT_END_TIME,
-                        calDate.getTimeInMillis());
-
-                // make it a recurring Event
-                intent.putExtra(CalendarContract.Events.RRULE, "FREQ=WEEKLY;COUNT=11;WKST=SU;BYDAY=TU,TH");
-
-                // make it a full day event
-                intent.putExtra(CalendarContract.EXTRA_EVENT_ALL_DAY, true);
-                startActivity(intent);
             }
         });
 
         // Retrieving user data from firebase
         String username = currentUser.getDisplayName();
         databaseReference.child(username).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
                 if (task.isSuccessful()) {
                     if(task.getResult().exists()) {
                         DataSnapshot dataSnapshot = task.getResult();
-                        String problem1 = String.valueOf(dataSnapshot.child("problem").getValue());
-                        String problem2 = String.valueOf(dataSnapshot.child("problem2").getValue());
-                        text.setText(problem1 + " " + problem2);
+                        problem1 = String.valueOf(dataSnapshot.child("problem").getValue());
+                        problem2 = String.valueOf(dataSnapshot.child("problem2").getValue());
                     } else {
                         Toast.makeText(v.getContext(), "User does not exist",Toast.LENGTH_LONG).show();
                     }
@@ -135,6 +130,51 @@ public class ProfileFragment extends Fragment {
             }
         });
 
+        // To do list functionality
+        db = new ToDoDatabaseHandler(getContext());
+        db.openDatabase();
+
+        tasksRecyclerView = v.findViewById(R.id.tasksRecyclerView);
+        tasksRecyclerView.setLayoutManager(new LinearLayoutManager(v.getContext()));
+        tasksAdapter = new ToDoAdapter(db,ProfileFragment.this);
+        tasksRecyclerView.setAdapter(tasksAdapter);
+
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new RecyclerItemTouchHelper(tasksAdapter));
+        itemTouchHelper.attachToRecyclerView(tasksRecyclerView);
+
+        fab = v.findViewById(R.id.fab);
+
+        taskList = db.getAllTasks();
+        if (taskList.isEmpty()) {
+            ToDoModel task = new ToDoModel();
+            task.setTask("swipe left on a task to delete it");
+            task.setStatus(0);
+            db.insertTask(task);
+            task.setTask("swipe right on a task to edit it or add it to you calendar");
+            task.setStatus(0);
+            db.insertTask(task);
+            task.setTask("add tasks by pressing the green button below");
+            task.setStatus(0);
+            db.insertTask(task);
+        }
+
+        Collections.reverse(taskList);
+        tasksAdapter.setTasks(taskList);
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AddNewTask.newInstance().show(getActivity().getSupportFragmentManager(), AddNewTask.TAG);
+            }
+        });
+
         return v;
+    }
+
+    public void handleDialogClose(DialogInterface dialog){
+        taskList = db.getAllTasks();
+        Collections.reverse(taskList);
+        tasksAdapter.setTasks(taskList);
+        tasksAdapter.notifyDataSetChanged();
     }
 }
