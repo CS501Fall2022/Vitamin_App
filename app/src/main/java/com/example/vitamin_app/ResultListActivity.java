@@ -16,12 +16,24 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.FirebaseDatabase;
+
 import org.w3c.dom.Text;
 
 public class ResultListActivity extends AppCompatActivity {
 
     RecyclerView resultDisplay;
     ResultListAdapter rvAdapter;
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+        // reset recyclerview, this allows for smooth updates to result display
+        resultDisplay.setLayoutManager(new LinearLayoutManager(this));
+        resultDisplay.swapAdapter(new ResultListAdapter(this), true);
+    }
 
 
     @Override
@@ -34,9 +46,10 @@ public class ResultListActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
+        // setup recycle view
         resultDisplay = findViewById(R.id.resultDisplay);
-        setAdapter(resultDisplay);
-
+        resultDisplay.setLayoutManager(new LinearLayoutManager(this));
+        resultDisplay.setAdapter(new ResultListAdapter(this));
 
         ImageButton toHome = (ImageButton) findViewById(R.id.toHome);
         toHome.setOnClickListener(new View.OnClickListener() {
@@ -71,8 +84,6 @@ public class ResultListActivity extends AppCompatActivity {
     }
 
     private void setAdapter(RecyclerView rv){
-        ResultListAdapter adapter = new ResultListAdapter(this);
-        rv.setLayoutManager(new LinearLayoutManager(this));
-        rv.setAdapter(adapter);
+
     }
 }
