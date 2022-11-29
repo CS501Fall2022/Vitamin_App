@@ -70,12 +70,14 @@ public class ResultListAdapter extends RecyclerView.Adapter<ResultListAdapter.Vi
                         else if(!problem1.equals(null) && problem2.equals(null)){
                             // user has survey results stored. (1 problem)
                             results = new String[]{
+                                    context.getResources().getString(R.string.result_exists_intro),
                                     problem1, s1, s2, s3, s4
                             };
                         }
                         else{
                             // user has survey results stored. (2 problems)
                             results = new String[]{
+                                    context.getResources().getString(R.string.result_exists_intro),
                                     problem1 + "/" + problem2, s1, s2, s3, s4
                             };
                         }
@@ -92,6 +94,7 @@ public class ResultListAdapter extends RecyclerView.Adapter<ResultListAdapter.Vi
 
 
     public class ViewHolder extends RecyclerView.ViewHolder{
+        public TextView intro;
         public TextView desc;
         public TextView vit1;
         public TextView vit2;
@@ -104,6 +107,8 @@ public class ResultListAdapter extends RecyclerView.Adapter<ResultListAdapter.Vi
 
         public ViewHolder(View itemView){
             super(itemView);
+            // link all view references
+            intro = itemView.findViewById(R.id.resultIntro);
             desc = itemView.findViewById(R.id.resultDescription);
             vit1 = itemView.findViewById(R.id.vit_1);
             vit2 = itemView.findViewById(R.id.vit_2);
@@ -148,17 +153,18 @@ public class ResultListAdapter extends RecyclerView.Adapter<ResultListAdapter.Vi
     public void onBindViewHolder(ViewHolder holder, int position) {
         // place data into result view
         // since only 1 view, no need to use position index
-        holder.desc.setText(results[0]);
-        holder.vit1.setText(results[1]);
-        holder.vit2.setText(results[2]);
-        holder.vit3.setText(results[3]);
-        holder.vit4.setText(results[4]);
+        holder.intro.setText(results[0]);
+        holder.desc.setText(results[1]);
+        holder.vit1.setText(results[2]);
+        holder.vit2.setText(results[3]);
+        holder.vit3.setText(results[4]);
+        holder.vit4.setText(results[5]);
 
         // if default result, onclick needs to send toast (handled in function)
-        holder.setUrlTarget(holder.vit_button1, results[1]);
-        holder.setUrlTarget(holder.vit_button2, results[2]);
-        holder.setUrlTarget(holder.vit_button3, results[3]);
-        holder.setUrlTarget(holder.vit_button4, results[4]);
+        holder.setUrlTarget(holder.vit_button1, results[2]);
+        holder.setUrlTarget(holder.vit_button2, results[3]);
+        holder.setUrlTarget(holder.vit_button3, results[4]);
+        holder.setUrlTarget(holder.vit_button4, results[5]);
     }
 
     @Override

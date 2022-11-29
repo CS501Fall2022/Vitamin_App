@@ -15,8 +15,14 @@
     <string name="checkbox_header">Select your most relevant issue</string>
     <string name="vitamin_search_button_display">See Google Results</string>
     <string name="result_page_title">Recommendations</string>
+    <string name="result_exists_intro">
+        These are the supplements which can help with the problem(s) listed below.
+        For more information, click a button!\n
+        Please fill out the survey again if you have a new issue.
+    </string>
 
     <string-array name="default_result_display">
+        <item> </item>
         <item>Fill out the survey and see recommended vitamins here!</item>
         <item>--</item>
         <item>--</item>
