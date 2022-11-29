@@ -9,13 +9,18 @@ import android.content.Intent;
 import android.content.ReceiverCallNotAllowedException;
 import android.os.Bundle;
 import android.view.View;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.ImageButton;
 
 public class ResultListActivity extends AppCompatActivity {
-    
+
     RecyclerView resultDisplay;
     ResultListAdapter rvAdapter;
+    WebView test;
+
+    private static final String GOOGLE_SEARCH_URL = "https://www.google.com/search?q=";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +29,10 @@ public class ResultListActivity extends AppCompatActivity {
 
         resultDisplay = findViewById(R.id.resultDisplay);
         rvAdapter = setAndGetAdapter(resultDisplay);
+
+        test = findViewById(R.id.webview);
+        test.setWebViewClient(new WebViewClient());
+        test.loadUrl(GOOGLE_SEARCH_URL + "webmd safran");
 
         ImageButton toHome = (ImageButton) findViewById(R.id.toHome);
         toHome.setOnClickListener(new View.OnClickListener() {
