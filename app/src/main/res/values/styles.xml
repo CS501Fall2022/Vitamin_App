@@ -41,10 +41,18 @@
         <item name="android:textSize">20sp</item>
     </style>
 
+
     <style name="toolbar_title" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
-        <item name="android:text">VitalFix</item>
         <item name="android:textColor">@color/login_green</item>
         <item name="android:textSize">30sp</item>
         <item name="android:textStyle">bold</item>
+        <item name="android:text">VitalFix</item>
+    </style>
+
+    <style name="result_page_title" parent="toolbar_title">
+        <item name="android:background">@color/white</item>
+        <item name="android:gravity">center</item>
+        <item name="android:text">@string/result_page_title</item>
+        <item name="android:textStyle">normal</item>
     </style>
 </resources>

@@ -14,9 +14,10 @@
     <string name="ratio_header">Select the ratio of supplements for each problem</string>
     <string name="checkbox_header">Select your most relevant issue</string>
     <string name="vitamin_search_button_display">See Google Results</string>
+    <string name="result_page_title">Recommendations</string>
 
     <string-array name="default_result_display">
-        <item>Fill out the survey and see the result here!</item>
+        <item>Fill out the survey and see recommended vitamins here!</item>
         <item>--</item>
         <item>--</item>
         <item>--</item>
