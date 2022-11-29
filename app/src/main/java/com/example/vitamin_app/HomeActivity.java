@@ -7,6 +7,7 @@ import androidx.viewpager.widget.ViewPager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 
 import com.google.android.material.tabs.TabItem;
@@ -24,10 +25,12 @@ public class HomeActivity extends AppCompatActivity {
     TabItem news;
     PagerAdapter pagerAdapter;
     InputStream inputStream;
+    ViewPager viewPager;
+    FrameLayout frameLayout;
 
     @Override
     protected void onResume() {
-        // Set detault tab as profile
+        // Set default tab as profile
         super.onResume();
         tabLayout.selectTab(tabLayout.getTabAt(1));
         getSupportFragmentManager().beginTransaction()
@@ -56,11 +59,13 @@ public class HomeActivity extends AppCompatActivity {
         }
 
         news = findViewById(R.id.news);
-        ViewPager viewPager = findViewById(R.id.fragmentcontainer);
+        viewPager = findViewById(R.id.fragmentcontainer);
         tabLayout = findViewById(R.id.include);
         pagerAdapter = new PagerAdapter(getSupportFragmentManager(),2);
+        frameLayout = findViewById(R.id.fragmentLayout1);
+        frameLayout.bringToFront();
 
-        // Set detault tab as profile
+        // Set default tab as profile
         tabLayout.selectTab(tabLayout.getTabAt(1));
         getSupportFragmentManager().beginTransaction()
                 .setReorderingAllowed(true)
@@ -108,9 +113,6 @@ public class HomeActivity extends AppCompatActivity {
 
             }
         });
-
-        //What does this do??
-        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
 
         ImageButton toHome = (ImageButton) findViewById(R.id.toHome);
         toHome.setOnClickListener(new View.OnClickListener() {

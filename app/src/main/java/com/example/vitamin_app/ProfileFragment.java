@@ -130,39 +130,6 @@ public class ProfileFragment extends Fragment {
             }
         });
 
-        if (problem1 == null) {
-            // Prompt user to take survey
-        } else if (problem2 == null) {
-            //
-        }
-
-        // Calendar API functionality
-        Button button = (Button) v.findViewById(R.id.button3);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Intent.ACTION_INSERT);
-                intent.setType("vnd.android.cursor.item/event");
-                intent.putExtra(CalendarContract.Events.TITLE, "Learn Android");
-                intent.putExtra(CalendarContract.Events.EVENT_LOCATION, "Home suit home");
-                intent.putExtra(CalendarContract.Events.DESCRIPTION, "Download Examples");
-
-                // Setting dates
-                GregorianCalendar calDate = new GregorianCalendar(2022, 11, 12);
-                intent.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME,
-                        calDate.getTimeInMillis());
-                intent.putExtra(CalendarContract.EXTRA_EVENT_END_TIME,
-                        calDate.getTimeInMillis());
-
-                // make it a recurring Event
-                intent.putExtra(CalendarContract.Events.RRULE, "FREQ=WEEKLY;COUNT=11;WKST=SU;BYDAY=TU,TH");
-
-                // make it a full day event
-                intent.putExtra(CalendarContract.EXTRA_EVENT_ALL_DAY, true);
-                startActivity(intent);
-            }
-        });
-
         // To do list functionality
         db = new ToDoDatabaseHandler(getContext());
         db.openDatabase();
@@ -178,8 +145,20 @@ public class ProfileFragment extends Fragment {
         fab = v.findViewById(R.id.fab);
 
         taskList = db.getAllTasks();
-        Collections.reverse(taskList);
+        if (taskList.isEmpty()) {
+            ToDoModel task = new ToDoModel();
+            task.setTask("swipe left on a task to delete it");
+            task.setStatus(0);
+            db.insertTask(task);
+            task.setTask("swipe right on a task to edit it or add it to you calendar");
+            task.setStatus(0);
+            db.insertTask(task);
+            task.setTask("add tasks by pressing the green button below");
+            task.setStatus(0);
+            db.insertTask(task);
+        }
 
+        Collections.reverse(taskList);
         tasksAdapter.setTasks(taskList);
 
         fab.setOnClickListener(new View.OnClickListener() {
