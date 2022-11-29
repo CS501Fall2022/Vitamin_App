@@ -95,8 +95,8 @@ public class LoginActivity extends AppCompatActivity {
         //Get last client to sign in and go to homepage if already logged in
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null){
-//          signOut();
-            goHome(currentUser);
+            //signOut();
+            //goHome(currentUser);
         }
 
         if (showOneTapUI) {
@@ -247,44 +247,60 @@ public class LoginActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d("TAG", "signInWithCredential:success");
-                            // add user info to database
+
                             FirebaseUser currentUser = mAuth.getCurrentUser();
                             String email = currentUser.getEmail();
                             String userId = currentUser.getDisplayName();
                             firebaseDatabase = FirebaseDatabase.getInstance();
+                            databaseReference = firebaseDatabase.getReference("Users");
 
-                            mAuth.fetchSignInMethodsForEmail(email).addOnCompleteListener(new OnCompleteListener<SignInMethodQueryResult>() {
+                            // Checking if user exists in database
+                            databaseReference.child(userId).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                                 @Override
-                                public void onComplete(@NonNull Task<SignInMethodQueryResult> task) {
-                                    boolean isNewUser = task.getResult().getSignInMethods().isEmpty();
-                                    // Only add user information if they haven't logged in before
-                                    if (isNewUser) {
-                                        // below line is used to get reference for our database.
-                                        databaseReference = firebaseDatabase.getReference("Users");
-                                        user = new Users(email, userId);
+                                public void onComplete(@NonNull Task<DataSnapshot> task) {
+                                    if (task.isSuccessful()) {
+                                        if(task.getResult().exists()) {
+                                        } else {
+                                            Toast.makeText(LoginActivity.this, "User does not exist in database",Toast.LENGTH_LONG).show();
+                                            user = new Users(email, userId);
 
-                                        // Might need to store username inside SQL to avoid passing it into bundles
+                                            databaseReference.addValueEventListener(new ValueEventListener() {
+                                                @Override
+                                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                                    databaseReference.child(userId).setValue(user);
+                                                }
 
-                                        databaseReference.addValueEventListener(new ValueEventListener() {
-                                            @Override
-                                            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                                databaseReference.child(userId).setValue(user);
+                                                @Override
+                                                public void onCancelled(@NonNull DatabaseError error) {
+
+                                                }
+                                            });
                                             }
-
-                                            @Override
-                                            public void onCancelled(@NonNull DatabaseError error) {
-
-                                            }
-                                        });
+                                    } else {
+                                        Toast.makeText(LoginActivity.this, "Failed to read data",Toast.LENGTH_LONG).show();
                                     }
                                 }
                             });
+
+                            // How to check if email exists in auth
+
+//                            mAuth.fetchSignInMethodsForEmail(email).addOnCompleteListener(new OnCompleteListener<SignInMethodQueryResult>() {
+//                                @Override
+//                                public void onComplete(@NonNull Task<SignInMethodQueryResult> task) {
+//                                    boolean isNewUser = task.getResult().getSignInMethods().isEmpty();
+//                                    Toast.makeText(LoginActivity.this, String.valueOf(isNewUser), Toast.LENGTH_LONG).show();
+//                                    // Only add user information if they haven't logged in before
+//                                    if (isNewUser) {
+//
+//                                    }
+//                                }
+//                            });
 
                             goHome(null);
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w("TAG", "signInWithCredential:failure", task.getException());
-                            goHome(null);
+                            // goHome(null);
                         }
                     }
                 });

@@ -1,16 +1,22 @@
 package com.example.vitamin_app;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import android.provider.CalendarContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -23,6 +29,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import org.w3c.dom.Text;
 
+import java.util.GregorianCalendar;
+
 public class ProfileFragment extends Fragment {
 
     // creating a variable for our
@@ -32,6 +40,8 @@ public class ProfileFragment extends Fragment {
     // creating a variable for our Database
     // Reference for Firebase.
     DatabaseReference databaseReference;
+
+    private GoogleSignInClient mGoogleSignInClient;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -51,10 +61,61 @@ public class ProfileFragment extends Fragment {
 
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        String username = currentUser.getDisplayName();
 
+        // Sign out functionality
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()
+                .requestId()
+                .requestIdToken("517722316464-2o671af2pt9mmc3ebsm16jgt746i1k7q.apps.googleusercontent.com")
+                .requestProfile()
+                .build();
+        mGoogleSignInClient = GoogleSignIn.getClient(getActivity(), gso);
+
+        Button signout = (Button) v.findViewById(R.id.signout_btn);
+        signout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mAuth.signOut();
+                Toast.makeText(getActivity(), "Logout from " + currentUser.getEmail(), Toast.LENGTH_LONG).show();
+                mGoogleSignInClient.signOut().addOnCompleteListener(getActivity(), new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+
+                    }
+                });
+            }
+        });
+
+        // Calendar API functionality
         TextView text = (TextView) v.findViewById(R.id.textView2);
+        Button button = (Button) v.findViewById(R.id.button3);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_INSERT);
+                intent.setType("vnd.android.cursor.item/event");
+                intent.putExtra(CalendarContract.Events.TITLE, "Learn Android");
+                intent.putExtra(CalendarContract.Events.EVENT_LOCATION, "Home suit home");
+                intent.putExtra(CalendarContract.Events.DESCRIPTION, "Download Examples");
 
+                // Setting dates
+                GregorianCalendar calDate = new GregorianCalendar(2022, 11, 12);
+                intent.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME,
+                        calDate.getTimeInMillis());
+                intent.putExtra(CalendarContract.EXTRA_EVENT_END_TIME,
+                        calDate.getTimeInMillis());
+
+                // make it a recurring Event
+                intent.putExtra(CalendarContract.Events.RRULE, "FREQ=WEEKLY;COUNT=11;WKST=SU;BYDAY=TU,TH");
+
+                // make it a full day event
+                intent.putExtra(CalendarContract.EXTRA_EVENT_ALL_DAY, true);
+                startActivity(intent);
+            }
+        });
+
+        // Retrieving user data from firebase
+        String username = currentUser.getDisplayName();
         databaseReference.child(username).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
 
             @Override
