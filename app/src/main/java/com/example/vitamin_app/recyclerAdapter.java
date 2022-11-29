@@ -77,7 +77,7 @@ public class recyclerAdapter extends RecyclerView.Adapter<recyclerAdapter.ViewHo
     @Override
     public void onBindViewHolder(ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         holder.vitaminDesc.setText(vitamin_descriptions[position]);
-        holder.imgVitamin.setImageResource(vitamin_img.get(position).intValue());
+//        holder.imgVitamin.setImageResource(vitamin_img.get(position).intValue());
 //        holder.tvRatingBar.setRating(episodeRatings[position]);
 //        holder.tvEpisodeTitle.setText(vitamin_names[position]);
         holder.btnRandom.setOnClickListener(new View.OnClickListener() {
