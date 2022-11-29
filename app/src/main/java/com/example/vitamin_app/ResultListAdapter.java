@@ -1,10 +1,13 @@
 package com.example.vitamin_app;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,6 +30,8 @@ public class ResultListAdapter extends RecyclerView.Adapter<ResultListAdapter.Vi
     // provide access to db to get user's results
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
+    // append supplement name to this string for search
+    private static final String GOOGLE_SEARCH_URL = "https://www.google.com/search?q=webmd ";
 
     public ResultListAdapter(Context inContext){
         context = inContext;
@@ -45,7 +50,6 @@ public class ResultListAdapter extends RecyclerView.Adapter<ResultListAdapter.Vi
 
         // search db for data of currently signed in user
         databaseReference.child(username).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
                 if (task.isSuccessful()) {
@@ -93,6 +97,10 @@ public class ResultListAdapter extends RecyclerView.Adapter<ResultListAdapter.Vi
         public TextView vit2;
         public TextView vit3;
         public TextView vit4;
+        public Button vit_button1;
+        public Button vit_button2;
+        public Button vit_button3;
+        public Button vit_button4;
 
         public ViewHolder(View itemView){
             super(itemView);
@@ -101,6 +109,30 @@ public class ResultListAdapter extends RecyclerView.Adapter<ResultListAdapter.Vi
             vit2 = itemView.findViewById(R.id.vit_2);
             vit3 = itemView.findViewById(R.id.vit_3);
             vit4 = itemView.findViewById(R.id.vit_4);
+            vit_button1 = itemView.findViewById(R.id.vit_1_button);
+            vit_button2 = itemView.findViewById(R.id.vit_2_button);
+            vit_button3 = itemView.findViewById(R.id.vit_3_button);
+            vit_button4 = itemView.findViewById(R.id.vit_4_button);
+        }
+
+        public void setUrlTarget(Button clicked, String vit_name){
+            clicked.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    // prevent button from opening browser if no result available
+                    if(vit_name.equals("--")){
+                        Toast.makeText(clicked.getContext(), "No vitamin to search for",Toast.LENGTH_LONG).show();
+                    }
+                    else{
+                        // actual vitamin, search for info
+                        Intent intent = new Intent(view.getContext(), webView.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                        intent.putExtra("url", GOOGLE_SEARCH_URL + vit_name);
+                        view.getContext().startActivity(intent);
+                    }
+                }
+            });
+
         }
     }
 
@@ -121,10 +153,16 @@ public class ResultListAdapter extends RecyclerView.Adapter<ResultListAdapter.Vi
         holder.vit2.setText(results[2]);
         holder.vit3.setText(results[3]);
         holder.vit4.setText(results[4]);
+
+        // if default result, onclick needs to send toast (handled in function)
+        holder.setUrlTarget(holder.vit_button1, results[1]);
+        holder.setUrlTarget(holder.vit_button2, results[2]);
+        holder.setUrlTarget(holder.vit_button3, results[3]);
+        holder.setUrlTarget(holder.vit_button4, results[4]);
     }
 
     @Override
     public int getItemCount() {
-        return results.length;
+        return 1;
     }
 }

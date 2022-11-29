@@ -1,6 +1,7 @@
 package com.example.vitamin_app;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,26 +14,29 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 public class ResultListActivity extends AppCompatActivity {
 
     RecyclerView resultDisplay;
     ResultListAdapter rvAdapter;
-    WebView test;
 
-    private static final String GOOGLE_SEARCH_URL = "https://www.google.com/search?q=";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result_list);
 
-        resultDisplay = findViewById(R.id.resultDisplay);
-        rvAdapter = setAndGetAdapter(resultDisplay);
+        // set custom toolbar
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        test = findViewById(R.id.webview);
-        test.setWebViewClient(new WebViewClient());
-        test.loadUrl(GOOGLE_SEARCH_URL + "webmd safran");
+        resultDisplay = findViewById(R.id.resultDisplay);
+        setAdapter(resultDisplay);
+
 
         ImageButton toHome = (ImageButton) findViewById(R.id.toHome);
         toHome.setOnClickListener(new View.OnClickListener() {
@@ -65,10 +69,9 @@ public class ResultListActivity extends AppCompatActivity {
         });
     }
 
-    private ResultListAdapter setAndGetAdapter(RecyclerView rv){
+    private void setAdapter(RecyclerView rv){
         ResultListAdapter adapter = new ResultListAdapter(this);
         rv.setLayoutManager(new LinearLayoutManager(this));
         rv.setAdapter(adapter);
-        return adapter;
     }
 }

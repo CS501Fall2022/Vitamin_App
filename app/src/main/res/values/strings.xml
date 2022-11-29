@@ -13,6 +13,7 @@
     <string name="articulation">Articulation</string>
     <string name="ratio_header">Select the ratio of supplements for each problem</string>
     <string name="checkbox_header">Select your most relevant issue</string>
+    <string name="vitamin_search_button_display">See Google Results</string>
 
     <string-array name="default_result_display">
         <item>Fill out the survey and see the result here!</item>

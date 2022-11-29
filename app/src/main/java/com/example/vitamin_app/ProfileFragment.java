@@ -127,10 +127,10 @@ public class ProfileFragment extends Fragment {
                         String problem2 = String.valueOf(dataSnapshot.child("problem2").getValue());
                         text.setText(problem1 + " " + problem2);
                     } else {
-                        Toast.makeText(getActivity(), "User does not exist",Toast.LENGTH_LONG).show();
+                        Toast.makeText(v.getContext(), "User does not exist",Toast.LENGTH_LONG).show();
                     }
                 } else {
-                    Toast.makeText(getActivity(), "Failed to read data",Toast.LENGTH_LONG).show();
+                    Toast.makeText(v.getContext(), "Failed to read data",Toast.LENGTH_LONG).show();
                 }
             }
         });

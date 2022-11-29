@@ -36,6 +36,11 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        // set custom toolbar
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+
         DatabaseHelper databaseHelper = new DatabaseHelper(HomeActivity.this);
         boolean success = false;
         for(int i = 0; i < 7; i++){
