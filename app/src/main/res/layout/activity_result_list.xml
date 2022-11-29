@@ -44,7 +44,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:scaleType="fitCenter"
-            android:src="@drawable/list_button_icon" />
+            android:src="@drawable/baseline_view_list_24" />
 
         <ImageButton
             android:id="@+id/toHome"
@@ -52,7 +52,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:scaleType="fitCenter"
-            android:src="@drawable/profile_button_icon" />
+            android:src="@drawable/baseline_home_24" />
 
         <ImageButton
             android:id="@+id/toSearch"
@@ -60,7 +60,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:scaleType="fitCenter"
-            android:src="@drawable/search_button_icon" />
+            android:src="@drawable/baseline_search_24" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -47,7 +47,7 @@ public class SurveyMainFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 if (count == 0) {
-                    Toast.makeText(getActivity(),"Please select at least 1 problem",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(v.getContext(),"Please select at least 1 problem",Toast.LENGTH_SHORT).show();
                 } else if (count == 1) {
                     Fragment single = new SurveySingleProblemFragment();
                     FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
@@ -65,7 +65,7 @@ public class SurveyMainFragment extends Fragment {
                     fragmentTransaction.addToBackStack(null);
                     fragmentTransaction.commit();
                 } else {
-                    Toast.makeText(getActivity(),"Please only select 2 problems",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(v.getContext(),"Please only select 2 problems",Toast.LENGTH_SHORT).show();
                 }
             }
         });

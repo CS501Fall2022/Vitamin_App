@@ -1,24 +1,29 @@
 package com.example.vitamin_app;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
+
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 
 public class HomeActivity extends AppCompatActivity {
     TabLayout tabLayout;
     TabItem news;
     PagerAdapter pagerAdapter;
+    InputStream inputStream;
 
     @Override
     protected void onResume() {
@@ -35,14 +40,19 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
-        DatabaseHelper databaseHelper = new DatabaseHelper(HomeActivity.this);
-        boolean success = false;
-        for(int i = 0; i < 7; i++){
-            success = databaseHelper.addOne();
+        inputStream = getResources().openRawResource(R.raw.supplement_sheet);
+        VitaminDatabaseHandler vitaminDatabaseHandler = new VitaminDatabaseHandler(HomeActivity.this);
+        BufferedInputStream bf = new BufferedInputStream(inputStream);
+        BufferedReader reader = new BufferedReader(new InputStreamReader(bf, StandardCharsets.UTF_8));
+        String line;
+        try{
+            while ((line = reader.readLine()) != null) {
+                String[] str = line.split(",");
+                vitaminDatabaseHandler.addCSV(str[1], str[2], str[3], str[6]);
+            }
         }
-        if(success == true){
-            Toast.makeText(HomeActivity.this, "Success!",Toast.LENGTH_LONG).show();
+        catch (IOException ex) {
+            ex.printStackTrace();
         }
 
         news = findViewById(R.id.news);

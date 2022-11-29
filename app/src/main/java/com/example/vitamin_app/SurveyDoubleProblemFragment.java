@@ -390,7 +390,7 @@ public class SurveyDoubleProblemFragment extends Fragment {
                             user.setSupplement3("Kudzu");
                         }
                     } else {
-                        Toast.makeText(getActivity(),"Must select a problem from the available options",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(v.getContext(),"Must select a problem from the available options",Toast.LENGTH_SHORT).show();
                         check = false;
                     }
                     count++;
@@ -434,7 +434,7 @@ public class SurveyDoubleProblemFragment extends Fragment {
                                 user.setSupplement3("Griffonia");
                             }
                         } else {
-                            Toast.makeText(getActivity(),"Must select a problem from the available options",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(v.getContext(),"Must select a problem from the available options",Toast.LENGTH_SHORT).show();
                             check = false;
                         }
                     } else {
@@ -473,7 +473,7 @@ public class SurveyDoubleProblemFragment extends Fragment {
                                 user.setSupplement2("Griffonia");
                             }
                         } else {
-                            Toast.makeText(getActivity(),"Must select a problem from the available options",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(v.getContext(),"Must select a problem from the available options",Toast.LENGTH_SHORT).show();
                             check = false;
                         }
                     }
@@ -506,7 +506,7 @@ public class SurveyDoubleProblemFragment extends Fragment {
                                 user.setSupplement3("L-Tryptophan");
                             }
                         } else {
-                            Toast.makeText(getActivity(),"Must select a problem from the available options",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(v.getContext(),"Must select a problem from the available options",Toast.LENGTH_SHORT).show();
                             check = false;
                         }
                     } else {
@@ -534,7 +534,7 @@ public class SurveyDoubleProblemFragment extends Fragment {
                                 user.setSupplement2("L-Tryptophan");
                             }
                         } else {
-                            Toast.makeText(getActivity(),"Must select a problem from the available options",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(v.getContext(),"Must select a problem from the available options",Toast.LENGTH_SHORT).show();
                             check = false;
                         }
                     }
@@ -567,7 +567,7 @@ public class SurveyDoubleProblemFragment extends Fragment {
                                 user.setSupplement3("Glutathione");
                             }
                         } else {
-                            Toast.makeText(getActivity(),"Must select a problem from the available options",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(v.getContext(),"Must select a problem from the available options",Toast.LENGTH_SHORT).show();
                             check = false;
                         }
                     } else {
@@ -595,7 +595,7 @@ public class SurveyDoubleProblemFragment extends Fragment {
                                 user.setSupplement3("Glutathione");
                             }
                         } else {
-                            Toast.makeText(getActivity(),"Must select a problem from the available options",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(v.getContext(),"Must select a problem from the available options",Toast.LENGTH_SHORT).show();
                             check = false;
                         }
                     }
@@ -640,7 +640,7 @@ public class SurveyDoubleProblemFragment extends Fragment {
                                 user.setSupplement3("Burdock Root");
                             }
                         } else {
-                            Toast.makeText(getActivity(),"Must select a problem from the available options",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(v.getContext(),"Must select a problem from the available options",Toast.LENGTH_SHORT).show();
                             check = false;
                         }
                     } else {
@@ -679,7 +679,7 @@ public class SurveyDoubleProblemFragment extends Fragment {
                                 user.setSupplement3("Burdock Root");
                             }
                         } else {
-                            Toast.makeText(getActivity(),"Must select a problem from the available options",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(v.getContext(),"Must select a problem from the available options",Toast.LENGTH_SHORT).show();
                             check = false;
                         }
                     }
@@ -724,7 +724,7 @@ public class SurveyDoubleProblemFragment extends Fragment {
                                 user.setSupplement3("Peppermint");
                             }
                         } else {
-                            Toast.makeText(getActivity(),"Must select a problem from the available options",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(v.getContext(),"Must select a problem from the available options",Toast.LENGTH_SHORT).show();
                             check = false;
                         }
                     } else {
@@ -763,7 +763,7 @@ public class SurveyDoubleProblemFragment extends Fragment {
                                 user.setSupplement3("Peppermint");
                             }
                         } else {
-                            Toast.makeText(getActivity(),"Must select a problem from the available options",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(v.getContext(),"Must select a problem from the available options",Toast.LENGTH_SHORT).show();
                             check = false;
                         }
                     }
@@ -796,7 +796,7 @@ public class SurveyDoubleProblemFragment extends Fragment {
                                 user.setSupplement3("Glutamine");
                             }
                         } else {
-                            Toast.makeText(getActivity(),"Must select a problem from the available options",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(v.getContext(),"Must select a problem from the available options",Toast.LENGTH_SHORT).show();
                             check = false;
                         }
                     } else {
@@ -824,7 +824,7 @@ public class SurveyDoubleProblemFragment extends Fragment {
                                 user.setSupplement3("Glutamine");
                             }
                         } else {
-                            Toast.makeText(getActivity(),"Must select a problem from the available options",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(v.getContext(),"Must select a problem from the available options",Toast.LENGTH_SHORT).show();
                             check = false;
                         }
                     }
@@ -857,7 +857,7 @@ public class SurveyDoubleProblemFragment extends Fragment {
                                 user.setSupplement3("Cardamom");
                             }
                         } else {
-                            Toast.makeText(getActivity(),"Must select a problem from the available options",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(v.getContext(),"Must select a problem from the available options",Toast.LENGTH_SHORT).show();
                             check = false;
                         }
                     } else {
@@ -885,7 +885,7 @@ public class SurveyDoubleProblemFragment extends Fragment {
                                 user.setSupplement3("Cardamom");
                             }
                         } else {
-                            Toast.makeText(getActivity(),"Must select a problem from the available options",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(v.getContext(),"Must select a problem from the available options",Toast.LENGTH_SHORT).show();
                             check = false;
                         }
                     }
@@ -918,7 +918,7 @@ public class SurveyDoubleProblemFragment extends Fragment {
                                 user.setSupplement3("Black Currant");
                             }
                         } else {
-                            Toast.makeText(getActivity(),"Must select a problem from the available options",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(v.getContext(),"Must select a problem from the available options",Toast.LENGTH_SHORT).show();
                             check = false;
                         }
                     } else {
@@ -946,7 +946,7 @@ public class SurveyDoubleProblemFragment extends Fragment {
                                 user.setSupplement3("Black Currant");
                             }
                         } else {
-                            Toast.makeText(getActivity(),"Must select a problem from the available options",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(v.getContext(),"Must select a problem from the available options",Toast.LENGTH_SHORT).show();
                             check = false;
                         }
                     }

@@ -19,7 +19,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DatabaseHelper extends SQLiteOpenHelper {
+public class VitaminDatabaseHandler extends SQLiteOpenHelper {
     public static final String VITAMIN_TABLE = "vitamin_table";
     public static final String VITAMIN_NAME = "vitamin_name";
     public static final String VITAMIN_TYPE = "vitamin_type";
@@ -28,7 +28,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COLUMN_ID  ="column_id";
     private static final int VERSION = 2;
     private static InputStream inputStream;
-    public DatabaseHelper(@Nullable Context context){
+
+    public VitaminDatabaseHandler(@Nullable Context context){
         super(context,"vitamin.db", null,VERSION);
 
     }
