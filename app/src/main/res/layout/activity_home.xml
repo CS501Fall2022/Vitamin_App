@@ -66,9 +66,6 @@
             android:src="@drawable/baseline_search_24" />
     </LinearLayout>
 
-<<<<<<< HEAD
-=======
-
     <FrameLayout
         android:id="@+id/fragmentLayout1"
         android:layout_width="match_parent"
@@ -82,7 +79,6 @@
 
     </FrameLayout>
 
->>>>>>> Lucan
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/include"
         android:layout_width="match_parent"

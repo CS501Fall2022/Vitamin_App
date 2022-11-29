@@ -24,7 +24,6 @@
         <item name="android:thumbTint">@color/dark_beige</item>
     </style>
 
-<<<<<<< HEAD
     <style name="browserButton">
         <item name="android:textSize">11dp</item>
         <item name="android:paddingStart">5dp</item>
@@ -55,11 +54,11 @@
         <item name="android:gravity">center</item>
         <item name="android:text">@string/result_page_title</item>
         <item name="android:textStyle">normal</item>
-=======
+    </style>
+
     <style name="DialogStyle" parent="Theme.Design.Light.BottomSheetDialog">
         <item name="android:windowIsFloating">false</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:windowSoftInputMode">adjustResize</item>
->>>>>>> Lucan
     </style>
 </resources>
