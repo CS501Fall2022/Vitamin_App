@@ -13,7 +13,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 
 public class ResultListActivity extends AppCompatActivity {
-
+    
     RecyclerView resultDisplay;
     ResultListAdapter rvAdapter;
 
