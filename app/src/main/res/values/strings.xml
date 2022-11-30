@@ -22,7 +22,7 @@
     </string>
 
     <string-array name="default_result_display">
-        <item> </item>
+        <item>\n\n\n</item>
         <item>Fill out the survey and see recommended vitamins here!</item>
         <item>--</item>
         <item>--</item>
