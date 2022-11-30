@@ -1,7 +1,11 @@
 package com.example.vitamin_app;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,11 +13,15 @@ import android.widget.Button;
 import android.widget.ImageButton;
 
 public class GeneralListActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_general_list);
+
+        // set custom toolbar
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         ImageButton toHome = (ImageButton) findViewById(R.id.toHome);
         toHome.setOnClickListener(new View.OnClickListener() {
@@ -25,6 +33,7 @@ public class GeneralListActivity extends AppCompatActivity {
             }
         });
 
+        ;
         ImageButton toList = (ImageButton) findViewById(R.id.toList);
         toList.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,5 +53,6 @@ public class GeneralListActivity extends AppCompatActivity {
                 view.getContext().startActivity(intent);
             }
         });
+
     }
 }

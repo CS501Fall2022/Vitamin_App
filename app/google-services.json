@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "517722316464",
+    "firebase_url": "https://vitamins-db227-default-rtdb.firebaseio.com",
     "project_id": "vitamins-db227",
     "storage_bucket": "vitamins-db227.appspot.com"
   },
@@ -13,6 +14,22 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "517722316464-0525moa7sm0hnlhi8ffeohp4mpbu8i64.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.vitamin_app",
+            "certificate_hash": "00fe74406b75a0f7ea8383cb230d95b78f8c67c5"
+          }
+        },
+        {
+          "client_id": "517722316464-hch8vehljk9e0hmun15tdog7m7ar74js.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.vitamin_app",
+            "certificate_hash": "09b6847805b030e02095ba7dbd29da49ff6ff81c"
+          }
+        },
         {
           "client_id": "517722316464-2o671af2pt9mmc3ebsm16jgt746i1k7q.apps.googleusercontent.com",
           "client_type": 3

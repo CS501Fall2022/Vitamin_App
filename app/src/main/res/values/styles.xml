@@ -3,17 +3,62 @@
     <style name="Header" parent="@android:style/TextAppearance">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">24dp</item>
+        <item name="android:textSize">30dp</item>
         <item name="android:padding">10dp</item>
         <item name="android:gravity">center</item>
     </style>
 
     <style name="RadioButton" parent="Theme.AppCompat.Light">
         <item name="android:gravity">center</item>
-        <item name="android:textSize">16dp</item>
+        <item name="android:textSize">18dp</item>
         <item name="android:layout_width">100dp</item>
         <item name="android:layout_height">100dp</item>
         <item name="android:background">@drawable/radio_selector</item>
         <item name="android:button">@android:color/transparent</item>
+    </style>
+
+    <style name="MySeekBar" parent="Widget.AppCompat.SeekBar">
+        <item name="android:max">3</item>
+        <item name="android:progress">2</item>
+        <item name="android:progressDrawable">@drawable/seekbar_drawable</item>
+        <item name="android:thumbTint">@color/dark_beige</item>
+    </style>
+
+    <style name="browserButton">
+        <item name="android:textSize">11dp</item>
+        <item name="android:paddingStart">5dp</item>
+        <item name="android:paddingEnd">5dp</item>
+        <item name="android:minHeight">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:insetLeft">0dp</item>
+        <item name="android:insetRight">0dp</item>
+        <item name="android:text">@string/vitamin_search_button_display</item>
+    </style>
+
+    <style name="vitaminDisplay">
+        <item name="android:textSize">20sp</item>
+    </style>
+
+
+    <style name="toolbar_title" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textColor">@color/login_green</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:text">VitalFix</item>
+    </style>
+
+    <style name="result_page_title" parent="toolbar_title">
+        <item name="android:background">@color/white</item>
+        <item name="android:gravity">center</item>
+        <item name="android:text">@string/result_page_title</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="DialogStyle" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowSoftInputMode">adjustResize</item>
     </style>
 </resources>

@@ -4,22 +4,60 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ResultListActivity">
+    tools:context=".ResultListActivity"
+    android:background="#1A50A060">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/black"
+        android:minHeight="?android:attr/actionBarSize"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0">
+
+        <TextView
+            style="@style/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+
+    </androidx.appcompat.widget.Toolbar>
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/result_page_title"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Result List"
+        android:minHeight="?android:attr/actionBarSize"
+        style="@style/result_page_title"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintVertical_bias="0" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/resultDisplay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/result_page_title"
+        app:layout_constraintVertical_bias="0" />
 
     <LinearLayout
         android:layout_width="409dp"
         android:layout_height="65dp"
         android:gravity="center"
         android:orientation="horizontal"
+        android:background="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -33,7 +71,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:scaleType="fitCenter"
-            android:src="@drawable/list_button_icon" />
+            android:src="@drawable/baseline_view_list_24" />
 
         <ImageButton
             android:id="@+id/toHome"
@@ -41,7 +79,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:scaleType="fitCenter"
-            android:src="@drawable/profile_button_icon" />
+            android:src="@drawable/baseline_home_24" />
 
         <ImageButton
             android:id="@+id/toSearch"
@@ -49,7 +87,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:scaleType="fitCenter"
-            android:src="@drawable/search_button_icon" />
+            android:src="@drawable/baseline_search_24" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,6 +8,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="beige">#d2b8a1</color>
+    <color name="dark_beige">#8f643f</color>
     <color name="light_green">#c1f9a2</color>
     <color name="login_green">#50A060</color>
+    <color name="colorPrimaryDark">@android:color/holo_green_dark</color>
 </resources>

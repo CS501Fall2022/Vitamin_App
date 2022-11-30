@@ -11,4 +11,39 @@
     <string name="exercise">Exercise</string>
     <string name="digestion">Digestion</string>
     <string name="articulation">Articulation</string>
+    <string name="ratio_header">Select the ratio of supplements for each problem</string>
+    <string name="checkbox_header">Select your most relevant issue</string>
+    <string name="vitamin_search_button_display">See Google Results</string>
+    <string name="result_page_title">Recommendations</string>
+    <string name="result_exists_intro">
+        These are the supplements which can help with the problem(s) listed below.
+        For more information, click a button!\n
+        Please fill out the survey again if you have a new issue.
+    </string>
+
+    <string-array name="default_result_display">
+        <item> </item>
+        <item>Fill out the survey and see recommended vitamins here!</item>
+        <item>--</item>
+        <item>--</item>
+        <item>--</item>
+        <item>--</item>
+    </string-array>
+
+    <string-array name="vitamin_descriptions">
+        <item>energy saving</item>
+        <item>energy help </item>
+        <item>energy consumption</item>
+        <item>energy </item>
+        <item>no energy</item>
+        <item>etc</item>
+    </string-array>
+    <string-array name="vitamin_names">
+        <item>vitamin 1</item>
+        <item>vitamin 2</item>
+        <item>vitamin 3</item>
+        <item>vitamin 4</item>
+        <item>vitamin 5</item>
+        <item>vitamin 6</item>
+    </string-array>
 </resources>
