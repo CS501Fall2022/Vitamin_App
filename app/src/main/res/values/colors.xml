@@ -12,4 +12,5 @@
     <color name="light_green">#c1f9a2</color>
     <color name="login_green">#50A060</color>
     <color name="colorPrimaryDark">@android:color/holo_green_dark</color>
+    <color name="gray">#C1C1C1</color>
 </resources>

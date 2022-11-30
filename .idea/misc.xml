@@ -3,17 +3,6 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/drawable/baseline_add_task_24.xml" value="0.366" />
-        <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/drawable/baseline_delete_24.xml" value="0.366" />
-        <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/drawable/baseline_home_20.xml" value="0.366" />
-        <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/drawable/baseline_home_24.xml" value="0.366" />
-        <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/drawable/baseline_logout_24.xml" value="0.366" />
-        <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/drawable/baseline_mode_edit_24.xml" value="0.366" />
-        <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/drawable/baseline_search_24.xml" value="0.366" />
-        <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/drawable/baseline_settings_24.xml" value="0.366" />
-        <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/drawable/baseline_view_list_20.xml" value="0.366" />
-        <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/drawable/baseline_view_list_24.xml" value="0.366" />
-        <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/drawable/ic_baseline_delete.xml" value="0.366" />
         <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/drawable/ic_launcher_background.xml" value="0.332" />
         <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/drawable/radio_default.xml" value="0.3675" />
         <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/drawable/radio_selected.xml" value="0.3665" />
@@ -24,26 +13,25 @@
         <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/drawable/seekbar_thumb.xml" value="0.3665" />
         <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/drawable/shapes.xml" value="0.332" />
         <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/layout/activity_general_list.xml" value="0.3654891304347826" />
-        <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/layout/activity_home.xml" value="0.33" />
+        <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/layout/activity_home.xml" value="0.3654891304347826" />
         <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/layout/activity_login.xml" value="0.3654891304347826" />
         <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/layout/activity_result_list.xml" value="0.3654891304347826" />
         <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/layout/activity_survey.xml" value="0.358695652173913" />
         <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/layout/activity_vitamin_detail.xml" value="0.3654891304347826" />
-        <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/layout/activity_web_view.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/layout/energy_list_items.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/layout/fragment_profile.xml" value="0.32592592592592595" />
+        <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/layout/fragment_profile.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/layout/fragment_quick_fix_energy_recycler.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/layout/fragment_quick_fix_list.xml" value="0.33" />
         <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/layout/fragment_quick_fix_options_age.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/layout/fragment_quick_fix_options_energy.xml" value="0.2375" />
         <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/layout/fragment_survey_aging.xml" value="0.35260416666666666" />
         <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/layout/fragment_survey_double_checkbox.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/layout/fragment_survey_double_problem.xml" value="0.3024054982817869" />
+        <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/layout/fragment_survey_double_problem.xml" value="0.35260416666666666" />
         <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/layout/fragment_survey_energy.xml" value="0.35260416666666666" />
         <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/layout/fragment_survey_exercise.xml" value="0.35260416666666666" />
         <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/layout/fragment_survey_hair.xml" value="0.35260416666666666" />
         <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/layout/fragment_survey_immunity.xml" value="0.35260416666666666" />
-        <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/layout/fragment_survey_main.xml" value="0.3016710642040457" />
+        <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/layout/fragment_survey_main.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/layout/fragment_survey_page1.xml" value="0.375" />
         <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/layout/fragment_survey_page2.xml" value="0.35260416666666666" />
         <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/layout/fragment_survey_page_sleep.xml" value="0.365625" />
@@ -53,22 +41,37 @@
         <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/layout/fragment_survey_tanning.xml" value="0.35260416666666666" />
         <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/layout/fragment_survey_triple_checkbox.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/layout/fragment_survey_weight.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/layout/healthfragment.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/layout/layout_item.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/layout/new_task.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/layout/task_layout.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/lucal/AndroidStudioProjects/Vitamin_App/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.134" />
+        <entry key="..\:/ryanv/Code/Files/git_repos/school/CS501/Vitamin_App/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.137" />
+        <entry key="..\:/ryanv/Code/Files/git_repos/school/CS501/Vitamin_App/app/src/main/res/drawable/baseline_add_task_24.xml" value="0.3425" />
+        <entry key="..\:/ryanv/Code/Files/git_repos/school/CS501/Vitamin_App/app/src/main/res/drawable/baseline_delete_24.xml" value="0.2325" />
+        <entry key="..\:/ryanv/Code/Files/git_repos/school/CS501/Vitamin_App/app/src/main/res/drawable/baseline_home_24.xml" value="0.3425" />
+        <entry key="..\:/ryanv/Code/Files/git_repos/school/CS501/Vitamin_App/app/src/main/res/drawable/baseline_mode_edit_24.xml" value="0.3425" />
+        <entry key="..\:/ryanv/Code/Files/git_repos/school/CS501/Vitamin_App/app/src/main/res/drawable/baseline_search_24.xml" value="0.3425" />
+        <entry key="..\:/ryanv/Code/Files/git_repos/school/CS501/Vitamin_App/app/src/main/res/drawable/ic_baseline_edit.xml" value="0.1" />
+        <entry key="..\:/ryanv/Code/Files/git_repos/school/CS501/Vitamin_App/app/src/main/res/drawable/ic_launcher_background.xml" value="0.3425" />
+        <entry key="..\:/ryanv/Code/Files/git_repos/school/CS501/Vitamin_App/app/src/main/res/drawable/radio_default.xml" value="0.1845" />
+        <entry key="..\:/ryanv/Code/Files/git_repos/school/CS501/Vitamin_App/app/src/main/res/drawable/radio_selected.xml" value="0.3425" />
+        <entry key="..\:/ryanv/Code/Files/git_repos/school/CS501/Vitamin_App/app/src/main/res/drawable/seekbar_border.xml" value="0.3425" />
+        <entry key="..\:/ryanv/Code/Files/git_repos/school/CS501/Vitamin_App/app/src/main/res/drawable/seekbar_drawable.xml" value="0.3425" />
+        <entry key="..\:/ryanv/Code/Files/git_repos/school/CS501/Vitamin_App/app/src/main/res/drawable/seekbar_progress.xml" value="0.3425" />
         <entry key="..\:/ryanv/Code/Files/git_repos/school/CS501/Vitamin_App/app/src/main/res/layout/activity_general_list.xml" value="0.14907407407407408" />
-        <entry key="..\:/ryanv/Code/Files/git_repos/school/CS501/Vitamin_App/app/src/main/res/layout/activity_result_list.xml" value="0.1" />
+        <entry key="..\:/ryanv/Code/Files/git_repos/school/CS501/Vitamin_App/app/src/main/res/layout/activity_home.xml" value="0.264" />
+        <entry key="..\:/ryanv/Code/Files/git_repos/school/CS501/Vitamin_App/app/src/main/res/layout/activity_result_list.xml" value="0.264" />
         <entry key="..\:/ryanv/Code/Files/git_repos/school/CS501/Vitamin_App/app/src/main/res/layout/activity_survey.xml" value="0.1578125" />
         <entry key="..\:/ryanv/Code/Files/git_repos/school/CS501/Vitamin_App/app/src/main/res/layout/activity_vitamin_detail.xml" value="0.14907407407407408" />
+        <entry key="..\:/ryanv/Code/Files/git_repos/school/CS501/Vitamin_App/app/src/main/res/layout/activity_web_view.xml" value="0.1" />
+        <entry key="..\:/ryanv/Code/Files/git_repos/school/CS501/Vitamin_App/app/src/main/res/layout/energy_list_items.xml" value="0.14947916666666666" />
+        <entry key="..\:/ryanv/Code/Files/git_repos/school/CS501/Vitamin_App/app/src/main/res/layout/fragment_profile.xml" value="0.3723958333333333" />
+        <entry key="..\:/ryanv/Code/Files/git_repos/school/CS501/Vitamin_App/app/src/main/res/layout/fragment_quick_fix_energy_recycler.xml" value="0.3723958333333333" />
         <entry key="..\:/ryanv/Code/Files/git_repos/school/CS501/Vitamin_App/app/src/main/res/layout/fragment_quick_fix_list.xml" value="0.14907407407407408" />
+        <entry key="..\:/ryanv/Code/Files/git_repos/school/CS501/Vitamin_App/app/src/main/res/layout/fragment_quick_fix_options_age.xml" value="0.3723958333333333" />
         <entry key="..\:/ryanv/Code/Files/git_repos/school/CS501/Vitamin_App/app/src/main/res/layout/fragment_quick_fix_options_energy.xml" value="0.14907407407407408" />
+        <entry key="..\:/ryanv/Code/Files/git_repos/school/CS501/Vitamin_App/app/src/main/res/layout/fragment_survey_double_checkbox.xml" value="0.3723958333333333" />
         <entry key="..\:/ryanv/Code/Files/git_repos/school/CS501/Vitamin_App/app/src/main/res/layout/fragment_survey_double_problem.xml" value="0.14907407407407408" />
         <entry key="..\:/ryanv/Code/Files/git_repos/school/CS501/Vitamin_App/app/src/main/res/layout/fragment_survey_main.xml" value="0.2388888888888889" />
         <entry key="..\:/ryanv/Code/Files/git_repos/school/CS501/Vitamin_App/app/src/main/res/layout/fragment_survey_single_problem.xml" value="0.14907407407407408" />
         <entry key="..\:/ryanv/Code/Files/git_repos/school/CS501/Vitamin_App/app/src/main/res/layout/fragment_survey_triple_checkbox.xml" value="0.14907407407407408" />
-        <entry key="..\:/ryanv/Code/Files/git_repos/school/CS501/Vitamin_App/app/src/main/res/layout/recycle_result.xml" value="0.264" />
+        <entry key="..\:/ryanv/Code/Files/git_repos/school/CS501/Vitamin_App/app/src/main/res/layout/recycle_result.xml" value="0.536" />
         <entry key="..\:/ryanv/Code/Files/git_repos/school/CS501/Vitamin_App/app/src/main/res/layout/recycle_result_inner.xml" value="0.28425925925925927" />
         <entry key="..\:/ryanv/Code/Files/git_repos/school/CS501/Vitamin_App/app/src/main/res/layout/recycle_result_main.xml" value="0.12129629629629629" />
         <entry key="..\:/ryanv/Code/Files/git_repos/school/CS501/Vitamin_App/app/src/main/res/layout/recycle_result_outer.xml" value="0.2" />
