@@ -28,9 +28,13 @@ public class GeneralListActivity extends AppCompatActivity {
         toHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), HomeActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-                view.getContext().startActivity(intent);
+                if (LoginActivity.signedIn) {
+                    Intent intent = new Intent(view.getContext(), HomeActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                    view.getContext().startActivity(intent);
+                } else {
+                    Toast.makeText(view.getContext(), "Please Login to See Survey Results", Toast.LENGTH_LONG).show();
+                }
             }
         });
 
