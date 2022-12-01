@@ -73,7 +73,7 @@ public class recyclerAdapter extends RecyclerView.Adapter<recyclerAdapter.ViewHo
 //            this.nameVitamin = (TextView) itemView.findViewById(R.id.tvEpisodeTitle);
             this.vitaminDesc = (TextView) itemView.findViewById(R.id.vitaminDesc);
 
-            this.vitaminName = (TextView) itemView.findViewById(R.id.vitaminName);
+            this.vitaminName = (TextView) itemView.findViewById(R.id.nameVitamin);
 
 //            this.btnRandom = (Button) itemView.findViewById(R.id.btnRandom);
         }

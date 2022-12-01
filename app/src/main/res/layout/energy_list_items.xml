@@ -14,7 +14,7 @@
         android:layout_marginTop="42dp" />
 
     <TextView
-        android:id="@+id/vitaminName"
+        android:id="@+id/nameVitamin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"

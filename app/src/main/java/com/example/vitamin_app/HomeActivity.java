@@ -16,14 +16,12 @@ import com.google.android.material.tabs.TabLayout;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
-import com.opencsv.CSVReader;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
 
 public class HomeActivity extends AppCompatActivity {
     TabLayout tabLayout;
@@ -60,7 +58,7 @@ public class HomeActivity extends AppCompatActivity {
         inputStream = getResources().openRawResource(R.raw.supplement_sheet2);
         File file = new File("/data/data/com.example.vitamin_app/databases/vitamin.db");
         file.delete();
-        DatabaseHelper databaseHelper = new DatabaseHelper(HomeActivity.this);
+        VitaminDatabaseHandler vitamingDatabaseHelper = new VitaminDatabaseHandler(HomeActivity.this);
         BufferedInputStream bf = new BufferedInputStream(inputStream);
         BufferedReader reader = new BufferedReader(new InputStreamReader(bf, StandardCharsets.UTF_8));
         String line;
@@ -73,7 +71,7 @@ public class HomeActivity extends AppCompatActivity {
         catch (IOException ex) {
             ex.printStackTrace();
         }
-        ArrayList<String[]> list = databaseHelper.getData();
+        ArrayList<String[]> list = vitamingDatabaseHelper.getData();
         databaselist = list;
 
         news = findViewById(R.id.news);
