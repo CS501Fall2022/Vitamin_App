@@ -5,8 +5,8 @@
 
     <EditText
         android:id="@+id/newTaskText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="361dp"
+        android:layout_height="48dp"
         android:background="@null"
         android:hint="New Task"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />

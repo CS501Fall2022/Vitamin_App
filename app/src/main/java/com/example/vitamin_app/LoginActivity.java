@@ -98,8 +98,8 @@ public class LoginActivity extends AppCompatActivity {
         //Get last client to sign in and go to homepage if already logged in
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null){
-            //signedIn = true;
-            //goHome(currentUser);
+            signedIn = true;
+            goHome(currentUser);
         }
 
         if (showOneTapUI) {
