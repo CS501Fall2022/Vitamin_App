@@ -32,17 +32,19 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-
 public class HomeActivity extends AppCompatActivity {
     TabLayout tabLayout;
     TabItem news;
     PagerAdapter pagerAdapter;
     InputStream inputStream;
+    static ArrayList<String[]> databaselist;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        inputStream = getResources().openRawResource(R.raw.supplement_sheet);
+        inputStream = getResources().openRawResource(R.raw.supplement_sheet2);
+        File file = new File("/data/data/com.example.vitamin_app/databases/vitamin.db");
+        file.delete();
         DatabaseHelper databaseHelper = new DatabaseHelper(HomeActivity.this);
         BufferedInputStream bf = new BufferedInputStream(inputStream);
         BufferedReader reader = new BufferedReader(new InputStreamReader(bf, StandardCharsets.UTF_8));
@@ -56,10 +58,12 @@ public class HomeActivity extends AppCompatActivity {
         catch (IOException ex) {
             ex.printStackTrace();
         }
+        ArrayList<String[]> list = databaseHelper.getData();
+        databaselist = list;
+
         news=findViewById(R.id.news);
         ViewPager viewPager=findViewById(R.id.fragmentcontainer);
         tabLayout=findViewById(R.id.include);
-
         pagerAdapter=new PagerAdapter(getSupportFragmentManager(),2);
         viewPager.setAdapter(pagerAdapter);
 
@@ -82,12 +86,9 @@ public class HomeActivity extends AppCompatActivity {
 
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
-
             }
-
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
-
             }
         });
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
@@ -122,4 +123,8 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
     }
+    public static ArrayList<String []> getDatabaselist(){
+        return databaselist;
+    }
+
 }

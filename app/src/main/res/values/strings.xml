@@ -31,4 +31,7 @@
         <item>vitamin 5</item>
         <item>vitamin 6</item>
     </string-array>
+    <string name="drop_down">Dropdown Menu</string>
+    <string name="select_item"> Select Item</string>
+
 </resources>
