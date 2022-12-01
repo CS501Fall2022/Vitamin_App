@@ -44,9 +44,11 @@
         app:layout_constraintVertical_bias="0.11"
         tools:layout="@layout/fragment_quick_fix_list" />
 
+
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView"
-        android:name="com.example.vitamin_app.QuickFixOptionsEnergy"
+        android:background="?android:attr/colorBackground"
+        android:name="com.example.vitamin_app.QuickFixOptions.QuickFixOptionsEnergy"
         android:layout_width="405dp"
         android:layout_height="374dp"
         android:layout_alignParentLeft="true"
@@ -57,7 +59,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fragmentContainerView2"
         app:layout_constraintVertical_bias="0.0"
-        tools:layout="@layout/fragment_quick_fix_energy_recycler" />
+        tools:layout="@layout/fragment_quick_fix_recycler" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
