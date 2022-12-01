@@ -33,7 +33,7 @@
         android:id="@+id/fragmentContainerView2"
         android:name="com.example.vitamin_app.QuickFixList"
         android:layout_width="match_parent"
-        android:layout_height="76dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"

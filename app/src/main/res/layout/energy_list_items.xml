@@ -11,7 +11,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="39dp"
-        android:layout_marginTop="42dp" />
+        android:layout_marginTop="22dp" />
 
     <TextView
         android:id="@+id/nameVitamin"
@@ -20,7 +20,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="196dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="36dp"
         android:text="Energy saving vitamin 1"
         tools:layout_editor_absoluteX="114dp"
         tools:layout_editor_absoluteY="110dp" />
@@ -28,11 +28,13 @@
     <TextView
         android:id="@+id/vitaminDesc"
         android:layout_width="325dp"
-        android:layout_height="76dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="32dp"
-        android:layout_marginTop="129dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginTop="109dp"
+        android:layout_marginBottom="20dp"
         android:text="Energy saver description"
         tools:layout_editor_absoluteX="114dp"
         tools:layout_editor_absoluteY="110dp" />
