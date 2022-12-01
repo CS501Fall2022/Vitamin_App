@@ -227,8 +227,8 @@ public class LoginActivity extends AppCompatActivity {
             intent = new Intent(this, HomeActivity.class);
             Toast.makeText(LoginActivity.this, "Welcome " + currentUser.getEmail(), Toast.LENGTH_LONG).show();
             Toast.makeText(LoginActivity.this, "" + signedIn, Toast.LENGTH_LONG).show();
-        }
-        else {
+
+        } else {
             intent = new Intent(this, GeneralListActivity.class);
         }
         finish();

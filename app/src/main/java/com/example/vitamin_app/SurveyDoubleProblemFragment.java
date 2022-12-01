@@ -345,6 +345,8 @@ public class SurveyDoubleProblemFragment extends Fragment {
             count++;
         }
 
+        // Sleep & Skin bugged
+
         Button endSurvey = (Button) v.findViewById(R.id.endSurvey2);
         endSurvey.setOnClickListener(new View.OnClickListener() {
             @Override

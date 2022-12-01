@@ -16,16 +16,19 @@ import com.google.android.material.tabs.TabLayout;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 
 public class HomeActivity extends AppCompatActivity {
     TabLayout tabLayout;
     TabItem news;
     PagerAdapter pagerAdapter;
     InputStream inputStream;
+    static ArrayList<String[]> databaselist;
     ViewPager viewPager;
     FrameLayout frameLayout;
 
@@ -52,6 +55,10 @@ public class HomeActivity extends AppCompatActivity {
 
         inputStream = getResources().openRawResource(R.raw.supplement_sheet);
         VitaminDatabaseHandler vitaminDatabaseHandler = new VitaminDatabaseHandler(HomeActivity.this);
+        inputStream = getResources().openRawResource(R.raw.supplement_sheet2);
+        File file = new File("/data/data/com.example.vitamin_app/databases/vitamin.db");
+        file.delete();
+        VitaminDatabaseHandler vitamingDatabaseHelper = new VitaminDatabaseHandler(HomeActivity.this);
         BufferedInputStream bf = new BufferedInputStream(inputStream);
         BufferedReader reader = new BufferedReader(new InputStreamReader(bf, StandardCharsets.UTF_8));
         String line;
@@ -64,6 +71,8 @@ public class HomeActivity extends AppCompatActivity {
         catch (IOException ex) {
             ex.printStackTrace();
         }
+        ArrayList<String[]> list = vitamingDatabaseHelper.getData();
+        databaselist = list;
 
         news = findViewById(R.id.news);
         viewPager = findViewById(R.id.fragmentcontainer);
@@ -112,12 +121,9 @@ public class HomeActivity extends AppCompatActivity {
 
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
-
             }
-
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
-
             }
         });
 
@@ -151,4 +157,8 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
     }
+    public static ArrayList<String []> getDatabaselist(){
+        return databaselist;
+    }
+
 }
