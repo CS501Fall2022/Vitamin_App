@@ -98,8 +98,8 @@ public class LoginActivity extends AppCompatActivity {
         //Get last client to sign in and go to homepage if already logged in
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null){
-            signedIn = true;
-            goHome(currentUser);
+            //signedIn = true;
+            //goHome(currentUser);
         }
 
         if (showOneTapUI) {
@@ -226,8 +226,8 @@ public class LoginActivity extends AppCompatActivity {
             intent = new Intent(this, HomeActivity.class);
             Toast.makeText(LoginActivity.this, "Welcome " + currentUser.getEmail(), Toast.LENGTH_LONG).show();
             Toast.makeText(LoginActivity.this, "" + signedIn, Toast.LENGTH_LONG).show();
-        }
-        else {
+
+        } else {
             intent = new Intent(this, GeneralListActivity.class);
         }
         finish();
@@ -306,7 +306,7 @@ public class LoginActivity extends AppCompatActivity {
 //                                }
 //                            });
 
-                            goHome(null);
+                            goHome(currentUser);
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w("TAG", "signInWithCredential:failure", task.getException());
