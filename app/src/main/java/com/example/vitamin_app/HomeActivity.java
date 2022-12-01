@@ -55,7 +55,7 @@ public class HomeActivity extends AppCompatActivity {
 
         inputStream = getResources().openRawResource(R.raw.supplement_sheet);
         VitaminDatabaseHandler vitaminDatabaseHandler = new VitaminDatabaseHandler(HomeActivity.this);
-        inputStream = getResources().openRawResource(R.raw.supplement_sheet2);
+//        inputStream = getResources().openRawResource(R.raw.supplement_sheet2);
         File file = new File("/data/data/com.example.vitamin_app/databases/vitamin.db");
         file.delete();
         VitaminDatabaseHandler vitamingDatabaseHelper = new VitaminDatabaseHandler(HomeActivity.this);
