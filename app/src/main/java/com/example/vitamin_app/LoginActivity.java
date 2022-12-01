@@ -39,6 +39,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class LoginActivity extends AppCompatActivity {
+    public static boolean signedIn;
     private static final int RC_SIGN_IN = 100;
     private static final int REQ_ONE_TAP = 2;
 
@@ -62,6 +63,8 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        signedIn = false;
 
         Button toHome = (Button) findViewById(R.id.toHome);
         Button signUp = (Button) findViewById(R.id.signUp);
@@ -95,6 +98,7 @@ public class LoginActivity extends AppCompatActivity {
         //Get last client to sign in and go to homepage if already logged in
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null){
+            signedIn = true;
             goHome(currentUser);
         }
 
@@ -217,9 +221,14 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void goHome(FirebaseUser currentUser){
-        Intent intent = new Intent(this, HomeActivity.class);
+        Intent intent;
         if (currentUser != null){
+            intent = new Intent(this, HomeActivity.class);
             Toast.makeText(LoginActivity.this, "Welcome " + currentUser.getEmail(), Toast.LENGTH_LONG).show();
+            Toast.makeText(LoginActivity.this, "" + signedIn, Toast.LENGTH_LONG).show();
+
+        } else {
+            intent = new Intent(this, GeneralListActivity.class);
         }
         finish();
         this.startActivity(intent);
@@ -246,6 +255,8 @@ public class LoginActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d("TAG", "signInWithCredential:success");
+
+                            signedIn = true;
 
                             FirebaseUser currentUser = mAuth.getCurrentUser();
                             String email = currentUser.getEmail();
@@ -295,7 +306,7 @@ public class LoginActivity extends AppCompatActivity {
 //                                }
 //                            });
 
-                            goHome(null);
+                            goHome(currentUser);
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w("TAG", "signInWithCredential:failure", task.getException());

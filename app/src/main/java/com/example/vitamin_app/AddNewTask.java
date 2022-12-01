@@ -20,6 +20,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.vitamin_app.Model.ToDoModel;
@@ -136,27 +137,8 @@ public class AddNewTask extends BottomSheetDialogFragment {
             @Override
             public void onClick(View view) {
                 String text = newTaskText.getText().toString();
-                Intent intent = new Intent(Intent.ACTION_INSERT);
-                intent.setType("vnd.android.cursor.item/event");
-                intent.putExtra(CalendarContract.Events.TITLE, text);
-
-//                intent.putExtra(CalendarContract.Events.EVENT_LOCATION, "Home suit home");
-//                intent.putExtra(CalendarContract.Events.DESCRIPTION, "Download Examples");
-
-                // Setting dates
-                GregorianCalendar gc = new GregorianCalendar();
-                gc.add(Calendar.DATE, 1);
-                intent.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME,
-                        gc.getTimeInMillis());
-                intent.putExtra(CalendarContract.EXTRA_EVENT_END_TIME,
-                        gc.getTimeInMillis());
-
-//                make it a recurring Event
-//                intent.putExtra(CalendarContract.Events.RRULE, "FREQ=WEEKLY;COUNT=11;WKST=SU;BYDAY=TU,TH");
-
-//                make it a full day event
-//                intent.putExtra(CalendarContract.EXTRA_EVENT_ALL_DAY, true);
-                startActivity(intent);
+                CalendarDialogFragment frg = CalendarDialogFragment.newInstance(text);
+                frg.show(getActivity().getSupportFragmentManager(), "dialog_fragment_calendar");
             }
         });
     }
