@@ -143,24 +143,25 @@ public class ResultListAdapter extends RecyclerView.Adapter<ResultListAdapter.Vi
                             // user has survey results stored. (2 problems)
                             results = new String[]{
                                     context.getResources().getString(R.string.result_exists_intro),
-                                    problem1 + "/" + problem2, s1, s2, s3, s4
+                                    problem1 + " / " + problem2, s1, s2, s3, s4
                             };
                         }
 
                         // place data into result view
                         // since only 1 view, no need to use position index
+                        // need to verify number of supplements available. sometimes < 4
                         holder.intro.setText(results[0]);
                         holder.desc.setText(results[1]);
-                        holder.vit1.setText(results[2]);
-                        holder.vit2.setText(results[3]);
-                        holder.vit3.setText(results[4]);
-                        holder.vit4.setText(results[5]);
+                        holder.vit1.setText(results[2].equals("null") ? "--" : results[2]);
+                        holder.vit2.setText(results[3].equals("null") ? "--" : results[3]);
+                        holder.vit3.setText(results[4].equals("null") ? "--" : results[4]);
+                        holder.vit4.setText(results[5].equals("null") ? "--" : results[5]);
 
-                        // if default result, onclick will send toast instead of opening url
-                        holder.setUrlTarget(holder.vit_button1, results[2]);
-                        holder.setUrlTarget(holder.vit_button2, results[3]);
-                        holder.setUrlTarget(holder.vit_button3, results[4]);
-                        holder.setUrlTarget(holder.vit_button4, results[5]);
+                        // if default/null result, onclick will send toast instead of opening url
+                        holder.setUrlTarget(holder.vit_button1, results[2].equals("null") ? "--" : results[2]);
+                        holder.setUrlTarget(holder.vit_button2, results[3].equals("null") ? "--" : results[3]);
+                        holder.setUrlTarget(holder.vit_button3, results[4].equals("null") ? "--" : results[4]);
+                        holder.setUrlTarget(holder.vit_button4, results[5].equals("null") ? "--" : results[5]);
 
                     } else {
                         Toast.makeText(context, "User does not exist",Toast.LENGTH_LONG).show();
@@ -169,8 +170,8 @@ public class ResultListAdapter extends RecyclerView.Adapter<ResultListAdapter.Vi
                     Toast.makeText(context, "Failed to read data",Toast.LENGTH_LONG).show();
                     // in case of error, use special display
 
-                    holder.intro.setText("");
-                    holder.desc.setText("Serious error. Please reload the app.");
+                    holder.intro.setText("Serious error. Please reload the app.");
+                    holder.desc.setText("");
                     holder.vit1.setText("");
                     holder.vit2.setText("");
                     holder.vit3.setText("");
