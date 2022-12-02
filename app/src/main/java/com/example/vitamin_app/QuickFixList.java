@@ -1,67 +1,116 @@
 package com.example.vitamin_app;
-
 import android.annotation.SuppressLint;
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageButton;
-
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
+import com.example.vitamin_app.QuickFixOptions.QuickFixOptionsArticulation;
+import com.example.vitamin_app.QuickFixOptions.QuickFixOptionsDetox;
+import com.example.vitamin_app.QuickFixOptions.QuickFixOptionsDigestion;
+import com.example.vitamin_app.QuickFixOptions.QuickFixOptionsEnergy;
+import com.example.vitamin_app.QuickFixOptions.QuickFixOptionsExercise;
+import com.example.vitamin_app.QuickFixOptions.QuickFixOptionsImmunity;
+import com.example.vitamin_app.QuickFixOptions.QuickFixOptionsSkin;
+import com.example.vitamin_app.QuickFixOptions.QuickFixOptionsSleep;
+import com.example.vitamin_app.QuickFixOptions.QuickFixOptionsWeightloss;
 
 public class QuickFixList extends Fragment {
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-//    private static final String ARG_PARAM1 = "param1";
-//    private static final String ARG_PARAM2 = "param2";
-//    private String mParam1;
-//    private String mParam2;
+    AutoCompleteTextView autocomplete;
+    ArrayAdapter adapterItems;
     public QuickFixList() {
-        // Required empty public constructor
     }
-
-//    public static QuickFixList newInstance(String param1, String param2) {
-//        QuickFixList fragment = new QuickFixList();
-//        Bundle args = new Bundle();
-//        args.putString(ARG_PARAM1, param1);
-//        args.putString(ARG_PARAM2, param2);
-//        fragment.setArguments(args);
-//        return fragment;
-//    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @SuppressLint("MissingInflatedId")
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.fragment_quick_fix_list, container, false);
-
-        Button age = (Button) v.findViewById(R.id.agingButton);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View v;
         v = inflater.inflate(R.layout.fragment_quick_fix_list, container, false);
-
-        Button energy = (Button) v.findViewById(R.id.energyButton);
-        Button weight = (Button) v.findViewById(R.id.weightButton);
-        age.setOnClickListener(new View.OnClickListener() {
+        String[] items = {"Weightloss","Energy","Sleep","Articulation", "Detox", "Digestion", "Immunity", "Skin", "Exercise"};
+        autocomplete = v.findViewById(R.id.auto_complete_txt);
+        adapterItems = new ArrayAdapter<String>(getContext(), R.layout.dropdown_list, items);
+        autocomplete.setAdapter(adapterItems);
+        autocomplete.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onClick(View view) {
-//                Intent intent = new Intent(view.getContext(), HomeActivity.class);
-//                intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-//                view.getContext().startActivity(intent);
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                String item = adapterView.getItemAtPosition(i).toString();
+                FragmentManager fragmentManager;
+                switch (item) {
+                    case "Sleep": {
+                        fragmentManager = getActivity().getSupportFragmentManager();
+                        FragmentTransaction transaction = fragmentManager.beginTransaction();
+                        transaction.replace(R.id.rvVitaminlay, new QuickFixOptionsSleep());
+                        transaction.commitAllowingStateLoss();
+                        break;
+                    }
+                    case "Weightloss": {
+                        fragmentManager = getActivity().getSupportFragmentManager();
+                        FragmentTransaction transaction = fragmentManager.beginTransaction();
+                        transaction.replace(R.id.rvVitaminlay, new QuickFixOptionsWeightloss());
+                        transaction.commitAllowingStateLoss();
+                        break;
+                    }
+                    case "Energy": {
+                        fragmentManager = getActivity().getSupportFragmentManager();
+                        FragmentTransaction transaction = fragmentManager.beginTransaction();
+                        transaction.replace(R.id.rvVitaminlay, new QuickFixOptionsEnergy());
+                        transaction.commitAllowingStateLoss();
+                        break;
+                    }
+                    case "Articulation": {
+                        fragmentManager = getActivity().getSupportFragmentManager();
+                        FragmentTransaction transaction = fragmentManager.beginTransaction();
+                        transaction.replace(R.id.rvVitaminlay, new QuickFixOptionsArticulation());
+                        transaction.commitAllowingStateLoss();
+                        break;
+                    }
+                    case "Immunity": {
+                        fragmentManager = getActivity().getSupportFragmentManager();
+                        FragmentTransaction transaction = fragmentManager.beginTransaction();
+                        transaction.replace(R.id.rvVitaminlay, new QuickFixOptionsImmunity());
+                        transaction.commitAllowingStateLoss();
+                        break;
+                    }
+                    case "Skin": {
+                        fragmentManager = getActivity().getSupportFragmentManager();
+                        FragmentTransaction transaction = fragmentManager.beginTransaction();
+                        transaction.replace(R.id.rvVitaminlay, new QuickFixOptionsSkin());
+                        transaction.commitAllowingStateLoss();
+                        break;
+                    }
+                    case "Exercise": {
+                        fragmentManager = getActivity().getSupportFragmentManager();
+                        FragmentTransaction transaction = fragmentManager.beginTransaction();
+                        transaction.replace(R.id.rvVitaminlay, new QuickFixOptionsExercise());
+                        transaction.commitAllowingStateLoss();
+                        break;
+                    }
+                    case "Detox": {
+                        fragmentManager = getActivity().getSupportFragmentManager();
+                        FragmentTransaction transaction = fragmentManager.beginTransaction();
+                        transaction.replace(R.id.rvVitaminlay, new QuickFixOptionsDetox());
+                        transaction.commitAllowingStateLoss();
+                        break;
+                    }
+                    case "Digestion": {
+                        fragmentManager = getActivity().getSupportFragmentManager();
+                        FragmentTransaction transaction = fragmentManager.beginTransaction();
+                        transaction.replace(R.id.rvVitaminlay, new QuickFixOptionsDigestion());
+                        transaction.commitAllowingStateLoss();
+                        break;
+                    }
+                }
             }
         });
         return v;
     }
-
 }

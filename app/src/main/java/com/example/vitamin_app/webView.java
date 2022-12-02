@@ -19,8 +19,12 @@ public class webView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web_view);
 
+        // set custom toolbar
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+
         webView=findViewById(R.id.view);
-//        setSupportActionBar(toolbar);
 
         Intent intent=getIntent();
         String url=intent.getStringExtra("url");

@@ -6,12 +6,13 @@ public class Users {
     String age;
     String gender;
 
+    int num_problem;
     String problem;
+    String problem2;
     String supplement1;
     String supplement2;
     String supplement3;
     String supplement4;
-    String supplement5;
 
     public Users() {
     }
@@ -45,12 +46,28 @@ public class Users {
         this.gender = gender;
     }
 
+    public int getNum_problem() {
+        return num_problem;
+    }
+
+    public void setNum_problem(int num_problem) {
+        this.num_problem = num_problem;
+    }
+
     public String getProblem() {
         return problem;
     }
 
     public void setProblem(String problem) {
         this.problem = problem;
+    }
+
+    public String getProblem2() {
+        return problem2;
+    }
+
+    public void setProblem2(String problem) {
+        this.problem2 = problem;
     }
 
     public String getSupplement1() {
@@ -83,13 +100,5 @@ public class Users {
 
     public void setSupplement4(String supplement4) {
         this.supplement4 = supplement4;
-    }
-
-    public String getSupplement5() {
-        return supplement5;
-    }
-
-    public void setSupplement5(String supplement5) {
-        this.supplement5 = supplement5;
     }
 }

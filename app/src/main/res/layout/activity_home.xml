@@ -6,9 +6,31 @@
     android:layout_height="match_parent"
     tools:context=".ResultListActivity">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/black"
+        android:minHeight="?android:attr/actionBarSize"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0">
+
+        <TextView
+            style="@style/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+
     <LinearLayout
         android:id="@+id/linearLayout3"
-        android:layout_width="409dp"
+        android:layout_width="match_parent"
         android:layout_height="65dp"
         android:gravity="center"
         android:orientation="horizontal"
@@ -25,7 +47,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:scaleType="fitCenter"
-            android:src="@drawable/list_button_icon" />
+            android:src="@drawable/baseline_view_list_24" />
 
         <ImageButton
             android:id="@+id/toHome"
@@ -33,7 +55,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:scaleType="fitCenter"
-            android:src="@drawable/profile_button_icon" />
+            android:src="@drawable/baseline_home_24" />
 
         <ImageButton
             android:id="@+id/toSearch"
@@ -41,9 +63,21 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:scaleType="fitCenter"
-            android:src="@drawable/search_button_icon" />
+            android:src="@drawable/baseline_search_24" />
     </LinearLayout>
 
+    <FrameLayout
+        android:id="@+id/fragmentLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/include"
+        app:layout_constraintVertical_bias="0.043">
+
+    </FrameLayout>
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/include"
@@ -52,10 +86,10 @@
         android:backgroundTint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintVertical_bias="0"
         app:tabIndicatorColor="#50A060"
         app:tabIndicatorHeight="4dp"
         app:tabSelectedTextColor="#50A060"
@@ -73,8 +107,7 @@
             android:id="@+id/profile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Profile"
-            tools:ignore="UsingOnClickInXml">
+            android:text="Profile">
 
         </com.google.android.material.tabs.TabItem>
 
@@ -82,8 +115,7 @@
             android:id="@+id/survey"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Survey"
-            tools:ignore="UsingOnClickInXml">
+            android:text="Survey">
 
         </com.google.android.material.tabs.TabItem>
 
@@ -100,20 +132,9 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/include"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintVertical_bias="1.0">
 
     </androidx.viewpager.widget.ViewPager>
 
-    <FrameLayout
-        android:id="@+id/fragmentLayout1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/include"
-        app:layout_constraintVertical_bias="0.0">
-
-    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
