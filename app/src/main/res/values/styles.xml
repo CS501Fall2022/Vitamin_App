@@ -23,4 +23,47 @@
         <item name="android:progressDrawable">@drawable/seekbar_drawable</item>
         <item name="android:thumbTint">@color/dark_beige</item>
     </style>
+
+    <style name="browserButton">
+        <item name="android:backgroundTint">@color/login_green</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">14dp</item>
+        <item name="android:paddingStart">5dp</item>
+        <item name="android:paddingEnd">5dp</item>
+        <item name="android:minHeight">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:insetLeft">0dp</item>
+        <item name="android:insetRight">0dp</item>
+        <item name="android:text">@string/vitamin_search_button_display</item>
+    </style>
+
+    <style name="vitaminDisplay">
+        <item name="android:textSize">27sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+
+    <style name="toolbar_title" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textColor">@color/login_green</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:text">VitalFix</item>
+    </style>
+
+    <style name="result_page_title" parent="toolbar_title">
+        <item name="android:background">@color/white</item>
+        <item name="android:gravity">center</item>
+        <item name="android:text">@string/result_page_title</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="DialogStyle" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowSoftInputMode">adjustResize</item>
+    </style>
 </resources>
