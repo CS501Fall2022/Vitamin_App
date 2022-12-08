@@ -95,7 +95,15 @@ public class GeneralListActivity extends AppCompatActivity {
             }
         });
 
+        //If you are not logged in, do not show menu.
+        if (!LoginActivity.signedIn) {
+            toHome.setVisibility(View.GONE);
+            toSearch.setVisibility(View.GONE);
+            toList.setVisibility(View.GONE);
+        }
     }
+
+
     public static ArrayList<String []> getDatabaselist(){
         return databaselist;
     }
