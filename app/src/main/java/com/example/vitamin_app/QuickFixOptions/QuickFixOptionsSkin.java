@@ -22,7 +22,12 @@ public class QuickFixOptionsSkin extends Fragment {
         View v = inflater.inflate(R.layout.fragment_quick_fix_recycler, container, false);
         RecyclerView rv = (RecyclerView) v.findViewById(R.id.rvVitamins);
         rv.setLayoutManager(new LinearLayoutManager(getActivity()));
-        RecyclerView.Adapter rvAdapter = new recyclerAdapter(this.getContext(), "Skin");
+        RecyclerView.Adapter rvAdapter = null;
+        try {
+            rvAdapter = new recyclerAdapter(this.getContext(), "Skin");
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
         rv.setAdapter(rvAdapter);
         return v;
     }

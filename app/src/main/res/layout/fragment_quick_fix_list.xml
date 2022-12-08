@@ -6,21 +6,30 @@
         android:layout_height="match_parent"
         tools:context=".QuickFixList">
 
+        <TextView
+            android:layout_width="206dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="110dp"
+            android:layout_marginTop="20dp"
+            android:text="Explore Vitamins"
+            android:textSize="30dp">
+
+        </TextView>
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-            android:layout_width="match_parent"
+            android:layout_width="315dp"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:textAlignment="center"
-            android:hint="@string/select_item">
+            android:layout_margin="70dp"
+            android:hint="@string/select_item"
+            android:textAlignment="center">
 
                 <AutoCompleteTextView
                     android:id="@+id/auto_complete_txt"
-                    android:layout_width="match_parent"
+                    android:layout_width="305dp"
                     android:layout_height="wrap_content"
                     android:inputType="none"
-                    android:textAlignment="center"
-                    />
+                    android:textAlignment="center" />
         </com.google.android.material.textfield.TextInputLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

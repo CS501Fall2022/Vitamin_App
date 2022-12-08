@@ -27,7 +27,6 @@
 
     </androidx.appcompat.widget.Toolbar>
 
-    <!--        tools:layout="@layout/fragment_quick_fix_options_energy" />-->
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView2"
@@ -42,6 +41,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.11"
+        android:background="@color/login_green"
         tools:layout="@layout/fragment_quick_fix_list" />
 
 
@@ -72,6 +72,7 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/login_green"
         app:layout_constraintVertical_bias="1.0">
 
         <ImageButton

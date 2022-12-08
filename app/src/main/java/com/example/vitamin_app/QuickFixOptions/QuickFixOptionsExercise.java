@@ -28,7 +28,12 @@ public class QuickFixOptionsExercise extends Fragment {
 
         RecyclerView rv = (RecyclerView) v.findViewById(R.id.rvVitamins);
         rv.setLayoutManager(new LinearLayoutManager(getActivity()));
-        RecyclerView.Adapter rvAdapter = new recyclerAdapter(this.getContext(), "Exercise");
+        RecyclerView.Adapter rvAdapter = null;
+        try {
+            rvAdapter = new recyclerAdapter(this.getContext(), "Exercise");
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
         rv.setAdapter(rvAdapter);
         return v;
     }

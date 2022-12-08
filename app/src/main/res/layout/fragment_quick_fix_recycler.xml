@@ -6,9 +6,17 @@
     tools:context=".QuickFixOptions.QuickFixOptionsEnergy"
     android:id = "@+id/rvVitaminlay"
     >
+<!--    <TextView-->
+<!--        -->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        >-->
+<!--        -->
+<!--    </TextView>-->
+
     <androidx.recyclerview.widget.RecyclerView
-        android:background="?android:attr/colorBackground"
-        android:id = "@+id/rvVitamins"
+        android:id="@+id/rvVitamins"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:background="?android:attr/colorBackground" />
 </FrameLayout>

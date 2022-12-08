@@ -4,6 +4,7 @@ import static android.app.PendingIntent.getActivity;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 public class recyclerAdapter extends RecyclerView.Adapter<recyclerAdapter.ViewHolder>{
 
@@ -24,20 +26,20 @@ public class recyclerAdapter extends RecyclerView.Adapter<recyclerAdapter.ViewHo
     String episodelinks[];
     ArrayList<Integer> vitamin_img = new ArrayList<>();
     Context context;
+    String draw;
 
 
-    public recyclerAdapter(Context aContext, String page_type) {
+    public recyclerAdapter(Context aContext, String page_type) throws IllegalAccessException {
         context = aContext;
-//        rvSetVariables(str);
-//        HomeActivity act = new HomeActivity();
-        ArrayList<String[]> str = HomeActivity.getDatabaselist();
+        ArrayList<String[]> str = GeneralListActivity.getDatabaselist();
         for(int i = 0; i < str.size(); i++){
             String[] temp = str.get(i);
             if(str.get(i)[1].equals(page_type)){
                 vitamin_names.add(str.get(i)[0]);
                 vitamin_descriptions.add(str.get(i)[2]);
                 vitamin_dosages.add(str.get(i)[3]);
-                vitamin_img.add(R.drawable.multivit);
+                int resourceId = context.getResources().getIdentifier(str.get(i)[4], "drawable", context.getPackageName());//initialize res and context in adapter's contructor
+                vitamin_img.add(resourceId);
             }
         }
 //        vitamin_names = aContext.getResources().getStringArray(R.array.vitamin_names);
@@ -49,13 +51,8 @@ public class recyclerAdapter extends RecyclerView.Adapter<recyclerAdapter.ViewHo
 //                episodeRatings[i] = MainActivity.sharedPrefs.getFloat(ratings + i, 0);
 //            }
 //        }
-//        vitamin_img = new ArrayList<Integer>();
-//        vitamin_img.add(R.drawable.multivit);
-//        vitamin_img.add(R.drawable.d3);
-//        vitamin_img.add(R.drawable.vitaminc);
-//        vitamin_img.add(R.drawable.multivit);
-//        vitamin_img.add(R.drawable.multivit);
-//        vitamin_img.add(R.drawable.multivit);
+
+
 
     }
 

@@ -53,26 +53,26 @@ public class HomeActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        inputStream = getResources().openRawResource(R.raw.supplement_sheet);
-        VitaminDatabaseHandler vitaminDatabaseHandler = new VitaminDatabaseHandler(HomeActivity.this);
-        inputStream = getResources().openRawResource(R.raw.supplement_sheet2);
-        File file = new File("/data/data/com.example.vitamin_app/databases/vitamin.db");
-        file.delete();
-        VitaminDatabaseHandler vitamingDatabaseHelper = new VitaminDatabaseHandler(HomeActivity.this);
-        BufferedInputStream bf = new BufferedInputStream(inputStream);
-        BufferedReader reader = new BufferedReader(new InputStreamReader(bf, StandardCharsets.UTF_8));
-        String line;
-        try{
-            while ((line = reader.readLine()) != null) {
-                String[] str = line.split(",");
-                vitaminDatabaseHandler.addCSV(str[1], str[2], str[3], str[6]);
-            }
-        }
-        catch (IOException ex) {
-            ex.printStackTrace();
-        }
-        ArrayList<String[]> list = vitamingDatabaseHelper.getData();
-        databaselist = list;
+//        inputStream = getResources().openRawResource(R.raw.supplement_sheet_final);
+//        VitaminDatabaseHandler vitaminDatabaseHandler = new VitaminDatabaseHandler(HomeActivity.this);
+//        inputStream = getResources().openRawResource(R.raw.supplement_sheet_final);
+//        File file = new File("/data/data/com.example.vitamin_app/databases/vitamin.db");
+//        file.delete();
+//        VitaminDatabaseHandler vitamingDatabaseHelper = new VitaminDatabaseHandler(HomeActivity.this);
+//        BufferedInputStream bf = new BufferedInputStream(inputStream);
+//        BufferedReader reader = new BufferedReader(new InputStreamReader(bf, StandardCharsets.UTF_8));
+//        String line;
+//        try{
+//            while ((line = reader.readLine()) != null) {
+//                String[] str = line.split(",");
+//                vitaminDatabaseHandler.addCSV(str[1], str[2], str[3], str[6]);
+//            }
+//        }
+//        catch (IOException ex) {
+//            ex.printStackTrace();
+//        }
+//        ArrayList<String[]> list = vitamingDatabaseHelper.getData();
+//        databaselist = list;
 
         news = findViewById(R.id.news);
         viewPager = findViewById(R.id.fragmentcontainer);
@@ -157,8 +157,8 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
     }
-    public static ArrayList<String []> getDatabaselist(){
-        return databaselist;
-    }
+//    public static ArrayList<String []> getDatabaselist(){
+//        return databaselist;
+//    }
 
 }
