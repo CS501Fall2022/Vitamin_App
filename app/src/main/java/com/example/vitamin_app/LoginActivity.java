@@ -8,7 +8,9 @@ import android.content.IntentSender;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.auth.api.identity.BeginSignInRequest;
@@ -38,6 +40,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class LoginActivity extends AppCompatActivity {
     public static boolean signedIn;
     private static final int RC_SIGN_IN = 100;
@@ -48,6 +53,9 @@ public class LoginActivity extends AppCompatActivity {
     private BeginSignInRequest signInRequest;
     private FirebaseAuth mAuth;
     private boolean showOneTapUI = true;
+
+    String[] genderList = new String[] {"Male", "Female", "Other"};
+    String[] ageList = new String[43];
 
     // creating a variable for our
     // Firebase Database.
@@ -64,10 +72,26 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        Spinner s = (Spinner) findViewById(R.id.gender);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, genderList);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        s.setAdapter(adapter);
+
+        for(int i = 18; i < 61; i++){
+            ageList[i - 18] = String.valueOf(i);
+        }
+        ageList[42] = "60+";
+
+        Spinner s2 = (Spinner) findViewById(R.id.age);
+        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, ageList);
+        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        s2.setAdapter(adapter2);
+
         signedIn = false;
 
         Button toHome = (Button) findViewById(R.id.toHome);
-        Button signUp = (Button) findViewById(R.id.signUp);
         Button google = (Button) findViewById(R.id.button2);
 
         //Build One Tap Signin Object with proper settings
@@ -142,14 +166,6 @@ public class LoginActivity extends AppCompatActivity {
                 goHome(null);
             }
         });
-
-        signUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                goHome(null);
-            }
-        });
-
     }
 
     public void signIn(){
