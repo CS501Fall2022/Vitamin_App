@@ -13,12 +13,43 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+
 public class GeneralListActivity extends AppCompatActivity {
+    InputStream inputStream;
+    static ArrayList<String[]> databaselist;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_general_list);
+        inputStream = getResources().openRawResource(R.raw.supplement_sheet_final);
+        VitaminDatabaseHandler vitaminDatabaseHandler = new VitaminDatabaseHandler(GeneralListActivity.this);
+        inputStream = getResources().openRawResource(R.raw.supplement_sheet_final);
+        File file = new File("/data/data/com.example.vitamin_app/databases/vitamin.db");
+        file.delete();
+        VitaminDatabaseHandler vitaminDatabaseHelper = new VitaminDatabaseHandler(GeneralListActivity.this);
+        BufferedInputStream bf = new BufferedInputStream(inputStream);
+        BufferedReader reader = new BufferedReader(new InputStreamReader(bf, StandardCharsets.UTF_8));
+        String line;
+        try{
+            while ((line = reader.readLine()) != null) {
+                String[] str = line.split(",");
+                vitaminDatabaseHandler.addCSV(str[1], str[2], str[3],str[5],str[4]);
+            }
+        }
+        catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        ArrayList<String[]> list = vitaminDatabaseHelper.getData();
+        databaselist = list;
 
+        setContentView(R.layout.activity_general_list);
         // set custom toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -64,5 +95,8 @@ public class GeneralListActivity extends AppCompatActivity {
             }
         });
 
+    }
+    public static ArrayList<String []> getDatabaselist(){
+        return databaselist;
     }
 }

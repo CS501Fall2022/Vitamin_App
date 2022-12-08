@@ -1,6 +1,9 @@
 package com.example.vitamin_app;
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.os.Bundle;
+
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -20,9 +23,19 @@ import com.example.vitamin_app.QuickFixOptions.QuickFixOptionsSkin;
 import com.example.vitamin_app.QuickFixOptions.QuickFixOptionsSleep;
 import com.example.vitamin_app.QuickFixOptions.QuickFixOptionsWeightloss;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+
 public class QuickFixList extends Fragment {
     AutoCompleteTextView autocomplete;
     ArrayAdapter adapterItems;
+
     public QuickFixList() {
     }
     @Override
@@ -33,6 +46,7 @@ public class QuickFixList extends Fragment {
     @SuppressLint("MissingInflatedId")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
         View v;
         v = inflater.inflate(R.layout.fragment_quick_fix_list, container, false);
         String[] items = {"Weightloss","Energy","Sleep","Articulation", "Detox", "Digestion", "Immunity", "Skin", "Exercise"};
@@ -112,5 +126,12 @@ public class QuickFixList extends Fragment {
             }
         });
         return v;
+    }
+
+
+    @Nullable
+    @Override
+    public Context getContext() {
+        return super.getContext();
     }
 }
