@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import java.io.BufferedInputStream;
@@ -100,6 +101,9 @@ public class GeneralListActivity extends AppCompatActivity {
             toHome.setVisibility(View.GONE);
             toSearch.setVisibility(View.GONE);
             toList.setVisibility(View.GONE);
+
+            LinearLayout lin = (LinearLayout) findViewById(R.id.linearLayout);
+            lin.setVisibility(View.GONE);
         }
     }
 
