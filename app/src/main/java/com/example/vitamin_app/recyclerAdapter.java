@@ -31,15 +31,19 @@ public class recyclerAdapter extends RecyclerView.Adapter<recyclerAdapter.ViewHo
 //        rvSetVariables(str);
 //        HomeActivity act = new HomeActivity();
         ArrayList<String[]> str = HomeActivity.getDatabaselist();
-        for(int i = 0; i < str.size(); i++){
-            String[] temp = str.get(i);
-            if(str.get(i)[1].equals(page_type)){
-                vitamin_names.add(str.get(i)[0]);
-                vitamin_descriptions.add(str.get(i)[2]);
-                vitamin_dosages.add(str.get(i)[3]);
-                vitamin_img.add(R.drawable.multivit);
+
+        if(str != null){
+            for(int i = 0; i < str.size(); i++){
+                String[] temp = str.get(i);
+                if(str.get(i)[1].equals(page_type)){
+                    vitamin_names.add(str.get(i)[0]);
+                    vitamin_descriptions.add(str.get(i)[2]);
+                    vitamin_dosages.add(str.get(i)[3]);
+                    vitamin_img.add(R.drawable.multivit);
+                }
             }
         }
+
 //        vitamin_names = aContext.getResources().getStringArray(R.array.vitamin_names);
 //        vitamin_descriptions = aContext.getResources().getStringArray(R.array.vitamin_descriptions);
 //        episodelinks =  aContext.getResources().getStringArray(R.array.episode_links);
