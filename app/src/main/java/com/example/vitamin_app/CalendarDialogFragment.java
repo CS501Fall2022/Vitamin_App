@@ -1,6 +1,7 @@
 package com.example.vitamin_app;
 
 import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -11,19 +12,28 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
 import android.provider.CalendarContract;
+import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.TimePicker;
+import android.widget.Toast;
+
+import com.google.android.material.timepicker.MaterialTimePicker;
+import com.google.android.material.timepicker.TimeFormat;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-public class CalendarDialogFragment extends DialogFragment {
+public class CalendarDialogFragment extends DialogFragment{
 
     private DatePickerDialog.OnDateSetListener mDateSetListener;
+    private TimePickerDialog.OnTimeSetListener mListener;
+
+    int day, month, year, hour, minute;
 
     public static CalendarDialogFragment newInstance(String task) {
         Bundle args = new Bundle();
@@ -53,9 +63,9 @@ public class CalendarDialogFragment extends DialogFragment {
             @Override
             public void onClick(View view) {
                 Calendar cal = Calendar.getInstance();
-                int year = cal.get(Calendar.YEAR);
-                int month = cal.get(Calendar.MONTH);
-                int day = cal.get(Calendar.DAY_OF_MONTH);
+                year = cal.get(Calendar.YEAR);
+                month = cal.get(Calendar.MONTH);
+                day = cal.get(Calendar.DAY_OF_MONTH);
 
                 DatePickerDialog dialog = new DatePickerDialog(
                         getActivity(),
@@ -70,6 +80,19 @@ public class CalendarDialogFragment extends DialogFragment {
         mDateSetListener = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                Toast.makeText(getContext(), "DateSet",Toast.LENGTH_LONG).show();
+                Calendar c = Calendar.getInstance();
+                hour = c.get(Calendar.HOUR);
+                minute = c.get(Calendar.MINUTE);
+                TimePickerDialog timePickerDialog = new TimePickerDialog(getActivity(), mListener, hour, minute, DateFormat.is24HourFormat(getContext()));
+                timePickerDialog.show();
+            }
+        };
+
+        mListener = new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(TimePicker timePicker, int hour, int minute) {
+                Toast.makeText(getContext(), "TimeSet "+hour,Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(Intent.ACTION_INSERT);
                 intent.setType("vnd.android.cursor.item/event");
                 intent.putExtra(CalendarContract.Events.TITLE, task);
@@ -79,7 +102,7 @@ public class CalendarDialogFragment extends DialogFragment {
 
                 // Setting dates
                 GregorianCalendar gc = new GregorianCalendar();
-                gc.set(year,month,day);
+                gc.set(year,month,day, hour, minute);
                 gc.add(Calendar.DATE, 0);
                 intent.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME,
                         gc.getTimeInMillis());
@@ -88,11 +111,12 @@ public class CalendarDialogFragment extends DialogFragment {
 
 //                make it a recurring Event
 //                intent.putExtra(CalendarContract.Events.RRULE, "FREQ=WEEKLY;COUNT=11;WKST=SU;BYDAY=TU,TH");
-
+//
 //                make it a full day event
 //                intent.putExtra(CalendarContract.EXTRA_EVENT_ALL_DAY, true);
                 startActivity(intent);
             }
         };
     }
+
 }
