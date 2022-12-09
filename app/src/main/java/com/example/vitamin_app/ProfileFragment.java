@@ -100,6 +100,7 @@ public class ProfileFragment extends Fragment {
             public void onClick(View view) {
                 mAuth.signOut();
                 Toast.makeText(getActivity(), "Logout from " + currentUser.getEmail(), Toast.LENGTH_LONG).show();
+                getContext().deleteDatabase(db.getDatabaseName());
                 mGoogleSignInClient.signOut().addOnCompleteListener(getActivity(), new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
@@ -145,6 +146,7 @@ public class ProfileFragment extends Fragment {
         fab = v.findViewById(R.id.fab);
 
         taskList = db.getAllTasks();
+        // Adding tasks manually
         if (taskList.isEmpty()) {
             ToDoModel task = new ToDoModel();
             task.setTask("swipe left on a task to delete it");

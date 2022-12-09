@@ -11,7 +11,7 @@
     <string name="exercise">Exercise</string>
     <string name="digestion">Digestion</string>
     <string name="articulation">Articulation</string>
-    <string name="ratio_header">Select the ratio of supplements for each problem</string>
+    <string name="ratio_header">Select the ratio of supplements using the sliders</string>
     <string name="checkbox_header">Select your most relevant issue</string>
     <string name="vitamin_search_button_display">See Google Results</string>
     <string name="result_page_title">Recommendations</string>
