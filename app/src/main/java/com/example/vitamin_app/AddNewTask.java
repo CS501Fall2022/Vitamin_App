@@ -158,5 +158,6 @@ public class AddNewTask extends BottomSheetDialogFragment {
             transaction.attach(frg).commitNow();
             transaction.commit();
         }
+        dismiss();
     }
 }
