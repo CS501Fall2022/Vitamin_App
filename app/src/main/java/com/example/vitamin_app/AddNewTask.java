@@ -143,6 +143,7 @@ public class AddNewTask extends BottomSheetDialogFragment {
         });
     }
 
+
     @Override
     public void onDismiss(@NonNull DialogInterface dialog){
         Activity activity = getActivity();
