@@ -167,6 +167,7 @@ public class ProfileFragment extends Fragment {
 
         //If the task list is empty, add some basic ones.
         taskList = db.getAllTasks();
+        // Adding tasks manually
         if (taskList.isEmpty()) {
             insertTask("swipe left on a task to delete it");
             insertTask("swipe right on a task to edit it or add it to you calendar");
