@@ -54,8 +54,8 @@ public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private boolean showOneTapUI = true;
 
-    String[] genderList = new String[] {"Male", "Female", "Other"};
-    String[] ageList = new String[43];
+    String[] genderList = new String[] {"Male", "Female"};
+    String[] ageList = new String[] {"12-20", "20-60", "60+"};
 
     // creating a variable for our
     // Firebase Database.
@@ -77,11 +77,6 @@ public class LoginActivity extends AppCompatActivity {
                 android.R.layout.simple_spinner_item, genderList);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         s.setAdapter(adapter);
-
-        for(int i = 18; i < 61; i++){
-            ageList[i - 18] = String.valueOf(i);
-        }
-        ageList[42] = "60+";
 
         Spinner s2 = (Spinner) findViewById(R.id.age);
         ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this,
@@ -242,7 +237,7 @@ public class LoginActivity extends AppCompatActivity {
         if (currentUser != null){
             intent = new Intent(this, HomeActivity.class);
             Toast.makeText(LoginActivity.this, "Welcome " + currentUser.getEmail(), Toast.LENGTH_LONG).show();
-            Toast.makeText(LoginActivity.this, "" + signedIn, Toast.LENGTH_LONG).show();
+            //Toast.makeText(LoginActivity.this, "" + signedIn, Toast.LENGTH_LONG).show();
             finish();
 
         } else {
@@ -282,6 +277,9 @@ public class LoginActivity extends AppCompatActivity {
                             firebaseDatabase = FirebaseDatabase.getInstance();
                             databaseReference = firebaseDatabase.getReference("Users");
 
+                            Spinner genderSpinner = (Spinner) findViewById(R.id.gender);
+                            Spinner ageSpinner = (Spinner) findViewById(R.id.age);
+
                             // Checking if user exists in database
                             databaseReference.child(userId).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                                 @Override
@@ -292,7 +290,9 @@ public class LoginActivity extends AppCompatActivity {
                                         if(!(task.getResult().exists())) {
                                             Toast.makeText(LoginActivity.this, "User does not exist in database",Toast.LENGTH_LONG).show();
 
-                                            user = new Users(email, userId);
+                                            String gender = genderSpinner.getSelectedItem().toString();
+                                            String age = genderSpinner.getSelectedItem().toString();
+                                            user = new Users(email, userId, gender, age);
                                             databaseReference.addValueEventListener(new ValueEventListener() {
 
                                                 @Override

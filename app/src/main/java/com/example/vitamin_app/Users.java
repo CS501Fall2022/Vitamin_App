@@ -17,9 +17,11 @@ public class Users {
     public Users() {
     }
 
-    public Users(String user_email, String username) {
+    public Users(String user_email, String username, String gender, String age) {
         this.user_email = user_email;
         this.username = username;
+        this.gender = gender;
+        this.age = age;
     }
 
     public String getUserEmail() {

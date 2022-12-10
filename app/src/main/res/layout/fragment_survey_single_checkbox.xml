@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SurveyTripleCheckboxFragment">
+    tools:context=".SurveyDoubleCheckboxFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -21,23 +21,13 @@
             app:layout_constraintVertical_bias="0.0">
 
             <RadioButton
-                android:id="@+id/triple_problem1"
+                android:id="@+id/double_problem1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white" />
 
-            <RadioButton
-                android:id="@+id/triple_problem2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white" />
-
-            <RadioButton
-                android:id="@+id/triple_problem3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white" />
         </RadioGroup>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

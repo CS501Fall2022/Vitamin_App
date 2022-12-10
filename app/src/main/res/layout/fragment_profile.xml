@@ -21,9 +21,9 @@
 
     <TextView
         android:id="@+id/tasksText"
+        style="@style/Header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        style="@style/Header"
         android:text="Tasks"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -42,7 +42,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView13"
+        app:layout_constraintTop_toBottomOf="@+id/swipeText"
         app:layout_constraintVertical_bias="0.023" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -60,7 +60,7 @@
         app:srcCompat="@drawable/baseline_add_task_24" />
 
     <TextView
-        android:id="@+id/textView13"
+        android:id="@+id/swipeText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Swipe right to edit | Swipe left to delete"

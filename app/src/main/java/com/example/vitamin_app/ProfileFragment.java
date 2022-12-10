@@ -52,9 +52,13 @@ public class ProfileFragment extends Fragment {
     // Reference for Firebase.
     DatabaseReference databaseReference;
 
+    Users user;
+
     // to store data from user's database
     String problem1;
     String problem2;
+    String age;
+    String gender;
 
     private GoogleSignInClient mGoogleSignInClient;
 
@@ -114,6 +118,7 @@ public class ProfileFragment extends Fragment {
 
         // Retrieving user data from firebase
         String username = currentUser.getDisplayName();
+        String email = currentUser.getEmail();
         databaseReference.child(username).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
@@ -122,6 +127,14 @@ public class ProfileFragment extends Fragment {
                         DataSnapshot dataSnapshot = task.getResult();
                         problem1 = String.valueOf(dataSnapshot.child("problem").getValue());
                         problem2 = String.valueOf(dataSnapshot.child("problem2").getValue());
+
+                        // Make sure gender is assigned for already logged in users
+                        gender = String.valueOf(dataSnapshot.child("gender").getValue());
+                        age = String.valueOf(dataSnapshot.child("age").getValue());
+                        if (age == "null" && gender == "null") {
+                            databaseReference.child(username).child("age").setValue("20-60");
+                            databaseReference.child(username).child("gender").setValue("male");
+                        }
                     } else {
                         Toast.makeText(v.getContext(), "User does not exist",Toast.LENGTH_LONG).show();
                     }
@@ -143,10 +156,8 @@ public class ProfileFragment extends Fragment {
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new RecyclerItemTouchHelper(tasksAdapter));
         itemTouchHelper.attachToRecyclerView(tasksRecyclerView);
 
-        fab = v.findViewById(R.id.fab);
-
+        //Adding tasks manually
         taskList = db.getAllTasks();
-        // Adding tasks manually
         if (taskList.isEmpty()) {
             ToDoModel task = new ToDoModel();
             task.setTask("swipe left on a task to delete it");
@@ -162,6 +173,8 @@ public class ProfileFragment extends Fragment {
 
         Collections.reverse(taskList);
         tasksAdapter.setTasks(taskList);
+
+        fab = v.findViewById(R.id.fab);
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
