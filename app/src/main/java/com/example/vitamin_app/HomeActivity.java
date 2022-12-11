@@ -96,7 +96,7 @@ public class HomeActivity extends AppCompatActivity {
                     viewPager.removeAllViews();
                     getSupportFragmentManager().beginTransaction()
                             .setReorderingAllowed(true)
-                            .replace(R.id.fragmentLayout1, SurveyMainFragment.class, null)
+                            .replace(R.id.fragmentLayout1, SurveyAgeGenderConfirmFragment.class, null)
                             .commit();
                 }
                 if (tab.getPosition()==1) {

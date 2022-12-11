@@ -291,7 +291,7 @@ public class LoginActivity extends AppCompatActivity {
                                             Toast.makeText(LoginActivity.this, "User does not exist in database",Toast.LENGTH_LONG).show();
 
                                             String gender = genderSpinner.getSelectedItem().toString();
-                                            String age = genderSpinner.getSelectedItem().toString();
+                                            String age = ageSpinner.getSelectedItem().toString();
                                             user = new Users(email, userId, gender, age);
                                             databaseReference.addValueEventListener(new ValueEventListener() {
 
