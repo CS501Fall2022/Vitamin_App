@@ -24,7 +24,7 @@
             android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/ageGenderText"
         style="@style/Header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -78,7 +78,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.709"
         app:layout_constraintStart_toEndOf="@+id/sleepButton"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/ageGenderText"
         app:layout_constraintVertical_bias="0.036" />
 
     <RadioButton
@@ -89,7 +89,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/ageGenderText"
         app:layout_constraintVertical_bias="0.036" />
 
     <RadioButton
@@ -133,11 +133,11 @@
         app:layout_constraintEnd_toStartOf="@+id/sleepButton"
         app:layout_constraintHorizontal_bias="0.285"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/ageGenderText"
         app:layout_constraintVertical_bias="0.036" />
 
     <Button
-        android:id="@+id/nextPage"
+        android:id="@+id/toSurveyMain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="NEXT"

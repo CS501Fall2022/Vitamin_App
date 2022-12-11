@@ -183,6 +183,7 @@ public class SurveyDoubleProblemFragment extends Fragment {
                     RadioButton triple_p2 = (RadioButton) array.get(count).getView().findViewById(R.id.triple_problem2);
                     RadioButton triple_p3 = (RadioButton) array.get(count).getView().findViewById(R.id.triple_problem3);
                     if (triple_p1.isChecked()) {
+                        vit3 = "Garcinia";
                         if (gender.equals("male")) {
                             vit1 = "Bromelain";
                             vit2 = "Grape Pomace";
@@ -190,6 +191,7 @@ public class SurveyDoubleProblemFragment extends Fragment {
                             vit2 = "Bromelain";
                             vit1 = "Grape Pomace";
                         }
+
                         if (seek1.getProgress() == 1) {
                             user.setSupplement1(vit1);
                         } else if (seek1.getProgress() == 2) {
@@ -198,7 +200,7 @@ public class SurveyDoubleProblemFragment extends Fragment {
                         } else {
                             user.setSupplement1(vit1);
                             user.setSupplement2(vit2);
-                            user.setSupplement3("Garcinia");
+                            user.setSupplement3(vit3);
                         }
                     } else if (triple_p2.isChecked()) {
                         if (seek1.getProgress() == 1) {
@@ -212,15 +214,33 @@ public class SurveyDoubleProblemFragment extends Fragment {
                             user.setSupplement3("Milk Thistle");
                         }
                     } else if (triple_p3.isChecked()) {
-                        if (seek1.getProgress() == 1) {
-                            user.setSupplement1("Konjac");
-                        } else if (seek1.getProgress() == 2) {
-                            user.setSupplement1("Konjac");
-                            user.setSupplement2("Laminaria");
+                        if (gender.equals("male")) {
+                            vit1 = "Kudzu";
+                            if (age.equals("12-20")) {
+                                vit2 = "Nopal";
+                            } else {
+                                vit2 = "Konjac";
+                            }
+                            vit3 = "Laminaria";
                         } else {
-                            user.setSupplement1("Konjac");
-                            user.setSupplement2("Laminaria");
-                            user.setSupplement3("Kudzu");
+                            if (age.equals("12-20")) {
+                                vit1 = "Nopal";
+                            } else {
+                                vit1 = "Konjac";
+                            }
+                            vit2 = "Laminaria";
+                            vit3 = "Kudzu";
+                        }
+
+                        if (seek1.getProgress() == 1) {
+                            user.setSupplement1(vit1);
+                        } else if (seek1.getProgress() == 2) {
+                            user.setSupplement1(vit1);
+                            user.setSupplement2(vit2);
+                        } else {
+                            user.setSupplement1(vit1);
+                            user.setSupplement2(vit2);
+                            user.setSupplement3(vit3);
                         }
                     } else {
                         Toast.makeText(v.getContext(),"Must select a problem from the available options",Toast.LENGTH_SHORT).show();
@@ -231,20 +251,35 @@ public class SurveyDoubleProblemFragment extends Fragment {
                     RadioButton triple_p1 = (RadioButton) array.get(count).getView().findViewById(R.id.triple_problem1);
                     RadioButton triple_p2 = (RadioButton) array.get(count).getView().findViewById(R.id.triple_problem2);
                     RadioButton triple_p3 = (RadioButton) array.get(count).getView().findViewById(R.id.triple_problem3);
+                    if (triple_p1.isChecked()) {
+                        vit3 = "L-Theanine";
+                        if (age.equals("20-60")) {
+                            vit1 = "California Poppy";
+                            vit2 = "Griffonia";
+                        } else if (age.equals("12-20")) {
+                            vit1 = "California Poppy";
+                            vit2 = "Melissa";
+                        } else {
+                            vit2 = "California Poppy";
+                            vit1 = "Griffonia";
+                        }
+                    }
                     if (count == 0) {
                         user.setProblem("sleep");
                         if (triple_p1.isChecked()) {
                             if (seek1.getProgress() == 1) {
-                                user.setSupplement1("California Poppy");
+                                user.setSupplement1(vit1);
                             } else if (seek1.getProgress() == 2) {
-                                user.setSupplement1("California Poppy");
-                                user.setSupplement2("Griffonia");
+                                user.setSupplement1(vit1);
+                                user.setSupplement2(vit2);
                             } else {
-                                user.setSupplement1("California Poppy");
-                                user.setSupplement2("Griffonia");
-                                user.setSupplement3("L-Theanine");
+                                user.setSupplement1(vit1);
+                                user.setSupplement2(vit2);
+                                user.setSupplement3(vit3);
                             }
                         } else if (triple_p2.isChecked()) {
+                            ///////////////////////////////////////////////////////////////////////////
+                            // Need to edit this
                             if (seek1.getProgress() == 1) {
                                 user.setSupplement1("Valerian");
                             } else if (seek1.getProgress() == 2) {
@@ -274,16 +309,18 @@ public class SurveyDoubleProblemFragment extends Fragment {
                         user.setProblem2("sleep");
                         if (triple_p1.isChecked()) {
                             if (seek2.getProgress() == 1) {
-                                user.setSupplement4("California Poppy");
+                                user.setSupplement4(vit1);
                             } else if (seek2.getProgress() == 2) {
-                                user.setSupplement4("California Poppy");
-                                user.setSupplement3("Griffonia");
+                                user.setSupplement4(vit1);
+                                user.setSupplement3(vit2);
                             } else {
-                                user.setSupplement4("California Poppy");
-                                user.setSupplement3("Griffonia");
-                                user.setSupplement2("L-Theanine");
+                                user.setSupplement4(vit1);
+                                user.setSupplement3(vit2);
+                                user.setSupplement2(vit3);
                             }
                         } else if (triple_p2.isChecked()) {
+                            ///////////////////////////////////////////////////////////////////////////
+                            // Need to edit this
                             if (seek2.getProgress() == 1) {
                                 user.setSupplement4("Valerian");
                             } else if (seek2.getProgress() == 2) {
@@ -313,19 +350,36 @@ public class SurveyDoubleProblemFragment extends Fragment {
                     count++;
                 } if (bundle.getBoolean("energy")) {
                     RadioButton double_p1 = (RadioButton) array.get(count).getView().findViewById(R.id.double_problem1);
+                    if (double_p1.isChecked()) {
+                        if (age.equals("60+")) {
+                            vit1 = "Klamath";
+                            vit2 = "Rhodiola";
+                            vit3 = "B Vitamins";
+                        } else if (age.equals("12-20")) {
+                            ///////////////////////////////////////////////////////////////////
+                            // Need to double check this
+                            vit1 = "Royal Jelly";
+                            vit2 = "B Vitamins";
+                            vit3 = "L-Tryptophan";
+                        } else {
+                            vit1 = "Rhodiola";
+                            vit2 = "B Vitamins";
+                            vit3 = "L-Tryptophan";
+                        }
+                    }
                     if (!age.equals("20-60")) {
                         if (count == 0) {
                             user.setProblem("energy");
                             if (double_p1.isChecked()) {
                                 if (seek1.getProgress() == 1) {
-                                    user.setSupplement1("Rhodiola");
+                                    user.setSupplement1(vit1);
                                 } else if (seek1.getProgress() == 2) {
-                                    user.setSupplement1("Rhodiola");
-                                    user.setSupplement2("B Vitamins");
+                                    user.setSupplement1(vit1);
+                                    user.setSupplement2(vit2);
                                 } else {
-                                    user.setSupplement1("Rhodiola");
-                                    user.setSupplement2("B Vitamins");
-                                    user.setSupplement3("L-Tryptophan");
+                                    user.setSupplement1(vit1);
+                                    user.setSupplement2(vit2);
+                                    user.setSupplement3(vit3);
                                 }
                             } else {
                                 Toast.makeText(v.getContext(),"Must select a problem from the available options",Toast.LENGTH_SHORT).show();
@@ -335,14 +389,14 @@ public class SurveyDoubleProblemFragment extends Fragment {
                             user.setProblem2("energy");
                             if (double_p1.isChecked()) {
                                 if (seek2.getProgress() == 1) {
-                                    user.setSupplement4("Rhodiola");
+                                    user.setSupplement4(vit1);
                                 } else if (seek2.getProgress() == 2) {
-                                    user.setSupplement4("Rhodiola");
-                                    user.setSupplement3("B Vitamins");
+                                    user.setSupplement4(vit1);
+                                    user.setSupplement3(vit2);
                                 } else {
-                                    user.setSupplement4("Rhodiola");
-                                    user.setSupplement3("B Vitamins");
-                                    user.setSupplement2("L-Tryptophan");
+                                    user.setSupplement4(vit1);
+                                    user.setSupplement3(vit2);
+                                    user.setSupplement2(vit3);
                                 }
                             } else {
                                 Toast.makeText(v.getContext(),"Must select a problem from the available options",Toast.LENGTH_SHORT).show();
@@ -366,14 +420,14 @@ public class SurveyDoubleProblemFragment extends Fragment {
                                 }
                             } else if (double_p2.isChecked()) {
                                 if (seek1.getProgress() == 1) {
-                                    user.setSupplement1("Rhodiola");
+                                    user.setSupplement1(vit1);
                                 } else if (seek1.getProgress() == 2) {
-                                    user.setSupplement1("Rhodiola");
-                                    user.setSupplement2("B Vitamins");
+                                    user.setSupplement1(vit1);
+                                    user.setSupplement2(vit2);
                                 } else {
-                                    user.setSupplement1("Rhodiola");
-                                    user.setSupplement2("B Vitamins");
-                                    user.setSupplement3("L-Tryptophan");
+                                    user.setSupplement1(vit1);
+                                    user.setSupplement2(vit2);
+                                    user.setSupplement3(vit3);
                                 }
                             } else {
                                 Toast.makeText(v.getContext(),"Must select a problem from the available options",Toast.LENGTH_SHORT).show();
@@ -394,14 +448,14 @@ public class SurveyDoubleProblemFragment extends Fragment {
                                 }
                             } else if (double_p2.isChecked()) {
                                 if (seek2.getProgress() == 1) {
-                                    user.setSupplement4("Rhodiola");
+                                    user.setSupplement4(vit1);
                                 } else if (seek2.getProgress() == 2) {
-                                    user.setSupplement4("Rhodiola");
-                                    user.setSupplement3("B Vitamins");
+                                    user.setSupplement4(vit1);
+                                    user.setSupplement3(vit2);
                                 } else {
-                                    user.setSupplement4("Rhodiola");
-                                    user.setSupplement3("B Vitamins");
-                                    user.setSupplement2("L-Tryptophan");
+                                    user.setSupplement4(vit1);
+                                    user.setSupplement3(vit2);
+                                    user.setSupplement2(vit3);
                                 }
                             } else {
                                 Toast.makeText(v.getContext(),"Must select a problem from the available options",Toast.LENGTH_SHORT).show();
@@ -413,18 +467,29 @@ public class SurveyDoubleProblemFragment extends Fragment {
                 } if (bundle.getBoolean("immunity")) {
                     RadioButton double_p1 = (RadioButton) array.get(count).getView().findViewById(R.id.double_problem1);
                     RadioButton double_p2 = (RadioButton) array.get(count).getView().findViewById(R.id.double_problem2);
+                    if (double_p1.isChecked()) {
+                        if (age.equals("60+")) {
+                            vit1 = "Royal Jelly";
+                            vit2 = "Zinc";
+                            vit3 = "Shiitake";
+                        } else {
+                            vit1 = "Zinc";
+                            vit2 = "Shiitake";
+                            vit3 = "D Vitamins";
+                        }
+                    }
                     if (count == 0) {
                         user.setProblem("immunity");
                         if (double_p1.isChecked()) {
                             if (seek1.getProgress() == 1) {
-                                user.setSupplement1("Zinc");
+                                user.setSupplement1(vit1);
                             } else if (seek1.getProgress() == 2) {
-                                user.setSupplement1("Zinc");
-                                user.setSupplement2("Shitake");
+                                user.setSupplement1(vit1);
+                                user.setSupplement2(vit2);
                             } else {
-                                user.setSupplement1("Zinc");
-                                user.setSupplement2("Shitake");
-                                user.setSupplement3("D Vitamins");
+                                user.setSupplement1(vit1);
+                                user.setSupplement2(vit2);
+                                user.setSupplement3(vit3);
                             }
                         } else if (double_p2.isChecked()) {
                             if (seek1.getProgress() == 1) {
@@ -445,14 +510,14 @@ public class SurveyDoubleProblemFragment extends Fragment {
                         user.setProblem2("immunity");
                         if (double_p1.isChecked()) {
                             if (seek2.getProgress() == 1) {
-                                user.setSupplement4("Zinc");
+                                user.setSupplement4(vit1);
                             } else if (seek2.getProgress() == 2) {
-                                user.setSupplement4("Zinc");
-                                user.setSupplement3("Shitake");
+                                user.setSupplement4(vit1);
+                                user.setSupplement3(vit2);
                             } else {
-                                user.setSupplement4("Zinc");
-                                user.setSupplement3("Shitake");
-                                user.setSupplement2("D Vitamins");
+                                user.setSupplement4(vit1);
+                                user.setSupplement3(vit2);
+                                user.setSupplement2(vit3);
                             }
                         } else if (double_p2.isChecked()) {
                             if (seek2.getProgress() == 1) {
@@ -475,18 +540,28 @@ public class SurveyDoubleProblemFragment extends Fragment {
                     RadioButton triple_p1 = (RadioButton) array.get(count).getView().findViewById(R.id.triple_problem1);
                     RadioButton triple_p2 = (RadioButton) array.get(count).getView().findViewById(R.id.triple_problem2);
                     RadioButton triple_p3 = (RadioButton) array.get(count).getView().findViewById(R.id.triple_problem3);
+                    if (triple_p1.isChecked()) {
+                        vit3 = "Silica";
+                        if (age.equals("60+")) {
+                            vit1 = "Wheat Germ Oil";
+                            vit2 = "Borage";
+                        } else {
+                            vit2 = "Wheat Germ Oil";
+                            vit1 = "Borage";
+                        }
+                    }
                     if (count == 0) {
                         user.setProblem("skin");
                         if (triple_p1.isChecked()) {
                             if (seek1.getProgress() == 1) {
-                                user.setSupplement1("Borage");
+                                user.setSupplement1(vit1);
                             } else if (seek1.getProgress() == 2) {
-                                user.setSupplement1("Borage");
-                                user.setSupplement2("Wheat Germ Oil");
+                                user.setSupplement1(vit1);
+                                user.setSupplement2(vit2);
                             } else {
-                                user.setSupplement1("Borage");
-                                user.setSupplement2("Wheat Germ Oil");
-                                user.setSupplement3("Silica");
+                                user.setSupplement1(vit1);
+                                user.setSupplement2(vit2);
+                                user.setSupplement3(vit3);
                             }
                         } else if (triple_p2.isChecked()) {
                             if (seek1.getProgress() == 1) {
@@ -518,14 +593,14 @@ public class SurveyDoubleProblemFragment extends Fragment {
                         user.setProblem2("skin");
                         if (triple_p1.isChecked()) {
                             if (seek2.getProgress() == 1) {
-                                user.setSupplement4("Borage");
+                                user.setSupplement4(vit1);
                             } else if (seek2.getProgress() == 2) {
-                                user.setSupplement4("Borage");
-                                user.setSupplement3("Wheat Germ Oil");
+                                user.setSupplement4(vit1);
+                                user.setSupplement3(vit2);
                             } else {
-                                user.setSupplement4("Borage");
-                                user.setSupplement2("Wheat Germ Oil");
-                                user.setSupplement3("Silica");
+                                user.setSupplement4(vit1);
+                                user.setSupplement2(vit2);
+                                user.setSupplement3(vit3);
                             }
                         } else if (triple_p2.isChecked()) {
                             if (seek2.getProgress() == 1) {
@@ -703,18 +778,31 @@ public class SurveyDoubleProblemFragment extends Fragment {
                 } if (bundle.getBoolean("digestion")) {
                     RadioButton double_p1 = (RadioButton) array.get(count).getView().findViewById(R.id.double_problem1);
                     RadioButton double_p2 = (RadioButton) array.get(count).getView().findViewById(R.id.double_problem2);
+                    if (double_p1.isChecked()) {
+                        if (!age.equals("20-60")) {
+                            /////////////////////////////////////////////////////////////////////////////////////
+                            // Might need to change this
+                            vit1 = "Fennel";
+                            vit2 = "Coriander";
+                            vit3 = "Propolis";
+                        } else {
+                            vit1 = "Fennel";
+                            vit2 = "Coriander";
+                            vit3 = "Propolis";
+                        }
+                    }
                     if (count == 0) {
                         user.setProblem("digestion");
                         if (double_p1.isChecked()) {
                             if (seek1.getProgress() == 1) {
-                                user.setSupplement1("Fennel");
+                                user.setSupplement1(vit1);
                             } else if (seek1.getProgress() == 2) {
-                                user.setSupplement1("Fennel");
-                                user.setSupplement2("Coriandre");
+                                user.setSupplement1(vit1);
+                                user.setSupplement2(vit2);
                             } else {
-                                user.setSupplement1("Fennel");
-                                user.setSupplement2("Coriandre");
-                                user.setSupplement3("Propolis");
+                                user.setSupplement1(vit1);
+                                user.setSupplement2(vit2);
+                                user.setSupplement3(vit3);
                             }
                         } else if (double_p2.isChecked()) {
                             if (seek1.getProgress() == 1) {
@@ -735,14 +823,14 @@ public class SurveyDoubleProblemFragment extends Fragment {
                         user.setProblem2("digestion");
                         if (double_p1.isChecked()) {
                             if (seek2.getProgress() == 1) {
-                                user.setSupplement4("Fennel");
+                                user.setSupplement4(vit1);
                             } else if (seek2.getProgress() == 2) {
-                                user.setSupplement4("Fennel");
-                                user.setSupplement3("Coriandre");
+                                user.setSupplement4(vit1);
+                                user.setSupplement3(vit2);
                             } else {
-                                user.setSupplement4("Fennel");
-                                user.setSupplement2("Coriandre");
-                                user.setSupplement3("Propolis");
+                                user.setSupplement4(vit1);
+                                user.setSupplement2(vit2);
+                                user.setSupplement3(vit3);
                             }
                         } else if (double_p2.isChecked()) {
                             if (seek2.getProgress() == 1) {
@@ -764,29 +852,56 @@ public class SurveyDoubleProblemFragment extends Fragment {
                 } if (bundle.getBoolean("articulation")) {
                     RadioButton double_p1 = (RadioButton) array.get(count).getView().findViewById(R.id.double_problem1);
                     RadioButton double_p2 = (RadioButton) array.get(count).getView().findViewById(R.id.double_problem2);
+                    if (double_p1.isChecked()) {
+                        //////////////////////////////////////////////////////////////////////////////////////////////////
+                        // Need to edit this
+                        if (age.equals("60+")) {
+                            vit1 = "Collagen";
+                            vit2 = "Silica";
+                            vit3 = "Boswellia";
+                        } else if (age.equals("12-20")) {
+                            vit1 = "Borage";
+                            vit2 = "Boswellia";
+                            vit3 = "Collagen";
+                        } else {
+                            vit3 = "Fermented Papaya";
+                            vit1 = "Boswellia";
+                            vit2 = "Collagen";
+                        }
+                    } else {
+                        if (age.equals("12-20")) {
+                            vit1 = "Glucosamine";
+                            vit2 = "Palmitoylethanolamide";
+                            vit3 = "Black Currant";
+                        } else {
+                            vit1 = "Curcumin";
+                            vit2 = "Palmitoylethanolamide";
+                            vit3 = "Black Currant";
+                        }
+                    }
                     if (count == 0) {
                         user.setProblem("articulation");
                         if (double_p1.isChecked()) {
                             if (seek1.getProgress() == 1) {
-                                user.setSupplement1("Boswellia");
+                                user.setSupplement1(vit1);
                             } else if (seek1.getProgress() == 2) {
-                                user.setSupplement1("Boswellia");
-                                user.setSupplement2("Collagen");
+                                user.setSupplement1(vit1);
+                                user.setSupplement2(vit2);
                             } else {
-                                user.setSupplement1("Boswellia");
-                                user.setSupplement2("Collagen");
-                                user.setSupplement3("Fermented Papaya");
+                                user.setSupplement1(vit1);
+                                user.setSupplement2(vit2);
+                                user.setSupplement3(vit3);
                             }
                         } else if (double_p2.isChecked()) {
                             if (seek1.getProgress() == 1) {
-                                user.setSupplement1("Curcumin");
+                                user.setSupplement1(vit1);
                             } else if (seek1.getProgress() == 2) {
-                                user.setSupplement1("Curcumin");
-                                user.setSupplement2("Palmitoylethanolamide");
+                                user.setSupplement1(vit1);
+                                user.setSupplement2(vit2);
                             } else {
-                                user.setSupplement1("Curcumin");
-                                user.setSupplement2("Palmitoylethanolamide");
-                                user.setSupplement3("Black Currant");
+                                user.setSupplement1(vit1);
+                                user.setSupplement2(vit2);
+                                user.setSupplement3(vit3);
                             }
                         } else {
                             Toast.makeText(v.getContext(),"Must select a problem from the available options",Toast.LENGTH_SHORT).show();
@@ -796,25 +911,25 @@ public class SurveyDoubleProblemFragment extends Fragment {
                         user.setProblem2("articulation");
                         if (double_p1.isChecked()) {
                             if (seek2.getProgress() == 1) {
-                                user.setSupplement4("Boswellia");
+                                user.setSupplement4(vit1);
                             } else if (seek2.getProgress() == 2) {
-                                user.setSupplement4("Boswellia");
-                                user.setSupplement3("Collagen");
+                                user.setSupplement4(vit1);
+                                user.setSupplement3(vit2);
                             } else {
-                                user.setSupplement4("Boswellia");
-                                user.setSupplement2("Collagen");
-                                user.setSupplement3("Fermented Papaya");
+                                user.setSupplement4(vit1);
+                                user.setSupplement2(vit2);
+                                user.setSupplement3(vit3);
                             }
                         } else if (double_p2.isChecked()) {
                             if (seek2.getProgress() == 1) {
-                                user.setSupplement4("Curcumin");
+                                user.setSupplement4(vit1);
                             } else if (seek2.getProgress() == 2) {
-                                user.setSupplement4("Curcumin");
-                                user.setSupplement3("Palmitoylethanolamide");
+                                user.setSupplement4(vit1);
+                                user.setSupplement3(vit2);
                             } else {
-                                user.setSupplement1("Curcumin");
-                                user.setSupplement2("Palmitoylethanolamide");
-                                user.setSupplement3("Black Currant");
+                                user.setSupplement4(vit1);
+                                user.setSupplement2(vit2);
+                                user.setSupplement3(vit3);
                             }
                         } else {
                             Toast.makeText(v.getContext(),"Must select a problem from the available options",Toast.LENGTH_SHORT).show();

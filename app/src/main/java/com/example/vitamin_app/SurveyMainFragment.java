@@ -42,7 +42,7 @@ public class SurveyMainFragment extends Fragment {
         bundle.putBoolean("digestion", false);
         bundle.putBoolean("articulation", false);
 
-        Button toSurvey = (Button) v.findViewById(R.id.nextPage);
+        Button toSurvey = (Button) v.findViewById(R.id.toSurveyMain);
         toSurvey.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

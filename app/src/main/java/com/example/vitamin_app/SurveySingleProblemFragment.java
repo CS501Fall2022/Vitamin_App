@@ -148,7 +148,7 @@ public class SurveySingleProblemFragment extends Fragment {
                             user.setSupplement4("Griffonia");
                         }
                     } else if (triple_p2.isChecked()) {
-                        ////////////////////////////////////////////////////////////
+                        ///////////////////////////////////////////////////////////////////////////////////////////
                         // Need to edit
                         user.setSupplement1("Valerian");
                         user.setSupplement2("Melatonin");
