@@ -21,7 +21,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginLeft="196dp"
         android:layout_marginTop="36dp"
-        android:text="Energy saving vitamin 1"
+        android:text="@string/energy_title"
         tools:layout_editor_absoluteX="114dp"
         tools:layout_editor_absoluteY="110dp" />
 
@@ -32,10 +32,10 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="32dp"
-        android:layout_marginRight="32dp"
         android:layout_marginTop="109dp"
+        android:layout_marginRight="32dp"
         android:layout_marginBottom="20dp"
-        android:text="Energy saver description"
+        android:text="@string/energy_description"
         tools:layout_editor_absoluteX="114dp"
         tools:layout_editor_absoluteY="110dp" />
 

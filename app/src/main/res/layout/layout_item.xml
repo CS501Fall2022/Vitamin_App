@@ -29,7 +29,7 @@
         android:ellipsize="end"
         android:maxLines="2"
         android:padding="5dp"
-        android:text="Article Title"
+        android:text="@string/article"
         android:textAlignment="textStart"
         android:textColor="#353535"
         android:textSize="20sp"
