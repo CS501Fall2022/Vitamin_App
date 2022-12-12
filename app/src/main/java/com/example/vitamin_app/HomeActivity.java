@@ -106,6 +106,7 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+        //Get menu items and redirect to relevant activity if clicked on.
         ImageButton toHome = (ImageButton) findViewById(R.id.toHome);
         toHome.setOnClickListener(new View.OnClickListener() {
             @Override

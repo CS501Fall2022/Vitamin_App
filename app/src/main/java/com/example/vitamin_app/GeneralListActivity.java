@@ -51,11 +51,13 @@ public class GeneralListActivity extends AppCompatActivity {
         databaselist = list;
 
         setContentView(R.layout.activity_general_list);
+
         // set custom toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
+        //Get menu item at the bottom and redirect to relevant intent if clicked on.
         ImageButton toHome = (ImageButton) findViewById(R.id.toHome);
         toHome.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,7 +68,6 @@ public class GeneralListActivity extends AppCompatActivity {
             }
         });
 
-        //Get menu item at the bottom and redirect to relevant intent if clicked on.
         ImageButton toList = (ImageButton) findViewById(R.id.toList);
         toList.setOnClickListener(new View.OnClickListener() {
             @Override

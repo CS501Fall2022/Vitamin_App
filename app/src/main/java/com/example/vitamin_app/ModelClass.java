@@ -1,7 +1,9 @@
 package com.example.vitamin_app;
 
+//Object to hold article information from News-API
 public class ModelClass {
 
+    //Store article title, url, and url to article image.
     private String title;
     private String url;
     private String urlToImage;
