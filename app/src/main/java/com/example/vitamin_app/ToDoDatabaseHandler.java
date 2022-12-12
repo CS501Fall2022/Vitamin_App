@@ -54,6 +54,29 @@ public class ToDoDatabaseHandler extends SQLiteOpenHelper {
         db.insert(TODO_TABLE, null, cv);
     }
 
+    public void insertUniqueTask(ToDoModel task){
+        Cursor c = null;
+        try {
+            String query = "select count(*) from " + TODO_TABLE + " where " + TASK + " = " + task.getTask();
+            c = db.rawQuery(query, null);
+            if (c.moveToFirst()) {
+                return;
+            }
+            else {
+               insertTask(task);
+            }
+        }
+        finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+
+    }
+
     @SuppressLint("Range")
     public List<ToDoModel> getAllTasks(){
         List<ToDoModel> taskList = new ArrayList<>();
