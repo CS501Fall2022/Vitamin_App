@@ -99,7 +99,7 @@
             android:id="@+id/news"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Health News">
+            android:text="@string/profile_tab_1">
 
         </com.google.android.material.tabs.TabItem>
 
@@ -107,7 +107,7 @@
             android:id="@+id/profile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Profile">
+            android:text="@string/profile_tab_2">
 
         </com.google.android.material.tabs.TabItem>
 
@@ -115,7 +115,7 @@
             android:id="@+id/survey"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Survey">
+            android:text="@string/profile_tab_3">
 
         </com.google.android.material.tabs.TabItem>
 

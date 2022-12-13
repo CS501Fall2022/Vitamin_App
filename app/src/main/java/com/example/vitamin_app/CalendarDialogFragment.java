@@ -97,9 +97,6 @@ public class CalendarDialogFragment extends DialogFragment{
                 intent.setType("vnd.android.cursor.item/event");
                 intent.putExtra(CalendarContract.Events.TITLE, task);
 
-//                intent.putExtra(CalendarContract.Events.EVENT_LOCATION, "Home suit home");
-//                intent.putExtra(CalendarContract.Events.DESCRIPTION, "Download Examples");
-
                 // Setting dates
                 GregorianCalendar gc = new GregorianCalendar();
                 gc.set(year,month,day, hour, minute);
@@ -109,11 +106,6 @@ public class CalendarDialogFragment extends DialogFragment{
                 intent.putExtra(CalendarContract.EXTRA_EVENT_END_TIME,
                         gc.getTimeInMillis());
 
-//                make it a recurring Event
-//                intent.putExtra(CalendarContract.Events.RRULE, "FREQ=WEEKLY;COUNT=11;WKST=SU;BYDAY=TU,TH");
-//
-//                make it a full day event
-//                intent.putExtra(CalendarContract.EXTRA_EVENT_ALL_DAY, true);
                 startActivity(intent);
             }
         };

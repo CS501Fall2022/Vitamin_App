@@ -106,10 +106,12 @@ public class ProfileFragment extends Fragment {
                 Toast.makeText(getActivity(), "Logout from " + currentUser.getEmail(), Toast.LENGTH_LONG).show();
                 getContext().deleteDatabase(db.getDatabaseName());
                 mGoogleSignInClient.signOut().addOnCompleteListener(getActivity(), new OnCompleteListener<Void>() {
+                    //Once sign out is complete, send user back to the login activity.
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         Intent intent = new Intent(view.getContext(), LoginActivity.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                        intent.putExtra(LoginActivity.ONETAP, false);
                         view.getContext().startActivity(intent);
                     }
                 });
@@ -161,8 +163,9 @@ public class ProfileFragment extends Fragment {
 
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new RecyclerItemTouchHelper(tasksAdapter));
         itemTouchHelper.attachToRecyclerView(tasksRecyclerView);
+        fab = v.findViewById(R.id.fab);
 
-        //Adding tasks manually
+        //If the task list is empty, add some basic ones.
         taskList = db.getAllTasks();
         if (taskList.isEmpty()) {
             insertTask("swipe left on a task to delete it");

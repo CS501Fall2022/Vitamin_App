@@ -11,7 +11,8 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="110dp"
             android:layout_marginTop="20dp"
-            android:text="Explore Vitamins"
+            android:textAlignment="center"
+            android:text="@string/explore"
             android:textSize="30dp">
 
         </TextView>

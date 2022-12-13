@@ -51,38 +51,30 @@ public class GeneralListActivity extends AppCompatActivity {
         databaselist = list;
 
         setContentView(R.layout.activity_general_list);
+
         // set custom toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
+        //Get menu item at the bottom and redirect to relevant intent if clicked on.
         ImageButton toHome = (ImageButton) findViewById(R.id.toHome);
         toHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (LoginActivity.signedIn) {
-                    Intent intent = new Intent(view.getContext(), HomeActivity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-                    view.getContext().startActivity(intent);
-                } else {
-                    Toast.makeText(view.getContext(), "Please Login to See Survey Results", Toast.LENGTH_LONG).show();
-                }
+                Intent intent = new Intent(view.getContext(), HomeActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                view.getContext().startActivity(intent);
             }
         });
 
-        ;
         ImageButton toList = (ImageButton) findViewById(R.id.toList);
         toList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (LoginActivity.signedIn) {
-                    Intent intent = new Intent(view.getContext(), ResultListActivity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-                    view.getContext().startActivity(intent);
-                }
-                else {
-                    Toast.makeText(view.getContext(), "Please Login to See Survey Results", Toast.LENGTH_LONG).show();
-                }
+                Intent intent = new Intent(view.getContext(), ResultListActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                view.getContext().startActivity(intent);
             }
         });
 
@@ -96,7 +88,7 @@ public class GeneralListActivity extends AppCompatActivity {
             }
         });
 
-        //If you are not logged in, do not show menu.
+        //If user is not logged in, do not show the menu.
         if (!LoginActivity.signedIn) {
             toHome.setVisibility(View.GONE);
             toSearch.setVisibility(View.GONE);
@@ -106,7 +98,6 @@ public class GeneralListActivity extends AppCompatActivity {
             lin.setVisibility(View.GONE);
         }
     }
-
 
     public static ArrayList<String []> getDatabaselist(){
         return databaselist;

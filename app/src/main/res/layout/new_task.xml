@@ -8,7 +8,7 @@
         android:layout_width="361dp"
         android:layout_height="48dp"
         android:background="@null"
-        android:hint="New Task"
+        android:hint="@string/new_task"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
     <Button
@@ -18,7 +18,7 @@
         android:layout_below="@id/newTaskText"
         android:layout_alignParentEnd="true"
         android:background="@android:color/transparent"
-        android:text="Save"
+        android:text="@string/save"
         android:textAllCaps="false"
         android:textColor="@android:color/darker_gray"
         android:textSize="16sp" />
@@ -31,7 +31,7 @@
         android:layout_alignParentStart="true"
         android:layout_marginTop="0dp"
         android:background="@android:color/transparent"
-        android:text="Calendar"
+        android:text="@string/calendar"
         android:textAllCaps="false"
         android:textColor="@android:color/darker_gray"
         android:textSize="16sp" />

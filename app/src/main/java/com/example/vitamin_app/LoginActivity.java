@@ -44,18 +44,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LoginActivity extends AppCompatActivity {
+    public static final String ONETAP = "oneTap";
+
+    //Flags
     public static boolean signedIn;
     private static final int RC_SIGN_IN = 100;
     private static final int REQ_ONE_TAP = 2;
 
+    //Variables for Google OAuth
     private GoogleSignInClient mGoogleSignInClient;
     private SignInClient oneTapClient;
     private BeginSignInRequest signInRequest;
     private FirebaseAuth mAuth;
-    private boolean showOneTapUI = true;
+    private boolean showOneTapUI;
 
-    String[] genderList = new String[] {"Male", "Female"};
-    String[] ageList = new String[] {"12-20", "20-60", "60+"};
+    //Error String
+    private String genericError = "An Error Occurred, Please Try Again Later";
+
+    //Arrays for user information (gender and age)
+    String[] genderList = new String[] {"Male", "Female", "Other"};
+    String[] ageList = new String[43];
 
     // creating a variable for our
     // Firebase Database.
@@ -64,7 +72,6 @@ public class LoginActivity extends AppCompatActivity {
     // creating a variable for our Database
     // Reference for Firebase.
     DatabaseReference databaseReference;
-
     Users user;
 
     @Override
@@ -72,6 +79,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        //Set up drop down menus for gender and age
         Spinner s = (Spinner) findViewById(R.id.gender);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, genderList);
@@ -84,37 +92,21 @@ public class LoginActivity extends AppCompatActivity {
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         s2.setAdapter(adapter2);
 
+        //set initial flags
         signedIn = false;
+        if (getIntent().getExtras() != null) {
+            showOneTapUI = savedInstanceState.getBoolean(ONETAP, true);
+        } else{
+            showOneTapUI = true;
+        }
 
+        //Get references to buttons
         Button toHome = (Button) findViewById(R.id.toHome);
         Button google = (Button) findViewById(R.id.button2);
 
-        //Build One Tap Signin Object with proper settings
-        oneTapClient = Identity.getSignInClient(this);
-        signInRequest = BeginSignInRequest.builder()
-                .setPasswordRequestOptions(BeginSignInRequest.PasswordRequestOptions.builder()
-                        .setSupported(true)
-                        .build())
-                .setGoogleIdTokenRequestOptions(BeginSignInRequest.GoogleIdTokenRequestOptions.builder()
-                        .setSupported(true)
-                        // Your server's client ID, not your Android client ID.
-                        .setServerClientId("517722316464-2o671af2pt9mmc3ebsm16jgt746i1k7q.apps.googleusercontent.com")
-                        // Only show accounts previously used to sign in.
-                        .setFilterByAuthorizedAccounts(true)
-                        .build())
-                // Automatically sign in when exactly one credential is retrieved.
-                .setAutoSelectEnabled(true)
-                .build();
+        //Build objects for google OAuth
+        googleSetUp();
 
-        //Get signin options with google
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestEmail()
-                .requestId()
-                .requestIdToken("517722316464-2o671af2pt9mmc3ebsm16jgt746i1k7q.apps.googleusercontent.com")
-                .requestProfile()
-                .build();
-        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
-        mAuth = FirebaseAuth.getInstance();
         //Get last client to sign in and go to homepage if already logged in
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null){
@@ -122,6 +114,7 @@ public class LoginActivity extends AppCompatActivity {
             goHome(currentUser);
         }
 
+        //If flag is true, show Google OneTap login
         if (showOneTapUI) {
             oneTapClient.beginSignIn(signInRequest)
                     .addOnSuccessListener(this, new OnSuccessListener<BeginSignInResult>() {
@@ -134,24 +127,23 @@ public class LoginActivity extends AppCompatActivity {
                                         null, 0, 0, 0);
                             } catch (IntentSender.SendIntentException e) {
                                 //Error occured with starting One Tap UI
-                                Log.e("TAG", "Couldn't start One Tap UI: " + e.getLocalizedMessage());
                             }
                         }
                     })
                     .addOnFailureListener(this, new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            // No saved credentials found. Launch the One Tap sign-up flow, or
-                            // do nothing and continue presenting the signed-out UI.
-                            Log.d("TAG", e.getLocalizedMessage());
+                            // No saved credentials found.
+                            //Don't do anything
                         }
                     });
         }
 
+        //Set listener for google login button and skip button
         google.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                signIn();
+                defaultGoogleLogin();
             }
         });
 
@@ -163,24 +155,60 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    public void signIn(){
-        //prompt user to log in
+    //Build relevant objects for Google OAuth
+    public void googleSetUp() {
+        //Build One Tap Signin Object with proper settings
+        String key = "517722316464-2o671af2pt9mmc3ebsm16jgt746i1k7q.apps.googleusercontent.com";
+        oneTapClient = Identity.getSignInClient(this);
+        signInRequest = BeginSignInRequest.builder()
+                .setPasswordRequestOptions(BeginSignInRequest.PasswordRequestOptions.builder()
+                        .setSupported(true)
+                        .build())
+                .setGoogleIdTokenRequestOptions(BeginSignInRequest.GoogleIdTokenRequestOptions.builder()
+                        .setSupported(true)
+                        // Your server's client ID, not your Android client ID.
+                        .setServerClientId(key)
+                        // Only show accounts previously used to sign in.
+                        .setFilterByAuthorizedAccounts(true)
+                        .build())
+                // Automatically sign in when exactly one credential is retrieved.
+                .setAutoSelectEnabled(true)
+                .build();
+
+        //Get signin options with google
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()
+                .requestId()
+                .requestIdToken(key)
+                .requestProfile()
+                .build();
+        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+        mAuth = FirebaseAuth.getInstance();
+    }
+
+    public void defaultGoogleLogin(){
+        //prompt user to log in through standard google login
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
+    }
+
+    public void errorPrompt(String error){
+        Toast.makeText(LoginActivity.this, error, Toast.LENGTH_LONG).show();
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
-        // Result returned from launching the Intent from GoogleSignInClient.getSignInIntent(...);
+        switch(requestCode){
+            // Result returned from launching the Intent from GoogleSignInClient.getSignInIntent(...);
             // The Task returned from this call is always completed, no need to attach
             // a listener.
-        switch(requestCode){
             case RC_SIGN_IN:
                 Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
                 handleSignInResult(task);
                 break;
+            // Result from Google One Tap
+            //Get credentials and sign in to firebase with them
             case REQ_ONE_TAP:
                 try {
                     SignInCredential credential = oneTapClient.getSignInCredentialFromIntent(data);
@@ -193,17 +221,17 @@ public class LoginActivity extends AppCompatActivity {
                 } catch (ApiException e){
                     switch (e.getStatusCode()) {
                         case CommonStatusCodes.CANCELED:
-                            Log.d("TAG", "One-tap dialog was closed.");
-                            // Don't re-prompt the user.
+                            // One tap dialog closed, don't re-prompt the user.
                             showOneTapUI = false;
                             break;
                         case CommonStatusCodes.NETWORK_ERROR:
+                            //Ignore and do nothing.
                             Log.d("TAG", "One-tap encountered a network error.");
-                            // Try again or just ignore.
                             break;
                         default:
                             Log.d("TAG", "Couldn't get credential from result."
                                     + e.getLocalizedMessage());
+                            errorPrompt(genericError);
                             break;
                     }
                 }
@@ -222,22 +250,25 @@ public class LoginActivity extends AppCompatActivity {
             // The ApiException status code indicates the detailed failure reason.
             // Please refer to the GoogleSignInStatusCodes class reference for more information.
             Log.w("TAG", "signInResult:failed code=" + e.getStatusCode());
+            errorPrompt(genericError);
 
         }
 
     }
 
     public void handleSignInResult(String idToken){
+        //Get firebase credentials from idToken and login to firebase.
         AuthCredential firebaseCredential = GoogleAuthProvider.getCredential(idToken, null);
         firebaseCredentialAuth(firebaseCredential);
     }
 
     private void goHome(FirebaseUser currentUser){
+        // Redirect user to home page if logging in
+        // If skipping, send to general fix page and don't close login activity.
         Intent intent;
         if (currentUser != null){
             intent = new Intent(this, HomeActivity.class);
             Toast.makeText(LoginActivity.this, "Welcome " + currentUser.getEmail(), Toast.LENGTH_LONG).show();
-            //Toast.makeText(LoginActivity.this, "" + signedIn, Toast.LENGTH_LONG).show();
             finish();
 
         } else {
@@ -245,19 +276,6 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         this.startActivity(intent);
-    }
-
-    private void signOut() {
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        mAuth.signOut();
-        Toast.makeText(LoginActivity.this, "Logout from " + currentUser.getEmail(), Toast.LENGTH_LONG).show();
-        mGoogleSignInClient.signOut()
-                .addOnCompleteListener(this, new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-
-                    }
-                });
     }
 
     private void firebaseCredentialAuth(AuthCredential credential){
@@ -309,26 +327,10 @@ public class LoginActivity extends AppCompatActivity {
                                     }
                                 }
                             });
-
-                            // How to check if email exists in auth
-
-//                            mAuth.fetchSignInMethodsForEmail(email).addOnCompleteListener(new OnCompleteListener<SignInMethodQueryResult>() {
-//                                @Override
-//                                public void onComplete(@NonNull Task<SignInMethodQueryResult> task) {
-//                                    boolean isNewUser = task.getResult().getSignInMethods().isEmpty();
-//                                    Toast.makeText(LoginActivity.this, String.valueOf(isNewUser), Toast.LENGTH_LONG).show();
-//                                    // Only add user information if they haven't logged in before
-//                                    if (isNewUser) {
-//
-//                                    }
-//                                }
-//                            });
-
                             goHome(currentUser);
                         } else {
                             // If sign in fails, display a message to the user.
-                            Log.w("TAG", "signInWithCredential:failure", task.getException());
-                            // goHome(null);
+                            errorPrompt(genericError);
                         }
                     }
                 });

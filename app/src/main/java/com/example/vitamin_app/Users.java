@@ -1,5 +1,6 @@
 package com.example.vitamin_app;
 
+//Class to store the user's information
 public class Users {
     String user_email;
     String username;
@@ -24,6 +25,7 @@ public class Users {
         this.age = age;
     }
 
+    //Getters and setters
     public String getUserEmail() {
         return user_email;
     }

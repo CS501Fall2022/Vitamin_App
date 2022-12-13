@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">Vitamin_App</string>
+    <string name="project_name">VitalFix</string>
     <string name="survey_page1_header">Choose up to two problems</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
     <string name="weight">Weight Loss</string>
     <string name="sleep">Sleep</string>
     <string name="energy">Energy</string>
@@ -11,10 +13,38 @@
     <string name="exercise">Exercise</string>
     <string name="digestion">Digestion</string>
     <string name="articulation">Articulation</string>
-    <string name="ratio_header">Select the ratio of supplements using the sliders</string>
+    <string name="energy_title">Energy saving vitamin 1</string>
+    <string name="energy_description">Energy saver description</string>
+
+    <string name="ratio_header">Select the ratio of supplements for each problem</string>
     <string name="checkbox_header">Select your most relevant issue</string>
     <string name="vitamin_search_button_display">See Google Results</string>
     <string name="result_page_title">Recommendations</string>
+
+    <string name="profile_tab_1">Health News</string>
+    <string name="profile_tab_2">Profile</string>
+    <string name="profile_tab_3">Survey</string>
+    <string name="article">Article Title</string>
+    <string name="new_task">New Task</string>
+    <string name="calendar">Calendar</string>
+    <string name="save">Save</string>
+    <string name="ex_task">Go to the market and bring vegetables immediately today.</string>
+
+    <string name="gender">Gender</string>
+    <string name="age">Age</string>
+    <string name="google_button">Sign in with Google</string>
+    <string name="skip">Skip</string>
+    <string name="back">Back</string>
+    <string name="next">Next</string>
+    <string name="detail">Detail</string>
+    <string name="tasks">Tasks</string>
+
+    <string name="drop_down">Dropdown Menu</string>
+    <string name="select_item"> Select Item</string>
+    <string name="explore">Explore Vitamins</string>
+
+    <string name="select_date">Select Date:</string>
+    <string name="default_date">JAN 01 2021</string>
     <string name="result_exists_intro">
         These are the supplements which can help with the problem(s) listed below.
         For more information, click a button!\n
@@ -46,7 +76,5 @@
         <item>vitamin 5</item>
         <item>vitamin 6</item>
     </string-array>
-    <string name="drop_down">Dropdown Menu</string>
-    <string name="select_item"> Select Item</string>
 
 </resources>
