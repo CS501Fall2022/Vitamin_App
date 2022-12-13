@@ -188,6 +188,7 @@ public class ProfileFragment extends Fragment {
         tasksAdapter.notifyDataSetChanged();
     }
 
+    //Given a problem, insert the related tasks associated with it into the database.
     public void insertProblemTask(String problem){
         switch (problem){
             case Problem.WEIGHT:
@@ -229,6 +230,7 @@ public class ProfileFragment extends Fragment {
         }
     }
 
+    //inserts a task into the database
     public void insertTask(String taskString){
         ToDoModel task = new ToDoModel();
         task.setTask(taskString);

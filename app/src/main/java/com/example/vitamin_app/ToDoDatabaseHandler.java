@@ -57,6 +57,8 @@ public class ToDoDatabaseHandler extends SQLiteOpenHelper {
         db.insert(TODO_TABLE, null, cv);
     }
 
+    //Checks to see if the task already exists inside the databse
+    //If it exists, do nothing, otherwise add it to database.
     public void insertUniqueTask(ToDoModel task){
         Cursor c = null;
         try {
