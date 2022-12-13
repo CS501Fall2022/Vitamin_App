@@ -130,6 +130,10 @@ public class ProfileFragment extends Fragment {
                         insertProblemTask(problem1);
                         insertProblemTask(problem2);
 
+                        taskList = db.getAllTasks();
+                        Collections.reverse(taskList);
+                        tasksAdapter.setTasks(taskList);
+
                         // Make sure gender is assigned for already logged in users
                         gender = String.valueOf(dataSnapshot.child("gender").getValue());
                         age = String.valueOf(dataSnapshot.child("age").getValue());
