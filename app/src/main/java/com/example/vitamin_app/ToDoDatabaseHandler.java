@@ -25,6 +25,7 @@ public class ToDoDatabaseHandler extends SQLiteOpenHelper {
             + STATUS + " INTEGER)";
 
     private SQLiteDatabase db;
+    private SQLiteOpenHelper dbHelper;
 
     public ToDoDatabaseHandler(@Nullable Context context) {
         super(context, NAME, null, VERSION);
@@ -56,9 +57,11 @@ public class ToDoDatabaseHandler extends SQLiteOpenHelper {
 
     public void insertUniqueTask(ToDoModel task){
         Cursor c = null;
+        dbHelper = new ToDoDatabaseHandler(null);
+        SQLiteDatabase temp = dbHelper.getWritableDatabase();
         try {
             String query = "select count(*) from " + TODO_TABLE + " where " + TASK + " = \"" + task.getTask() + "\"";
-            c = db.rawQuery(query, null);
+            c = temp.rawQuery(query, null);
             if (c.moveToFirst()) {
                 return;
             }
@@ -70,8 +73,8 @@ public class ToDoDatabaseHandler extends SQLiteOpenHelper {
             if (c != null) {
                 c.close();
             }
-            if (db != null) {
-                db.close();
+            if (temp != null) {
+                temp.close();
             }
         }
 
