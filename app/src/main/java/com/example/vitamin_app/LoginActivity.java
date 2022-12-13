@@ -99,7 +99,11 @@ public class LoginActivity extends AppCompatActivity {
 
         //set initial flags
         signedIn = false;
-        showOneTapUI = savedInstanceState.getBoolean(ONETAP, true);
+        if (getIntent().getExtras() != null) {
+            showOneTapUI = savedInstanceState.getBoolean(ONETAP, true);
+        } else{
+            showOneTapUI = true;
+        }
 
         //Get references to buttons
         Button toHome = (Button) findViewById(R.id.toHome);
