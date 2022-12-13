@@ -4,8 +4,10 @@ import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import com.example.vitamin_app.Model.ToDoModel;
 import androidx.annotation.Nullable;
@@ -25,6 +27,7 @@ public class ToDoDatabaseHandler extends SQLiteOpenHelper {
             + STATUS + " INTEGER)";
 
     private SQLiteDatabase db;
+    private SQLiteOpenHelper dbHelper;
 
     public ToDoDatabaseHandler(@Nullable Context context) {
         super(context, NAME, null, VERSION);
@@ -52,6 +55,28 @@ public class ToDoDatabaseHandler extends SQLiteOpenHelper {
         cv.put(TASK, task.getTask());
         cv.put(STATUS, 0);
         db.insert(TODO_TABLE, null, cv);
+    }
+
+    //Checks to see if the task already exists inside the databse
+    //If it exists, do nothing, otherwise add it to database.
+    public void insertUniqueTask(ToDoModel task){
+        Cursor c = null;
+        try {
+            String query = "select * from " + TODO_TABLE + " where " + TASK + " = \"" + task.getTask() + "\"";
+            c = db.rawQuery(query, null);
+            if (c.getCount()!=0) {
+                return;
+            }
+            else {
+               insertTask(task);
+            }
+        }
+        finally {
+            if (c != null) {
+                c.close();
+            }
+        }
+
     }
 
     @SuppressLint("Range")

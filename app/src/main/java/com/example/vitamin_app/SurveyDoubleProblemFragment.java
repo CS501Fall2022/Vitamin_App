@@ -177,8 +177,8 @@ public class SurveyDoubleProblemFragment extends Fragment {
             public void onClick(View view) {
                 boolean check = true;
                 int count = 0;
-                if (bundle.getBoolean("weight")) {
-                    user.setProblem("weight");
+                if (bundle.getBoolean(Problem.WEIGHT)) {
+                    user.setProblem(Problem.WEIGHT);
                     RadioButton triple_p1 = (RadioButton) array.get(count).getView().findViewById(R.id.triple_problem1);
                     RadioButton triple_p2 = (RadioButton) array.get(count).getView().findViewById(R.id.triple_problem2);
                     RadioButton triple_p3 = (RadioButton) array.get(count).getView().findViewById(R.id.triple_problem3);
@@ -247,7 +247,7 @@ public class SurveyDoubleProblemFragment extends Fragment {
                         check = false;
                     }
                     count++;
-                } if (bundle.getBoolean("sleep")) {
+                } if (bundle.getBoolean(Problem.SLEEP)) {
                     RadioButton triple_p1 = (RadioButton) array.get(count).getView().findViewById(R.id.triple_problem1);
                     RadioButton triple_p2 = (RadioButton) array.get(count).getView().findViewById(R.id.triple_problem2);
                     RadioButton triple_p3 = (RadioButton) array.get(count).getView().findViewById(R.id.triple_problem3);
@@ -265,7 +265,7 @@ public class SurveyDoubleProblemFragment extends Fragment {
                         }
                     }
                     if (count == 0) {
-                        user.setProblem("sleep");
+                        user.setProblem(Problem.SLEEP);
                         if (triple_p1.isChecked()) {
                             if (seek1.getProgress() == 1) {
                                 user.setSupplement1(vit1);
@@ -306,7 +306,7 @@ public class SurveyDoubleProblemFragment extends Fragment {
                             check = false;
                         }
                     } else {
-                        user.setProblem2("sleep");
+                        user.setProblem2(Problem.SLEEP);
                         if (triple_p1.isChecked()) {
                             if (seek2.getProgress() == 1) {
                                 user.setSupplement4(vit1);
@@ -348,7 +348,7 @@ public class SurveyDoubleProblemFragment extends Fragment {
                         }
                     }
                     count++;
-                } if (bundle.getBoolean("energy")) {
+                } if (bundle.getBoolean(Problem.ENERGY)) {
                     RadioButton double_p1 = (RadioButton) array.get(count).getView().findViewById(R.id.double_problem1);
                     if (double_p1.isChecked()) {
                         if (age.equals("60+")) {
@@ -369,7 +369,7 @@ public class SurveyDoubleProblemFragment extends Fragment {
                     }
                     if (!age.equals("20-60")) {
                         if (count == 0) {
-                            user.setProblem("energy");
+                            user.setProblem(Problem.ENERGY);
                             if (double_p1.isChecked()) {
                                 if (seek1.getProgress() == 1) {
                                     user.setSupplement1(vit1);
@@ -386,7 +386,7 @@ public class SurveyDoubleProblemFragment extends Fragment {
                                 check = false;
                             }
                         } else {
-                            user.setProblem2("energy");
+                            user.setProblem2(Problem.ENERGY);
                             if (double_p1.isChecked()) {
                                 if (seek2.getProgress() == 1) {
                                     user.setSupplement4(vit1);
@@ -406,7 +406,7 @@ public class SurveyDoubleProblemFragment extends Fragment {
                     } else {
                         RadioButton double_p2 = (RadioButton) array.get(count).getView().findViewById(R.id.double_problem2);
                         if (count == 0) {
-                            user.setProblem("energy");
+                            user.setProblem(Problem.ENERGY);
                             if (double_p1.isChecked()) {
                                 if (seek1.getProgress() == 1) {
                                     user.setSupplement1("Guarana");
@@ -434,7 +434,7 @@ public class SurveyDoubleProblemFragment extends Fragment {
                                 check = false;
                             }
                         } else {
-                            user.setProblem2("energy");
+                            user.setProblem2(Problem.ENERGY);
                             if (double_p1.isChecked()) {
                                 if (seek2.getProgress() == 1) {
                                     user.setSupplement4("Guarana");
@@ -464,7 +464,7 @@ public class SurveyDoubleProblemFragment extends Fragment {
                         }
                     }
                     count++;
-                } if (bundle.getBoolean("immunity")) {
+                } if (bundle.getBoolean(Problem.IMMUNITY)) {
                     RadioButton double_p1 = (RadioButton) array.get(count).getView().findViewById(R.id.double_problem1);
                     RadioButton double_p2 = (RadioButton) array.get(count).getView().findViewById(R.id.double_problem2);
                     if (double_p1.isChecked()) {
@@ -479,7 +479,7 @@ public class SurveyDoubleProblemFragment extends Fragment {
                         }
                     }
                     if (count == 0) {
-                        user.setProblem("immunity");
+                        user.setProblem(Problem.IMMUNITY);
                         if (double_p1.isChecked()) {
                             if (seek1.getProgress() == 1) {
                                 user.setSupplement1(vit1);
@@ -507,7 +507,7 @@ public class SurveyDoubleProblemFragment extends Fragment {
                             check = false;
                         }
                     } else {
-                        user.setProblem2("immunity");
+                        user.setProblem2(Problem.IMMUNITY);
                         if (double_p1.isChecked()) {
                             if (seek2.getProgress() == 1) {
                                 user.setSupplement4(vit1);
@@ -536,7 +536,7 @@ public class SurveyDoubleProblemFragment extends Fragment {
                         }
                     }
                     count++;
-                } if (bundle.getBoolean("skin")) {
+                } if (bundle.getBoolean(Problem.SKIN)) {
                     RadioButton triple_p1 = (RadioButton) array.get(count).getView().findViewById(R.id.triple_problem1);
                     RadioButton triple_p2 = (RadioButton) array.get(count).getView().findViewById(R.id.triple_problem2);
                     RadioButton triple_p3 = (RadioButton) array.get(count).getView().findViewById(R.id.triple_problem3);
@@ -551,7 +551,7 @@ public class SurveyDoubleProblemFragment extends Fragment {
                         }
                     }
                     if (count == 0) {
-                        user.setProblem("skin");
+                        user.setProblem(Problem.SKIN);
                         if (triple_p1.isChecked()) {
                             if (seek1.getProgress() == 1) {
                                 user.setSupplement1(vit1);
@@ -590,7 +590,7 @@ public class SurveyDoubleProblemFragment extends Fragment {
                             check = false;
                         }
                     } else {
-                        user.setProblem2("skin");
+                        user.setProblem2(Problem.SKIN);
                         if (triple_p1.isChecked()) {
                             if (seek2.getProgress() == 1) {
                                 user.setSupplement4(vit1);
@@ -630,12 +630,12 @@ public class SurveyDoubleProblemFragment extends Fragment {
                         }
                     }
                     count++;
-                } if (bundle.getBoolean("detox")) {
+                } if (bundle.getBoolean(Problem.DETOX)) {
                     RadioButton triple_p1 = (RadioButton) array.get(count).getView().findViewById(R.id.triple_problem1);
                     RadioButton triple_p2 = (RadioButton) array.get(count).getView().findViewById(R.id.triple_problem2);
                     RadioButton triple_p3 = (RadioButton) array.get(count).getView().findViewById(R.id.triple_problem3);
                     if (count == 0) {
-                        user.setProblem("detox");
+                        user.setProblem(Problem.DETOX);
                         if (triple_p1.isChecked()) {
                             if (seek1.getProgress() == 1) {
                                 user.setSupplement1("Chlorella");
@@ -674,7 +674,7 @@ public class SurveyDoubleProblemFragment extends Fragment {
                             check = false;
                         }
                     } else {
-                        user.setProblem2("detox");
+                        user.setProblem2(Problem.DETOX);
                         if (triple_p1.isChecked()) {
                             if (seek2.getProgress() == 1) {
                                 user.setSupplement4("Chlorella");
@@ -714,11 +714,11 @@ public class SurveyDoubleProblemFragment extends Fragment {
                         }
                     }
                     count++;
-                } if (bundle.getBoolean("exercise")) {
+                } if (bundle.getBoolean(Problem.EXERCISE)) {
                     RadioButton double_p1 = (RadioButton) array.get(count).getView().findViewById(R.id.double_problem1);
                     RadioButton double_p2 = (RadioButton) array.get(count).getView().findViewById(R.id.double_problem2);
                     if (count == 0) {
-                        user.setProblem("exercise");
+                        user.setProblem(Problem.EXERCISE);
                         if (double_p1.isChecked()) {
                             if (seek1.getProgress() == 1) {
                                 user.setSupplement1("L-Carnitine");
@@ -746,7 +746,7 @@ public class SurveyDoubleProblemFragment extends Fragment {
                             check = false;
                         }
                     } else {
-                        user.setProblem2("exercise");
+                        user.setProblem2(Problem.EXERCISE);
                         if (double_p1.isChecked()) {
                             if (seek2.getProgress() == 1) {
                                 user.setSupplement4("L-Carnitine");
@@ -775,7 +775,7 @@ public class SurveyDoubleProblemFragment extends Fragment {
                         }
                     }
                     count++;
-                } if (bundle.getBoolean("digestion")) {
+                } if (bundle.getBoolean(Problem.DIGESTION)) {
                     RadioButton double_p1 = (RadioButton) array.get(count).getView().findViewById(R.id.double_problem1);
                     RadioButton double_p2 = (RadioButton) array.get(count).getView().findViewById(R.id.double_problem2);
                     if (double_p1.isChecked()) {
@@ -792,7 +792,7 @@ public class SurveyDoubleProblemFragment extends Fragment {
                         }
                     }
                     if (count == 0) {
-                        user.setProblem("digestion");
+                        user.setProblem(Problem.DIGESTION);
                         if (double_p1.isChecked()) {
                             if (seek1.getProgress() == 1) {
                                 user.setSupplement1(vit1);
@@ -820,7 +820,7 @@ public class SurveyDoubleProblemFragment extends Fragment {
                             check = false;
                         }
                     } else {
-                        user.setProblem2("digestion");
+                        user.setProblem2(Problem.DIGESTION);
                         if (double_p1.isChecked()) {
                             if (seek2.getProgress() == 1) {
                                 user.setSupplement4(vit1);
@@ -849,7 +849,7 @@ public class SurveyDoubleProblemFragment extends Fragment {
                         }
                     }
                     count++;
-                } if (bundle.getBoolean("articulation")) {
+                } if (bundle.getBoolean(Problem.ARTICULATION)) {
                     RadioButton double_p1 = (RadioButton) array.get(count).getView().findViewById(R.id.double_problem1);
                     RadioButton double_p2 = (RadioButton) array.get(count).getView().findViewById(R.id.double_problem2);
                     if (double_p1.isChecked()) {
@@ -880,7 +880,7 @@ public class SurveyDoubleProblemFragment extends Fragment {
                         }
                     }
                     if (count == 0) {
-                        user.setProblem("articulation");
+                        user.setProblem(Problem.ARTICULATION);
                         if (double_p1.isChecked()) {
                             if (seek1.getProgress() == 1) {
                                 user.setSupplement1(vit1);
@@ -908,7 +908,7 @@ public class SurveyDoubleProblemFragment extends Fragment {
                             check = false;
                         }
                     } else {
-                        user.setProblem2("articulation");
+                        user.setProblem2(Problem.ARTICULATION);
                         if (double_p1.isChecked()) {
                             if (seek2.getProgress() == 1) {
                                 user.setSupplement4(vit1);
