@@ -37,116 +37,116 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
-    <RadioButton
-        android:id="@+id/articulationButton"
-        style="@style/RadioButton"
-        android:text="@string/articulation"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.714"
-        app:layout_constraintStart_toEndOf="@+id/digestionButton"
-        app:layout_constraintTop_toBottomOf="@+id/detoxButton"
-        app:layout_constraintVertical_bias="0.099" />
+            <RadioButton
+                android:id="@+id/digestionButton"
+                style="@style/RadioButton"
+                android:text="@string/digestion"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.501"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/skinButton"
+                app:layout_constraintVertical_bias="0.027" />
 
-    <RadioButton
-        android:id="@+id/detoxButton"
-        style="@style/RadioButton"
-        android:text="@string/detox"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.709"
-        app:layout_constraintStart_toEndOf="@+id/skinButton"
-        app:layout_constraintTop_toBottomOf="@+id/energyButton"
-        app:layout_constraintVertical_bias="0.069" />
+            <RadioButton
+                android:id="@+id/articulationButton"
+                style="@style/RadioButton"
+                android:text="@string/articulation"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.727"
+                app:layout_constraintStart_toEndOf="@+id/digestionButton"
+                app:layout_constraintTop_toBottomOf="@+id/detoxButton"
+                app:layout_constraintVertical_bias="0.027" />
 
-    <RadioButton
-        android:id="@+id/skinButton"
-        style="@style/RadioButton"
-        android:text="@string/skin"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sleepButton"
-        app:layout_constraintVertical_bias="0.069" />
+            <RadioButton
+                android:id="@+id/exerciseButton"
+                style="@style/RadioButton"
+                android:text="@string/exercise"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/digestionButton"
+                app:layout_constraintHorizontal_bias="0.303"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/immunityButton"
+                app:layout_constraintVertical_bias="0.027" />
 
-    <RadioButton
-        android:id="@+id/energyButton"
-        style="@style/RadioButton"
-        android:text="@string/energy"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.709"
-        app:layout_constraintStart_toEndOf="@+id/sleepButton"
-        app:layout_constraintTop_toBottomOf="@+id/ageGenderText"
-        app:layout_constraintVertical_bias="0.036" />
+            <RadioButton
+                android:id="@+id/energyButton"
+                style="@style/RadioButton"
+                android:text="@string/energy"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.709"
+                app:layout_constraintStart_toEndOf="@+id/sleepButton"
+                app:layout_constraintTop_toBottomOf="@+id/ageGenderText"
+                app:layout_constraintVertical_bias="0.0" />
 
-    <RadioButton
-        android:id="@+id/sleepButton"
-        style="@style/RadioButton"
-        android:text="@string/sleep"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ageGenderText"
-        app:layout_constraintVertical_bias="0.036" />
+            <RadioButton
+                android:id="@+id/skinButton"
+                style="@style/RadioButton"
+                android:text="@string/skin"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.501"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/sleepButton"
+                app:layout_constraintVertical_bias="0.027" />
 
-    <RadioButton
-        android:id="@+id/immunityButton"
-        style="@style/RadioButton"
-        android:text="@string/immunity"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/skinButton"
-        app:layout_constraintHorizontal_bias="0.285"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/weightButton"
-        app:layout_constraintVertical_bias="0.069" />
+            <RadioButton
+                android:id="@+id/detoxButton"
+                style="@style/RadioButton"
+                android:text="@string/detox"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.709"
+                app:layout_constraintStart_toEndOf="@+id/skinButton"
+                app:layout_constraintTop_toBottomOf="@+id/energyButton"
+                app:layout_constraintVertical_bias="0.027" />
 
-    <RadioButton
-        android:id="@+id/digestionButton"
-        style="@style/RadioButton"
-        android:text="@string/digestion"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/skinButton"
-        app:layout_constraintVertical_bias="0.099" />
+            <RadioButton
+                android:id="@+id/immunityButton"
+                style="@style/RadioButton"
+                android:text="@string/immunity"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/skinButton"
+                app:layout_constraintHorizontal_bias="0.285"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/weightButton"
+                app:layout_constraintVertical_bias="0.027" />
 
-    <RadioButton
-        android:id="@+id/exerciseButton"
-        style="@style/RadioButton"
-        android:text="@string/exercise"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/digestionButton"
-        app:layout_constraintHorizontal_bias="0.285"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/immunityButton"
-        app:layout_constraintVertical_bias="0.099" />
+            <RadioButton
+                android:id="@+id/sleepButton"
+                style="@style/RadioButton"
+                android:text="@string/sleep"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.501"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ageGenderText"
+                app:layout_constraintVertical_bias="0.0" />
 
-    <RadioButton
-        android:id="@+id/weightButton"
-        style="@style/RadioButton"
-        android:text="@string/weight"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/sleepButton"
-        app:layout_constraintHorizontal_bias="0.285"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ageGenderText"
-        app:layout_constraintVertical_bias="0.036" />
+            <RadioButton
+                android:id="@+id/weightButton"
+                style="@style/RadioButton"
+                android:text="@string/weight"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/sleepButton"
+                app:layout_constraintHorizontal_bias="0.285"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ageGenderText"
+                app:layout_constraintVertical_bias="0.0" />
 
-    <Button
-        android:id="@+id/toSurveyMain"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="NEXT"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/digestionButton"
-        app:layout_constraintVertical_bias="0.133" />
+            <Button
+                android:id="@+id/toSurveyMain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NEXT"
+                android:textSize="30dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/digestionButton"
+                app:layout_constraintVertical_bias="0.06" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </FrameLayout>
