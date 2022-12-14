@@ -16,7 +16,7 @@
     <string name="energy_title">Energy saving vitamin 1</string>
     <string name="energy_description">Energy saver description</string>
 
-    <string name="age_gender_header">Confirm your age and gender:</string>
+    <string name="age_gender_header">Confirm your gender and age:</string>
     <string name="ratio_header">Select the ratio of supplements for each problem</string>
     <string name="checkbox_header">Select your most relevant issue</string>
     <string name="vitamin_search_button_display">See Google Results</string>
