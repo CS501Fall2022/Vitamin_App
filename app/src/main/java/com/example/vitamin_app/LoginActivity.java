@@ -79,24 +79,6 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        //Set up drop down menus for gender and age
-        Spinner s = (Spinner) findViewById(R.id.gender);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, genderList);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        s.setAdapter(adapter);
-
-        for(int i = 18; i < 61; i++){
-            ageList[i - 18] = String.valueOf(i);
-        }
-        ageList[42] = "60+";
-
-        Spinner s2 = (Spinner) findViewById(R.id.age);
-        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, ageList);
-        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        s2.setAdapter(adapter2);
-
         //set initial flags
         signedIn = false;
         if (getIntent().getExtras() != null) {
@@ -300,9 +282,6 @@ public class LoginActivity extends AppCompatActivity {
                             firebaseDatabase = FirebaseDatabase.getInstance();
                             databaseReference = firebaseDatabase.getReference("Users");
 
-                            Spinner genderSpinner = (Spinner) findViewById(R.id.gender);
-                            Spinner ageSpinner = (Spinner) findViewById(R.id.age);
-
                             // Checking if user exists in database
                             databaseReference.child(userId).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                                 @Override
@@ -313,9 +292,10 @@ public class LoginActivity extends AppCompatActivity {
                                         if(!(task.getResult().exists())) {
                                             Toast.makeText(LoginActivity.this, "User does not exist in database",Toast.LENGTH_LONG).show();
 
-                                            String gender = genderSpinner.getSelectedItem().toString();
-                                            String age = ageSpinner.getSelectedItem().toString();
-                                            user = new Users(email, userId, gender, age);
+//                                            String gender = genderSpinner.getSelectedItem().toString();
+//                                            String age = ageSpinner.getSelectedItem().toString();
+                                            // default user is a 60+ year old man because why not
+                                            user = new Users(email, userId, "male", "60+");
                                             databaseReference.addValueEventListener(new ValueEventListener() {
 
                                                 @Override
