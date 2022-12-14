@@ -100,7 +100,7 @@ public class LoginActivity extends AppCompatActivity {
         //set initial flags
         signedIn = false;
         if (getIntent().getExtras() != null) {
-            showOneTapUI = savedInstanceState.getBoolean(ONETAP, true);
+            showOneTapUI = getIntent().getExtras().getBoolean(ONETAP, true);
         } else{
             showOneTapUI = true;
         }
