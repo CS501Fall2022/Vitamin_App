@@ -3,12 +3,12 @@ package com.example.vitamin_app;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-//Utility function for use in News-API
 public class ApiUtilites {
 
     private static Retrofit retrofit=null;
 
-    public static ApiInterface getApiInterface()
+    // Use Retrofit to retrieve API responses and GsonConverterFactory to parse the responses to Gson.
+    public  static ApiInterface getApiInterface()
     {
         if(retrofit==null)
         {
