@@ -7,30 +7,37 @@
         tools:context=".QuickFixList">
 
         <TextView
-            android:layout_width="206dp"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="110dp"
-            android:layout_marginTop="20dp"
-            android:textAlignment="center"
-            android:text="@string/explore"
-            android:textSize="30dp">
-
-        </TextView>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayout"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="70dp"
-            android:hint="@string/select_item"
-            android:textAlignment="center">
+            android:minHeight="?android:attr/actionBarSize"
+            style="@style/result_page_title"
+            android:textAlignment="center"
+            android:text="@string/explore">
+        </TextView>
 
-                <AutoCompleteTextView
-                    android:id="@+id/auto_complete_txt"
-                    android:layout_width="match_parent"
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="58dp"
+            android:layout_marginTop="63dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/rounded_bg"
+            android:layout_gravity="center_horizontal"
+            >
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:inputType="none"
-                    android:textAlignment="center" />
-        </com.google.android.material.textfield.TextInputLayout>
+                    android:hint="@string/select_item"
+                    android:textAlignment="center">
+
+                        <AutoCompleteTextView
+                            android:id="@+id/auto_complete_txt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="none"
+                            android:textAlignment="center" />
+                </com.google.android.material.textfield.TextInputLayout>
+        </FrameLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

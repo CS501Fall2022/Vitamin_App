@@ -144,7 +144,7 @@ public class ProfileFragment extends Fragment {
                             databaseReference.child(username).child("gender").setValue("male");
                         }
                     } else {
-                        Toast.makeText(v.getContext(), "User does not exist",Toast.LENGTH_LONG).show();
+                        Toast.makeText(v.getContext(), "Welcome new User",Toast.LENGTH_LONG).show();
                     }
                 } else {
                     Toast.makeText(v.getContext(), "Failed to read data",Toast.LENGTH_LONG).show();

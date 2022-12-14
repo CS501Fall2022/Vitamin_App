@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Vitamin_App</string>
+    <string name="app_name">VitalFix</string>
     <string name="project_name">VitalFix</string>
     <string name="survey_page1_header">Choose up to two problems</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -52,8 +52,8 @@
     </string>
 
     <string-array name="default_result_display">
-        <item>\n\n\n</item>
-        <item>Fill out the survey and see recommended vitamins here!</item>
+        <item>\nFill out the survey and see recommended vitamins here!\n</item>
+        <item>n/a</item>
         <item>--</item>
         <item>--</item>
         <item>--</item>
