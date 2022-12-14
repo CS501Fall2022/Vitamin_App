@@ -86,6 +86,11 @@ public class LoginActivity extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         s.setAdapter(adapter);
 
+        for(int i = 18; i < 61; i++){
+            ageList[i - 18] = String.valueOf(i);
+        }
+        ageList[42] = "60+";
+
         Spinner s2 = (Spinner) findViewById(R.id.age);
         ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, ageList);
