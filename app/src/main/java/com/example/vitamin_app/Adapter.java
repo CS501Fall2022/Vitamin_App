@@ -26,6 +26,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         this.modelClassArrayList = modelClassArrayList;
     }
 
+    // Create a new view, which defines the UI of the list item.
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -33,6 +34,8 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         return new ViewHolder(view);
     }
 
+    // Replace the contents of a view. Update the image and text of an item. Make the list item
+    // navigate to the articles website shown on the item using webview.
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
 
@@ -47,11 +50,13 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
     }
 
+    // Return the size of your dataset
     @Override
     public int getItemCount() {
         return modelClassArrayList.size();
     }
 
+    // Provide a reference to the views for each data item.
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView mheading;

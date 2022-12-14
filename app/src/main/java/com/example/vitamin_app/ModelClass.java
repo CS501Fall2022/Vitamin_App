@@ -8,6 +8,7 @@ public class ModelClass {
     private String url;
     private String urlToImage;
 
+    // Create a simple Model Class for the Articles.
     public ModelClass(String author, String title, String description, String url, String urlToImage, String publishedAt) {
         this.title = title;
         this.url = url;
