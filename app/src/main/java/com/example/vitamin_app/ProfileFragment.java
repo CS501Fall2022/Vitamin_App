@@ -165,15 +165,6 @@ public class ProfileFragment extends Fragment {
         itemTouchHelper.attachToRecyclerView(tasksRecyclerView);
         fab = v.findViewById(R.id.fab);
 
-        //If the task list is empty, add some basic ones.
-        taskList = db.getAllTasks();
-        // Adding tasks manually
-        if (taskList.isEmpty()) {
-            insertTask("swipe left on a task to delete it");
-            insertTask("swipe right on a task to edit it or add it to you calendar");
-            insertTask("add tasks by pressing the green button below");
-        }
-
         Collections.reverse(taskList);
         tasksAdapter.setTasks(taskList);
 
