@@ -30,5 +30,11 @@ public class Problem {
     public static final String ARTICULATIONTASK1 = "Incorporate stretches into your daily routine.";
     public static final String ARTICULATIONTASK2 = "Try to not use the problem joint(s) too much.";
 
-
+    public static final String[] PROBLEMTASKLIST = {
+            WEIGHTTASK1, WEIGHTTASK2, SLEEPTASK1, SLEEPTASK2,
+            ENERGYTASK1, ENERGYTASK2, IMMUNITYTASK1, IMMUNITYTASK2,
+            SKINTASK1, SKINTASK2, DETOXTASK1, DETOXTASK2,
+            EXERCISETASK1, EXERCISETASK2, DIGESTIONTASK1, DIGESTIONTASK2,
+            ARTICULATIONTASK1, ARTICULATIONTASK2
+    };
 }

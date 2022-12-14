@@ -172,4 +172,10 @@ public class ToDoDatabaseHandler extends SQLiteOpenHelper {
         task.setStatus(0);
         insertUniqueTask(task);
     }
+
+    public void deleteProblemTasks(){
+        for (String task : Problem.PROBLEMTASKLIST) {
+            db.delete(TODO_TABLE, "task=?", new String[]{task});
+        }
+    }
 }

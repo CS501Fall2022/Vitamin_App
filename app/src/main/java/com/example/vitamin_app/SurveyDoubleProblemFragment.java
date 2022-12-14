@@ -183,6 +183,7 @@ public class SurveyDoubleProblemFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 boolean check = true;
+                db.deleteProblemTasks();
                 int count = 0;
                 if (bundle.getBoolean(Problem.WEIGHT)) {
                     user.setProblem(Problem.WEIGHT);

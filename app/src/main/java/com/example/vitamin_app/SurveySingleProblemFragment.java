@@ -112,6 +112,7 @@ public class SurveySingleProblemFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 boolean check = true;
+                db.deleteProblemTasks();
                 if (bundle.getBoolean(Problem.WEIGHT)) {
                     user.setProblem(Problem.WEIGHT);
                     db.insertProblemTask(Problem.WEIGHT);
