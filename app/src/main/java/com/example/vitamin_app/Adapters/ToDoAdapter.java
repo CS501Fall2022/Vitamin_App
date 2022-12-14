@@ -93,10 +93,6 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.ViewHolder> {
         AddNewTask fragment = new AddNewTask();
         fragment.setArguments(bundle);
         fragment.show(activity.getActivity().getSupportFragmentManager(), AddNewTask.TAG);
-//        activity.getActivity().getSupportFragmentManager().beginTransaction()
-//                .setReorderingAllowed(true)
-//                .replace(R.id.fragmentLayout1, ProfileFragment.class, null)
-//                .commit();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
