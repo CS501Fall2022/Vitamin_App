@@ -167,6 +167,7 @@ public class ProfileFragment extends Fragment {
         taskList = db.getAllTasks();
         Collections.reverse(taskList);
         tasksAdapter.setTasks(taskList);
+        
 
         fab = v.findViewById(R.id.fab);
 
