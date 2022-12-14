@@ -163,8 +163,8 @@ public class ProfileFragment extends Fragment {
 
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new RecyclerItemTouchHelper(tasksAdapter));
         itemTouchHelper.attachToRecyclerView(tasksRecyclerView);
-        fab = v.findViewById(R.id.fab);
 
+        taskList = db.getAllTasks();
         Collections.reverse(taskList);
         tasksAdapter.setTasks(taskList);
 
