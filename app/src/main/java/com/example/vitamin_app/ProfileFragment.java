@@ -129,12 +129,6 @@ public class ProfileFragment extends Fragment {
                         DataSnapshot dataSnapshot = task.getResult();
                         problem1 = String.valueOf(dataSnapshot.child("problem").getValue());
                         problem2 = String.valueOf(dataSnapshot.child("problem2").getValue());
-                        insertProblemTask(problem1);
-                        insertProblemTask(problem2);
-
-                        taskList = db.getAllTasks();
-                        Collections.reverse(taskList);
-                        tasksAdapter.setTasks(taskList);
 
                         // Make sure gender is assigned for already logged in users
                         gender = String.valueOf(dataSnapshot.child("gender").getValue());
@@ -187,53 +181,4 @@ public class ProfileFragment extends Fragment {
         tasksAdapter.notifyDataSetChanged();
     }
 
-    //Given a problem, insert the related tasks associated with it into the database.
-    public void insertProblemTask(String problem){
-        switch (problem){
-            case Problem.WEIGHT:
-                insertTask(Problem.WEIGHTTASK1);
-                insertTask(Problem.WEIGHTTASK2);
-                break;
-            case Problem.SLEEP:
-                insertTask(Problem.SLEEPTASK1);
-                insertTask(Problem.SLEEPTASK2);
-                break;
-            case Problem.ENERGY:
-                insertTask(Problem.ENERGYTASK1);
-                insertTask(Problem.ENERGYTASK2);
-                break;
-            case Problem.IMMUNITY:
-                insertTask(Problem.IMMUNITYTASK1);
-                insertTask(Problem.IMMUNITYTASK2);
-                break;
-            case Problem.SKIN:
-                insertTask(Problem.SKINTASK1);
-                insertTask(Problem.SKINTASK2);
-                break;
-            case Problem.DETOX:
-                insertTask(Problem.DETOXTASK1);
-                insertTask(Problem.DETOXTASK2);
-                break;
-            case Problem.EXERCISE:
-                insertTask(Problem.EXERCISETASK1);
-                insertTask(Problem.EXERCISETASK2);
-                break;
-            case Problem.DIGESTION:
-                insertTask(Problem.DIGESTIONTASK1);
-                insertTask(Problem.DIGESTIONTASK2);
-                break;
-            case Problem.ARTICULATION:
-                insertTask(Problem.ARTICULATIONTASK1);
-                insertTask(Problem.ARTICULATIONTASK2);
-                break;
-        }
-    }
-
-    //inserts a task into the database
-    public void insertTask(String taskString){
-        ToDoModel task = new ToDoModel();
-        task.setTask(taskString);
-        task.setStatus(0);
-        db.insertUniqueTask(task);
-    }
 }
