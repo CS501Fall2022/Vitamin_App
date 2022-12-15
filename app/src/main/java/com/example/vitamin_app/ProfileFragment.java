@@ -112,6 +112,7 @@ public class ProfileFragment extends Fragment {
                         Intent intent = new Intent(view.getContext(), LoginActivity.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                         intent.putExtra(LoginActivity.ONETAP, false);
+                        getActivity().finishAffinity();
                         view.getContext().startActivity(intent);
                     }
                 });
