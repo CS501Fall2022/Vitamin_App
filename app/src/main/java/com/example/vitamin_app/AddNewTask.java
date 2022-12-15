@@ -73,6 +73,7 @@ public class AddNewTask extends BottomSheetDialogFragment {
 
         final Bundle bundle = getArguments();
         if(bundle != null){
+            // If editing task
             isUpdate = true;
             String task = bundle.getString("task");
             newTaskText.setText(task);
@@ -120,9 +121,11 @@ public class AddNewTask extends BottomSheetDialogFragment {
             public void onClick(View v) {
                 String text = newTaskText.getText().toString();
                 if(finalIsUpdate){
+                    // Update the task
                     db.updateTask(bundle.getInt("id"), text);
                 }
                 else {
+                    // Add new task
                     ToDoModel task = new ToDoModel();
                     task.setTask(text);
                     task.setStatus(0);
@@ -146,6 +149,7 @@ public class AddNewTask extends BottomSheetDialogFragment {
 
     @Override
     public void onDismiss(@NonNull DialogInterface dialog){
+        // When clicking off of Dialog fragment
         Activity activity = getActivity();
         if(activity instanceof DialogCloseListener) {
             ((DialogCloseListener)activity).handleDialogClose(dialog);

@@ -115,6 +115,7 @@ public class SurveyDoubleProblemFragment extends Fragment {
                         gender = String.valueOf(dataSnapshot.child("gender").getValue());
                         user = new Users(email, username, gender, age);
                         user.setNum_problem(2);
+                        // Call helper function to initialise fragments AFTER having retrieved info from DB
                         checkboxFragment(bundle);
                     } else {
                         Toast.makeText(v.getContext(), "User does not exist",Toast.LENGTH_LONG).show();
@@ -182,6 +183,12 @@ public class SurveyDoubleProblemFragment extends Fragment {
         endSurvey.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // Assign supplements based on which problem from the checkbox fragment was selected
+                // Accounts for both age and gender of the user
+                // Additionally, accounts for the ratio of supplements the user wants - determined by the sliders
+                // Also code needs to account on whether the problem was checked first or second (the order) to make
+                // sure it's assigning the ratio correctly based on seek bar 1 seek bar 2, and also assigning the supplements
+                // correctly in the DB
                 boolean check = true;
                 db.deleteProblemTasks();
                 int count = 0;
@@ -289,7 +296,7 @@ public class SurveyDoubleProblemFragment extends Fragment {
                             }
                         } else if (triple_p2.isChecked()) {
                             ///////////////////////////////////////////////////////////////////////////
-                            // Need to edit this
+                            // Might need to change
                             if (seek1.getProgress() == 1) {
                                 user.setSupplement1("Valerian");
                             } else if (seek1.getProgress() == 2) {
@@ -331,7 +338,7 @@ public class SurveyDoubleProblemFragment extends Fragment {
                             }
                         } else if (triple_p2.isChecked()) {
                             ///////////////////////////////////////////////////////////////////////////
-                            // Need to edit this
+                            // Might need to change
                             if (seek2.getProgress() == 1) {
                                 user.setSupplement4("Valerian");
                             } else if (seek2.getProgress() == 2) {
@@ -368,7 +375,7 @@ public class SurveyDoubleProblemFragment extends Fragment {
                             vit3 = "B Vitamins";
                         } else if (age.equals("12-20")) {
                             ///////////////////////////////////////////////////////////////////
-                            // Need to double check this
+                            // Might need to change
                             vit1 = "Royal Jelly";
                             vit2 = "B Vitamins";
                             vit3 = "L-Tryptophan";
@@ -804,7 +811,7 @@ public class SurveyDoubleProblemFragment extends Fragment {
                     if (double_p1.isChecked()) {
                         if (!age.equals("20-60")) {
                             /////////////////////////////////////////////////////////////////////////////////////
-                            // Might need to change this
+                            // Might need to change
                             vit1 = "Fennel";
                             vit2 = "Coriander";
                             vit3 = "Propolis";
@@ -879,7 +886,7 @@ public class SurveyDoubleProblemFragment extends Fragment {
                     RadioButton double_p2 = (RadioButton) array.get(count).getView().findViewById(R.id.double_problem2);
                     if (double_p1.isChecked()) {
                         //////////////////////////////////////////////////////////////////////////////////////////////////
-                        // Need to edit this
+                        // Might need to change
                         if (age.equals("60+")) {
                             vit1 = "Collagen";
                             vit2 = "Silica";
@@ -980,8 +987,9 @@ public class SurveyDoubleProblemFragment extends Fragment {
     }
 
     public void checkboxFragment(Bundle bundle) {
+        // Initialise checkbox fragments depending on problem previously selected
+        // Needs to take into account the order of the problems selected
         if (bundle.getBoolean("Weight")) {
-            // Create new bundles for passing info
             triple1 = new SurveyTripleCheckboxFragment();
             FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();

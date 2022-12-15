@@ -67,6 +67,7 @@ public class CalendarDialogFragment extends DialogFragment{
                 month = cal.get(Calendar.MONTH);
                 day = cal.get(Calendar.DAY_OF_MONTH);
 
+                // Create Date picker - in built functionality
                 DatePickerDialog dialog = new DatePickerDialog(
                         getActivity(),
                         android.R.style.Theme_Holo_Light_Dialog_MinWidth,
@@ -80,6 +81,7 @@ public class CalendarDialogFragment extends DialogFragment{
         mDateSetListener = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                // When user has chosen Date
                 Toast.makeText(getContext(), "DateSet",Toast.LENGTH_LONG).show();
                 Calendar c = Calendar.getInstance();
                 hour = c.get(Calendar.HOUR);
@@ -92,6 +94,8 @@ public class CalendarDialogFragment extends DialogFragment{
         mListener = new TimePickerDialog.OnTimeSetListener() {
             @Override
             public void onTimeSet(TimePicker timePicker, int hour, int minute) {
+                // When user has chosen time
+                // Forward user to google calendar
                 Toast.makeText(getContext(), "TimeSet "+hour,Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(Intent.ACTION_INSERT);
                 intent.setType("vnd.android.cursor.item/event");

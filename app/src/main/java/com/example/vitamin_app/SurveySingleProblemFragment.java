@@ -94,6 +94,7 @@ public class SurveySingleProblemFragment extends Fragment {
                         gender = String.valueOf(dataSnapshot.child("gender").getValue());
                         user = new Users(email, username, gender, age);
                         user.setNum_problem(1);
+                        // Call helper function to initialise fragments AFTER having retrieved info from DB
                         checkboxFragment(bundle);
                     } else {
                         Toast.makeText(v.getContext(), "User does not exist",Toast.LENGTH_LONG).show();
@@ -105,12 +106,11 @@ public class SurveySingleProblemFragment extends Fragment {
         });
 
         Button endSurvey = (Button) v.findViewById(R.id.endSurvey);
-//        Fragment finalTriple = triple;
-//        Fragment finalDouble = doublle;
-//        Fragment finalSingle = single;
         endSurvey.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // Assign supplements based on which problem from the checkbox fragment was selected
+                // Accounts for both age and gender of the user
                 boolean check = true;
                 db.deleteProblemTasks();
                 if (bundle.getBoolean(Problem.WEIGHT)) {
@@ -363,6 +363,7 @@ public class SurveySingleProblemFragment extends Fragment {
     }
 
     public void checkboxFragment(Bundle bundle) {
+        // Initialise checkbox fragments depending on problem previously selected
         if (bundle.getBoolean("Weight")) {
             header.setText("Weight Loss");
             triple = new SurveyTripleCheckboxFragment();

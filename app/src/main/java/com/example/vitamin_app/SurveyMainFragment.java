@@ -27,10 +27,10 @@ public class SurveyMainFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_survey_main, container, false);
+
+        // Create Bundle to be passed between survey activities
         Bundle bundle = new Bundle();
         bundle.putBoolean("Weight", false);
         bundle.putBoolean("Sleep", false);
@@ -46,6 +46,7 @@ public class SurveyMainFragment extends Fragment {
         toSurvey.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // Load different fragment based on how many problems were selected
                 if (count == 0) {
                     Toast.makeText(v.getContext(),"Please select at least 1 problem",Toast.LENGTH_SHORT).show();
                 } else if (count == 1) {
@@ -70,6 +71,7 @@ public class SurveyMainFragment extends Fragment {
             }
         });
 
+        // Radio buttons are un unchekable by default - code below adds that functionality
         RadioButton weight = (RadioButton) v.findViewById(R.id.weightButton);
         weight.setOnClickListener(new View.OnClickListener() {
             Boolean checked = weight.isChecked();

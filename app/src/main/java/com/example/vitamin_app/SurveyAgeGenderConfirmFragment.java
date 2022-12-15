@@ -76,6 +76,7 @@ public class SurveyAgeGenderConfirmFragment extends Fragment {
                         DataSnapshot dataSnapshot = task.getResult();
                         age = String.valueOf(dataSnapshot.child("age").getValue());
                         gender = String.valueOf(dataSnapshot.child("gender").getValue());
+                        // Set spinners to age and gender of user
                         if (age.equals("12-20")) {
                             ageList = new String[] {"12-20", "20-60", "60+"};
                         } else if (age.equals("20-60")) {
@@ -98,6 +99,7 @@ public class SurveyAgeGenderConfirmFragment extends Fragment {
             }
         });
 
+        // When item is selected in spinner, change DB
         ageSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {

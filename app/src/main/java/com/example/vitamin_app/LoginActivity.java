@@ -292,8 +292,6 @@ public class LoginActivity extends AppCompatActivity {
                                         if(!(task.getResult().exists())) {
                                             Toast.makeText(LoginActivity.this, "User does not exist in database",Toast.LENGTH_LONG).show();
 
-//                                            String gender = genderSpinner.getSelectedItem().toString();
-//                                            String age = ageSpinner.getSelectedItem().toString();
                                             // default user is a 60+ year old man because why not
                                             user = new Users(email, userId, "male", "60+");
                                             databaseReference.addValueEventListener(new ValueEventListener() {
