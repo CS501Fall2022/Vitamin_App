@@ -14,9 +14,11 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@+id/textView7"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/vitalfix_logo" />
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/logo" />
 
     <TextView
         android:id="@+id/textView7"
@@ -29,10 +31,9 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.432"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.431" />
+        app:layout_constraintVertical_bias="0.569" />
 
     <Button
         android:id="@+id/button2"
@@ -48,7 +49,7 @@
         app:layout_constraintHorizontal_bias="0.625"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7"
-        app:layout_constraintVertical_bias="0.148" />
+        app:layout_constraintVertical_bias="0.169" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -72,7 +73,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.852" />
+        app:layout_constraintVertical_bias="0.925" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
