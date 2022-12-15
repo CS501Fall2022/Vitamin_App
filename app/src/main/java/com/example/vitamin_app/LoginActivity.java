@@ -60,6 +60,7 @@ public class LoginActivity extends AppCompatActivity {
 
     //Error String
     private String genericError = "An Error Occurred, Please Try Again Later";
+    private String databaseReadError = "Failed to read data";
 
     //Arrays for user information (gender and age)
     String[] genderList = new String[] {"Male", "Female", "Other"};
@@ -292,7 +293,7 @@ public class LoginActivity extends AppCompatActivity {
                                         if(!(task.getResult().exists())) {
                                             Toast.makeText(LoginActivity.this, "User does not exist in database",Toast.LENGTH_LONG).show();
 
-                                            // default user is a 60+ year old man because why not
+                                            // default user is a 60+ year old man
                                             user = new Users(email, userId, "male", "60+");
                                             databaseReference.addValueEventListener(new ValueEventListener() {
 
@@ -304,13 +305,13 @@ public class LoginActivity extends AppCompatActivity {
                                                 public void onCancelled(@NonNull DatabaseError error) {}
                                             });
                                         }
+                                        goHome(currentUser);
                                     } else {
                                         //Error occurred with reading the database
-                                        Toast.makeText(LoginActivity.this, "Failed to read data",Toast.LENGTH_LONG).show();
+                                        errorPrompt(databaseReadError);
                                     }
                                 }
                             });
-                            goHome(currentUser);
                         } else {
                             // If sign in fails, display a message to the user.
                             errorPrompt(genericError);
