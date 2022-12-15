@@ -21,7 +21,7 @@
         <item name="android:max">3</item>
         <item name="android:progress">2</item>
         <item name="android:progressDrawable">@drawable/seekbar_drawable</item>
-        <item name="android:thumbTint">@color/dark_beige</item>
+        <item name="android:thumbTint">@color/gray</item>
     </style>
 
     <style name="browserButton">
