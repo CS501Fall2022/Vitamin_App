@@ -2,30 +2,18 @@ package com.example.vitamin_app;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
-import android.content.ReceiverCallNotAllowedException;
 import android.os.Bundle;
 import android.view.View;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
-import android.widget.Button;
+
 import android.widget.ImageButton;
-import android.widget.TextView;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.FirebaseDatabase;
-
-import org.w3c.dom.Text;
 
 public class ResultListActivity extends AppCompatActivity {
-
     RecyclerView resultDisplay;
-    ResultListAdapter rvAdapter;
 
     @Override
     protected void onResume(){
@@ -51,6 +39,7 @@ public class ResultListActivity extends AppCompatActivity {
         resultDisplay.setLayoutManager(new LinearLayoutManager(this));
         resultDisplay.setAdapter(new ResultListAdapter(this));
 
+        // setup navbar
         ImageButton toHome = (ImageButton) findViewById(R.id.toHome);
         toHome.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,7 +72,4 @@ public class ResultListActivity extends AppCompatActivity {
         });
     }
 
-    private void setAdapter(RecyclerView rv){
-
-    }
 }
