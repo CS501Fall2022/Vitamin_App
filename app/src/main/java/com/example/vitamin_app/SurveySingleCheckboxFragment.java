@@ -25,7 +25,7 @@ public class SurveySingleCheckboxFragment extends Fragment {
         Bundle bundle = this.getArguments();
         RadioButton problem1 = (RadioButton) v.findViewById(R.id.double_problem1);
 
-        if (bundle.getBoolean("energy")) {
+        if (bundle.getBoolean("Energy")) {
             problem1.setText("Lack of mental energy");
         }
 

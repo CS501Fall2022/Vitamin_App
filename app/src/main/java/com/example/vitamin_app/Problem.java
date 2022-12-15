@@ -1,15 +1,15 @@
 package com.example.vitamin_app;
 
 public class Problem {
-    public static final String WEIGHT = "weight";
-    public static final String SLEEP = "sleep";
-    public static final String ENERGY = "energy";
-    public static final String IMMUNITY = "immunity";
-    public static final String SKIN = "skin";
-    public static final String DETOX = "detox";
-    public static final String EXERCISE = "exercise";
-    public static final String DIGESTION = "digestion";
-    public static final String ARTICULATION = "articulation";
+    public static final String WEIGHT = "Weight";
+    public static final String SLEEP = "Sleep";
+    public static final String ENERGY = "Energy";
+    public static final String IMMUNITY = "Immunity";
+    public static final String SKIN = "Skin";
+    public static final String DETOX = "Detox";
+    public static final String EXERCISE = "Exercise";
+    public static final String DIGESTION = "Digestion";
+    public static final String ARTICULATION = "Articulation";
 
     public static final String WEIGHTTASK1 = "Start counting calories.";
     public static final String WEIGHTTASK2 = "Avoid sodas and fast food.";

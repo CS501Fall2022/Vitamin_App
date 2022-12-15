@@ -363,7 +363,7 @@ public class SurveySingleProblemFragment extends Fragment {
     }
 
     public void checkboxFragment(Bundle bundle) {
-        if (bundle.getBoolean("weight")) {
+        if (bundle.getBoolean("Weight")) {
             header.setText("Weight Loss");
             triple = new SurveyTripleCheckboxFragment();
             FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
@@ -372,7 +372,7 @@ public class SurveySingleProblemFragment extends Fragment {
             fragmentTransaction.replace(R.id.checkboxLayout, triple);
             fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
-        } else if (bundle.getBoolean("sleep")) {
+        } else if (bundle.getBoolean("Sleep")) {
             header.setText("Sleep");
             triple = new SurveyTripleCheckboxFragment();
             FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
@@ -381,7 +381,7 @@ public class SurveySingleProblemFragment extends Fragment {
             fragmentTransaction.replace(R.id.checkboxLayout, triple);
             fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
-        } else if (bundle.getBoolean("energy")) {
+        } else if (bundle.getBoolean("Energy")) {
             header.setText("Energy");
             if (!age.equals("20-60")) {
                 single = new SurveySingleCheckboxFragment();
@@ -400,7 +400,7 @@ public class SurveySingleProblemFragment extends Fragment {
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
             }
-        } else if (bundle.getBoolean("immunity")) {
+        } else if (bundle.getBoolean("Immunity")) {
             header.setText("Immunity");
             doublle = new SurveyDoubleCheckboxFragment();
             FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
@@ -409,7 +409,7 @@ public class SurveySingleProblemFragment extends Fragment {
             fragmentTransaction.replace(R.id.checkboxLayout, doublle);
             fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
-        } else if (bundle.getBoolean("skin")) {
+        } else if (bundle.getBoolean("Skin")) {
             header.setText("Skin");
             triple = new SurveyTripleCheckboxFragment();
             FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
@@ -418,7 +418,7 @@ public class SurveySingleProblemFragment extends Fragment {
             fragmentTransaction.replace(R.id.checkboxLayout, triple);
             fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
-        } else if (bundle.getBoolean("detox")) {
+        } else if (bundle.getBoolean("Detox")) {
             header.setText("Detox");
             triple = new SurveyTripleCheckboxFragment();
             FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
@@ -427,7 +427,7 @@ public class SurveySingleProblemFragment extends Fragment {
             fragmentTransaction.replace(R.id.checkboxLayout, triple);
             fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
-        } else if (bundle.getBoolean("exercise")) {
+        } else if (bundle.getBoolean("Exercise")) {
             header.setText("Exercise");
             doublle = new SurveyDoubleCheckboxFragment();
             FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
@@ -436,7 +436,7 @@ public class SurveySingleProblemFragment extends Fragment {
             fragmentTransaction.replace(R.id.checkboxLayout, doublle);
             fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
-        } else if (bundle.getBoolean("digestion")) {
+        } else if (bundle.getBoolean("Digestion")) {
             header.setText("Digestion");
             doublle = new SurveyDoubleCheckboxFragment();
             FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
@@ -445,7 +445,7 @@ public class SurveySingleProblemFragment extends Fragment {
             fragmentTransaction.replace(R.id.checkboxLayout, doublle);
             fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
-        } else if (bundle.getBoolean("articulation")) {
+        } else if (bundle.getBoolean("Articulation")) {
             header.setText("Articulation");
             doublle = new SurveyDoubleCheckboxFragment();
             FragmentManager fragmentManager = getActivity().getSupportFragmentManager();

@@ -29,19 +29,19 @@ public class SurveyTripleCheckboxFragment extends Fragment {
         RadioButton problem2 = (RadioButton) v.findViewById(R.id.triple_problem2);
         RadioButton problem3 = (RadioButton) v.findViewById(R.id.triple_problem3);
 
-        if (bundle.getBoolean("weight")) {
+        if (bundle.getBoolean("Weight")) {
             problem1.setText("Prevent water retention");
             problem2.setText("Cleanse unhealthy toxins");
             problem3.setText("Appetite suppression");
-        } else if (bundle.getBoolean("sleep")) {
+        } else if (bundle.getBoolean("Sleep")) {
             problem1.setText("Mid-sleep awakenings");
             problem2.setText("Struggle with falling asleep");
             problem3.setText("Overactive thoughts and anxiety");
-        } else if (bundle.getBoolean("skin")) {
+        } else if (bundle.getBoolean("Skin")) {
             problem1.setText("General nourishment");
             problem2.setText("Anti-aging");
             problem3.setText("Skin breaks");
-        } else if (bundle.getBoolean("detox")) {
+        } else if (bundle.getBoolean("Detox")) {
             problem1.setText("Intestinal detox");
             problem2.setText("Liver detox");
             problem3.setText("General digestive detox");

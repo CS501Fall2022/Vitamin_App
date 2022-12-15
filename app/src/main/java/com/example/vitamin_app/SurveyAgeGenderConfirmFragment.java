@@ -83,7 +83,7 @@ public class SurveyAgeGenderConfirmFragment extends Fragment {
                         } else {
                             ageList = new String[] {"60+", "12-20", "20-60"};
                         }
-                        if (gender.equals("male")) {
+                        if (gender.equals("Male")) {
                             genderList = new String[] {"Male", "Female"};
                         } else {
                             genderList = new String[] {"Female", "Male"};

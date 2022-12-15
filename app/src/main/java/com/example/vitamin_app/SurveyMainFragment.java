@@ -32,15 +32,15 @@ public class SurveyMainFragment extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_survey_main, container, false);
         Bundle bundle = new Bundle();
-        bundle.putBoolean("weight", false);
-        bundle.putBoolean("sleep", false);
-        bundle.putBoolean("energy", false);
-        bundle.putBoolean("immunity", false);
-        bundle.putBoolean("skin", false);
-        bundle.putBoolean("detox", false);
-        bundle.putBoolean("exercise", false);
-        bundle.putBoolean("digestion", false);
-        bundle.putBoolean("articulation", false);
+        bundle.putBoolean("Weight", false);
+        bundle.putBoolean("Sleep", false);
+        bundle.putBoolean("Energy", false);
+        bundle.putBoolean("Immunity", false);
+        bundle.putBoolean("Skin", false);
+        bundle.putBoolean("Detox", false);
+        bundle.putBoolean("Exercise", false);
+        bundle.putBoolean("Digestion", false);
+        bundle.putBoolean("Articulation", false);
 
         Button toSurvey = (Button) v.findViewById(R.id.toSurveyMain);
         toSurvey.setOnClickListener(new View.OnClickListener() {
@@ -78,14 +78,14 @@ public class SurveyMainFragment extends Fragment {
                 if (checked) {
                     count--;
                     weight.setChecked(false);
-                    bundle.remove("weight");
-                    bundle.putBoolean("weight", false);
+                    bundle.remove("Weight");
+                    bundle.putBoolean("Weight", false);
                     checked = false;
                 } else {
                     count++;
                     checked = true;
-                    bundle.remove("weight");
-                    bundle.putBoolean("weight", true);
+                    bundle.remove("Weight");
+                    bundle.putBoolean("Weight", true);
                 }
             }
         });
@@ -98,14 +98,14 @@ public class SurveyMainFragment extends Fragment {
                 if (checked) {
                     count--;
                     sleep.setChecked(false);
-                    bundle.remove("sleep");
-                    bundle.putBoolean("sleep", false);
+                    bundle.remove("Sleep");
+                    bundle.putBoolean("Sleep", false);
                     checked = false;
                 } else {
                     count++;
                     checked = true;
-                    bundle.remove("sleep");
-                    bundle.putBoolean("sleep", true);
+                    bundle.remove("Sleep");
+                    bundle.putBoolean("Sleep", true);
                 }
             }
         });
@@ -118,14 +118,14 @@ public class SurveyMainFragment extends Fragment {
                 if (checked) {
                     count--;
                     energy.setChecked(false);
-                    bundle.remove("energy");
-                    bundle.putBoolean("energy", false);
+                    bundle.remove("Energy");
+                    bundle.putBoolean("Energy", false);
                     checked = false;
                 } else {
                     count++;
                     checked = true;
-                    bundle.remove("energy");
-                    bundle.putBoolean("energy", true);
+                    bundle.remove("Energy");
+                    bundle.putBoolean("Energy", true);
                 }
             }
         });
@@ -138,14 +138,14 @@ public class SurveyMainFragment extends Fragment {
                 if (checked) {
                     count--;
                     immunity.setChecked(false);
-                    bundle.remove("immunity");
-                    bundle.putBoolean("immunity", false);
+                    bundle.remove("Immunity");
+                    bundle.putBoolean("Immunity", false);
                     checked = false;
                 } else {
                     count++;
                     checked = true;
-                    bundle.remove("immunity");
-                    bundle.putBoolean("immunity", true);
+                    bundle.remove("Immunity");
+                    bundle.putBoolean("Immunity", true);
                 }
             }
         });
@@ -158,14 +158,14 @@ public class SurveyMainFragment extends Fragment {
                 if (checked) {
                     count--;
                     skin.setChecked(false);
-                    bundle.remove("skin");
-                    bundle.putBoolean("skin", false);
+                    bundle.remove("Skin");
+                    bundle.putBoolean("Skin", false);
                     checked = false;
                 } else {
                     count++;
                     checked = true;
-                    bundle.remove("skin");
-                    bundle.putBoolean("skin", true);
+                    bundle.remove("Skin");
+                    bundle.putBoolean("Skin", true);
                 }
             }
         });
@@ -178,14 +178,14 @@ public class SurveyMainFragment extends Fragment {
                 if (checked) {
                     count--;
                     detox.setChecked(false);
-                    bundle.remove("detox");
-                    bundle.putBoolean("detox", false);
+                    bundle.remove("Detox");
+                    bundle.putBoolean("Detox", false);
                     checked = false;
                 } else {
                     count++;
                     checked = true;
-                    bundle.remove("detox");
-                    bundle.putBoolean("detox", true);
+                    bundle.remove("Detox");
+                    bundle.putBoolean("Detox", true);
                 }
             }
         });
@@ -198,14 +198,14 @@ public class SurveyMainFragment extends Fragment {
                 if (checked) {
                     count--;
                     exercise.setChecked(false);
-                    bundle.remove("exercise");
-                    bundle.putBoolean("exercise", false);
+                    bundle.remove("Exercise");
+                    bundle.putBoolean("Exercise", false);
                     checked = false;
                 } else {
                     count++;
                     checked = true;
-                    bundle.remove("exercise");
-                    bundle.putBoolean("exercise", true);
+                    bundle.remove("Exercise");
+                    bundle.putBoolean("Exercise", true);
                 }
             }
         });
@@ -218,14 +218,14 @@ public class SurveyMainFragment extends Fragment {
                 if (checked) {
                     count--;
                     digestion.setChecked(false);
-                    bundle.remove("digestion");
-                    bundle.putBoolean("digestion", false);
+                    bundle.remove("Digestion");
+                    bundle.putBoolean("Digestion", false);
                     checked = false;
                 } else {
                     count++;
                     checked = true;
-                    bundle.remove("digestion");
-                    bundle.putBoolean("digestion", true);
+                    bundle.remove("Digestion");
+                    bundle.putBoolean("Digestion", true);
                 }
             }
         });
@@ -238,14 +238,14 @@ public class SurveyMainFragment extends Fragment {
                 if (checked) {
                     count--;
                     articulation.setChecked(false);
-                    bundle.remove("articulation");
-                    bundle.putBoolean("articulation", false);
+                    bundle.remove("Articulation");
+                    bundle.putBoolean("Articulation", false);
                     checked = false;
                 } else {
                     count++;
                     checked = true;
-                    bundle.remove("articulation");
-                    bundle.putBoolean("articulation", true);
+                    bundle.remove("Articulation");
+                    bundle.putBoolean("Articulation", true);
                 }
             }
         });
