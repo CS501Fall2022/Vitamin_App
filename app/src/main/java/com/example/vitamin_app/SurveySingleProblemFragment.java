@@ -371,7 +371,6 @@ public class SurveySingleProblemFragment extends Fragment {
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             triple.setArguments(bundle);
             fragmentTransaction.replace(R.id.checkboxLayout, triple);
-            fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
         } else if (bundle.getBoolean("Sleep")) {
             header.setText("Sleep");
@@ -380,7 +379,6 @@ public class SurveySingleProblemFragment extends Fragment {
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             triple.setArguments(bundle);
             fragmentTransaction.replace(R.id.checkboxLayout, triple);
-            fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
         } else if (bundle.getBoolean("Energy")) {
             header.setText("Energy");
@@ -390,7 +388,6 @@ public class SurveySingleProblemFragment extends Fragment {
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 single.setArguments(bundle);
                 fragmentTransaction.replace(R.id.checkboxLayout, single);
-                fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
             } else {
                 doublle = new SurveyDoubleCheckboxFragment();
@@ -398,7 +395,6 @@ public class SurveySingleProblemFragment extends Fragment {
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 doublle.setArguments(bundle);
                 fragmentTransaction.replace(R.id.checkboxLayout, doublle);
-                fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
             }
         } else if (bundle.getBoolean("Immunity")) {
@@ -408,7 +404,6 @@ public class SurveySingleProblemFragment extends Fragment {
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             doublle.setArguments(bundle);
             fragmentTransaction.replace(R.id.checkboxLayout, doublle);
-            fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
         } else if (bundle.getBoolean("Skin")) {
             header.setText("Skin");
@@ -417,7 +412,6 @@ public class SurveySingleProblemFragment extends Fragment {
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             triple.setArguments(bundle);
             fragmentTransaction.replace(R.id.checkboxLayout, triple);
-            fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
         } else if (bundle.getBoolean("Detox")) {
             header.setText("Detox");
@@ -426,7 +420,6 @@ public class SurveySingleProblemFragment extends Fragment {
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             triple.setArguments(bundle);
             fragmentTransaction.replace(R.id.checkboxLayout, triple);
-            fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
         } else if (bundle.getBoolean("Exercise")) {
             header.setText("Exercise");
@@ -435,7 +428,6 @@ public class SurveySingleProblemFragment extends Fragment {
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             doublle.setArguments(bundle);
             fragmentTransaction.replace(R.id.checkboxLayout, doublle);
-            fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
         } else if (bundle.getBoolean("Digestion")) {
             header.setText("Digestion");
@@ -444,7 +436,6 @@ public class SurveySingleProblemFragment extends Fragment {
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             doublle.setArguments(bundle);
             fragmentTransaction.replace(R.id.checkboxLayout, doublle);
-            fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
         } else if (bundle.getBoolean("Articulation")) {
             header.setText("Articulation");
@@ -453,7 +444,6 @@ public class SurveySingleProblemFragment extends Fragment {
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             doublle.setArguments(bundle);
             fragmentTransaction.replace(R.id.checkboxLayout, doublle);
-            fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
         }
     }

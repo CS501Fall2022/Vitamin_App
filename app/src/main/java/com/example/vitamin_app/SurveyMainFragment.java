@@ -55,7 +55,6 @@ public class SurveyMainFragment extends Fragment {
                     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                     single.setArguments(bundle);
                     fragmentTransaction.replace(R.id.fragmentLayout1, single);
-                    fragmentTransaction.addToBackStack(null);
                     fragmentTransaction.commit();
                 } else if (count == 2) {
                     Fragment doublee = new SurveyDoubleProblemFragment();
@@ -63,7 +62,6 @@ public class SurveyMainFragment extends Fragment {
                     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                     doublee.setArguments(bundle);
                     fragmentTransaction.replace(R.id.fragmentLayout1, doublee);
-                    fragmentTransaction.addToBackStack(null);
                     fragmentTransaction.commit();
                 } else {
                     Toast.makeText(v.getContext(),"Please only select 2 problems",Toast.LENGTH_SHORT).show();

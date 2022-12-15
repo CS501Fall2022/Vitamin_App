@@ -134,7 +134,6 @@ public class SurveyAgeGenderConfirmFragment extends Fragment {
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.fragmentLayout1, surveyMain);
-                fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
             }
         });

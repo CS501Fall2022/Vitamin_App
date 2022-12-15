@@ -995,7 +995,6 @@ public class SurveyDoubleProblemFragment extends Fragment {
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             triple1.setArguments(bundle);
             fragmentTransaction.replace(R.id.checkboxLayout1, triple1);
-            fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
             problem1.setText("Weightloss");
             array.add(triple1);
@@ -1009,7 +1008,6 @@ public class SurveyDoubleProblemFragment extends Fragment {
                 fragmentTransaction.replace(R.id.checkboxLayout1, triple1);
                 problem1.setText("Sleep");
                 array.add(triple1);
-                fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
             } else {
                 triple2 = new SurveyTripleCheckboxFragment();
@@ -1021,7 +1019,6 @@ public class SurveyDoubleProblemFragment extends Fragment {
                 fragmentTransaction.replace(R.id.checkboxLayout2, triple2);
                 problem2.setText("Sleep");
                 array.add(triple2);
-                fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
             }
             count++;
@@ -1035,7 +1032,6 @@ public class SurveyDoubleProblemFragment extends Fragment {
                     fragmentTransaction.replace(R.id.checkboxLayout1, single1);
                     problem1.setText("Energy");
                     array.add(single1);
-                    fragmentTransaction.addToBackStack(null);
                     fragmentTransaction.commit();
                 } else {
                     double1 = new SurveyDoubleCheckboxFragment();
@@ -1045,7 +1041,6 @@ public class SurveyDoubleProblemFragment extends Fragment {
                     fragmentTransaction.replace(R.id.checkboxLayout1, double1);
                     problem1.setText("Energy");
                     array.add(double1);
-                    fragmentTransaction.addToBackStack(null);
                     fragmentTransaction.commit();
                 }
             } else {
@@ -1059,7 +1054,6 @@ public class SurveyDoubleProblemFragment extends Fragment {
                     fragmentTransaction.replace(R.id.checkboxLayout2, single2);
                     problem2.setText("Energy");
                     array.add(single2);
-                    fragmentTransaction.addToBackStack(null);
                     fragmentTransaction.commit();
                 } else {
                     double2 = new SurveyDoubleCheckboxFragment();
@@ -1071,7 +1065,6 @@ public class SurveyDoubleProblemFragment extends Fragment {
                     fragmentTransaction.replace(R.id.checkboxLayout2, double2);
                     problem2.setText("energy");
                     array.add(double2);
-                    fragmentTransaction.addToBackStack(null);
                     fragmentTransaction.commit();
                 }
             }
@@ -1085,7 +1078,6 @@ public class SurveyDoubleProblemFragment extends Fragment {
                 fragmentTransaction.replace(R.id.checkboxLayout1, double1);
                 problem1.setText("Immunity");
                 array.add(double1);
-                fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
             } else {
                 double2 = new SurveyDoubleCheckboxFragment();
@@ -1097,7 +1089,6 @@ public class SurveyDoubleProblemFragment extends Fragment {
                 fragmentTransaction.replace(R.id.checkboxLayout2, double2);
                 problem2.setText("Immunity");
                 array.add(double2);
-                fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
             }
             count++;
@@ -1110,7 +1101,6 @@ public class SurveyDoubleProblemFragment extends Fragment {
                 fragmentTransaction.replace(R.id.checkboxLayout1, triple1);
                 problem1.setText("Skin");
                 array.add(triple1);
-                fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
             } else {
                 triple2 = new SurveyTripleCheckboxFragment();
@@ -1122,7 +1112,6 @@ public class SurveyDoubleProblemFragment extends Fragment {
                 fragmentTransaction.replace(R.id.checkboxLayout2, triple2);
                 problem2.setText("Skin");
                 array.add(triple2);
-                fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
             }
             count++;
@@ -1135,7 +1124,6 @@ public class SurveyDoubleProblemFragment extends Fragment {
                 fragmentTransaction.replace(R.id.checkboxLayout1, triple1);
                 problem1.setText("Detox");
                 array.add(triple1);
-                fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
             } else {
                 triple2 = new SurveyTripleCheckboxFragment();
@@ -1147,7 +1135,6 @@ public class SurveyDoubleProblemFragment extends Fragment {
                 fragmentTransaction.replace(R.id.checkboxLayout2, triple2);
                 problem2.setText("Detox");
                 array.add(triple2);
-                fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
             }
             count++;
@@ -1160,7 +1147,6 @@ public class SurveyDoubleProblemFragment extends Fragment {
                 fragmentTransaction.replace(R.id.checkboxLayout1, double1);
                 problem1.setText("Exercise");
                 array.add(double1);
-                fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
             } else {
                 double2 = new SurveyDoubleCheckboxFragment();
@@ -1172,7 +1158,6 @@ public class SurveyDoubleProblemFragment extends Fragment {
                 fragmentTransaction.replace(R.id.checkboxLayout2, double2);
                 problem2.setText("Exercise");
                 array.add(double2);
-                fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
             }
             count++;
@@ -1185,7 +1170,6 @@ public class SurveyDoubleProblemFragment extends Fragment {
                 fragmentTransaction.replace(R.id.checkboxLayout1, double1);
                 problem1.setText("Digestion");
                 array.add(double1);
-                fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
             } else {
                 double2 = new SurveyDoubleCheckboxFragment();
@@ -1197,7 +1181,6 @@ public class SurveyDoubleProblemFragment extends Fragment {
                 fragmentTransaction.replace(R.id.checkboxLayout2, double2);
                 problem2.setText("Digestion");
                 array.add(double2);
-                fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
             }
             count++;
@@ -1210,7 +1193,6 @@ public class SurveyDoubleProblemFragment extends Fragment {
                 fragmentTransaction.replace(R.id.checkboxLayout1, double1);
                 problem1.setText("Articulation");
                 array.add(double1);
-                fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
             } else {
                 double2 = new SurveyDoubleCheckboxFragment();
@@ -1222,7 +1204,6 @@ public class SurveyDoubleProblemFragment extends Fragment {
                 fragmentTransaction.replace(R.id.checkboxLayout2, double2);
                 problem2.setText("Articulation");
                 array.add(double2);
-                fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
             }
             count++;

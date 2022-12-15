@@ -3,6 +3,7 @@ package com.example.vitamin_app;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
@@ -76,6 +77,7 @@ public class HomeActivity extends AppCompatActivity {
                     getSupportFragmentManager().beginTransaction()
                             .setReorderingAllowed(true)
                             .replace(R.id.fragmentLayout1, SurveyAgeGenderConfirmFragment.class, null)
+                            .addToBackStack(null)
                             .commit();
                 }
                 if (tab.getPosition()==1) {
@@ -136,6 +138,21 @@ public class HomeActivity extends AppCompatActivity {
                 view.getContext().startActivity(intent);
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        if(getSupportFragmentManager().getBackStackEntryCount()>0) {
+            tabLayout.selectTab(tabLayout.getTabAt(1));
+            getSupportFragmentManager().popBackStack();
+            viewPager.removeAllViews();
+            getSupportFragmentManager().beginTransaction()
+                    .setReorderingAllowed(true)
+                    .replace(R.id.fragmentLayout1, ProfileFragment.class, null)
+                    .commit();
+        } else {
+            this.finish();
+        }
     }
 
 }
